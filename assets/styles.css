@@ -529,3 +529,81 @@ html[data-theme="dark"] .graph-node{background:rgba(13,26,43,.92)}
   .highlight-card{min-width:182px;padding:14px 16px}
 }
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none;width:auto;flex-wrap:wrap}}
+
+/* --- v4 readability / compact layout --- */
+body{word-break:keep-all}
+h1,h2,h3,.hero-description,.lede,.publication h3,.work-card h3{text-wrap:balance}
+p,li{overflow-wrap:anywhere}
+h2{font-size:clamp(30px,4vw,48px);line-height:1.12}
+h3{font-size:clamp(20px,2vw,28px);line-height:1.22}
+.lede,.hero-description{font-size:clamp(15px,1.35vw,18px);line-height:1.72}
+.section{padding:clamp(68px,8vw,104px) 0}
+.section-compact{padding:clamp(42px,6vw,72px) 0}
+.hero{padding:clamp(44px,6vw,72px) 0 clamp(56px,8vw,92px)}
+.hero-grid{gap:clamp(26px,4vw,44px)}
+.hero-copy h1{font-size:clamp(38px,4.8vw,64px);line-height:1.02;margin:0 0 18px}
+.hero-copy h1 strong{display:block}
+.hero-keywords{margin:0 0 14px}
+.hero-key-title{max-width:640px}
+.section-head{margin-bottom:28px}
+.quick-intro-list{margin-top:18px}
+.quick-intro-item{padding:12px 14px}
+.quick-intro-item strong{font-size:14px}
+.identity-card,.site-graph-card,.publication,.thesis-card,.bento-card,.work-card,.portrait-teaser,.contact-panel,.filter-toolbar{border-radius:20px}
+.identity-card-top p:last-child,.route-metric span,.publication p,.work-card p,.bento-card p,.thesis-card p,.timeline-item p,.case-body p,.case-body li{font-size:15px;line-height:1.7}
+.work-card{min-height:320px;padding:24px}
+.work-card h3{margin-bottom:10px;font-size:clamp(22px,2.3vw,32px)}
+.project-card h3{margin:34px 0 10px}
+.card-visual{height:94px;margin:-10px 0 18px}
+.project-meta,.pub-year,.pub-action,.metric-chip,.tag,.filter-button{font-size:12px}
+.metric-chip{padding:7px 10px}
+.bento-card{min-height:unset;padding:22px}
+.bento-card h3{margin:20px 0 10px}
+.summary-bento .bento-card{min-height:210px}
+.compact-tags{gap:6px;margin-bottom:14px}
+.publication{padding:24px 0;grid-template-columns:128px minmax(0,1fr) 110px;gap:20px}
+.publication h3{font-size:clamp(20px,2.2vw,28px);margin-bottom:8px}
+.filter-toolbar{padding:16px}
+.filter-row{margin-bottom:0}
+.page-hero{padding:clamp(48px,6vw,74px) 0 40px}
+.page-hero h1{font-size:clamp(34px,4.8vw,56px);line-height:1.06;margin:0 0 18px}
+.page-hero-grid{gap:36px}
+.page-hero-aside{padding:18px 0 0 20px;font-size:15px}
+.about-copy h1{font-size:clamp(38px,5vw,64px);line-height:1.03}
+.about-facts .fact span,.about-facts .fact a,.fact strong{font-size:14px}
+.timeline-item h3{font-size:19px}
+.timeline-item{padding:0 0 24px 36px}
+.case-hero h1{font-size:clamp(34px,4.8vw,56px)}
+.case-summary{font-size:17px;line-height:1.68}
+.graph-node{min-width:104px;padding:10px 12px;transform-origin:center}
+.graph-node strong{font-size:12px}
+.graph-node span{font-size:10px}
+.graph-node:hover{transform:translateY(-2px) scale(1.06)}
+.node-center:hover{transform:translate(-50%,-50%) scale(1.06)}
+.node-top-center:hover{transform:translateX(-50%) scale(1.06)}
+.graph-map{height:400px}
+.graph-hint-card{padding:14px 16px}
+.highlight-card{min-width:216px;padding:14px 16px}
+.highlight-card strong{font-size:22px}
+.contact-panel h2{font-size:clamp(28px,3.4vw,40px)}
+.qr-card strong{font-size:12px}
+@media(max-width:980px){
+  .publication{grid-template-columns:96px 1fr}
+  .graph-map{height:420px}
+}
+@media(max-width:720px){
+  .hero-copy h1{font-size:clamp(34px,9vw,46px)}
+  .page-hero h1,.about-copy h1,.case-hero h1{font-size:clamp(30px,8vw,42px)}
+  .work-card{min-height:280px;padding:20px}
+  .work-card h3,.publication h3{font-size:clamp(19px,5vw,24px)}
+  .summary-bento .bento-card{min-height:unset}
+  .graph-map{height:460px}
+}
+@media(max-width:440px){
+  .hero-keywords{gap:6px}
+  .highlight-card{min-width:176px}
+  .graph-node{min-width:88px;padding:9px 10px}
+}
+.bento-card.span-3{grid-column:span 3}
+@media(max-width:980px){.bento-card.span-3{grid-column:span 6}}
+@media(max-width:720px){.bento-card.span-3{grid-column:auto}}
