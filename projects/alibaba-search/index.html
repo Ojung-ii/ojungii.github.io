@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff">
+<title>Alibaba International E-commerce Product Search | 프로젝트</title>
+<meta name="description" content="다국어 Query–Category와 Query–Item 관련도 예측을 위해 데이터 정제, task-specific tagging, LLM 파인튜닝을 결합한 검색 경진대회 프로젝트입니다.">
+<meta name="author" content="Junghyun Oh">
+<link rel="canonical" href="https://ojungii.com/projects/alibaba-search/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ojungii.com/projects/alibaba-search/">
+<meta property="og:title" content="Alibaba International E-commerce Product Search | 프로젝트">
+<meta property="og:description" content="다국어 Query–Category와 Query–Item 관련도 예측을 위해 데이터 정제, task-specific tagging, LLM 파인튜닝을 결합한 검색 경진대회 프로젝트입니다.">
+<meta property="og:image" content="https://ojungii.com/assets/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alibaba International E-commerce Product Search | 프로젝트">
+<meta name="twitter:description" content="다국어 Query–Category와 Query–Item 관련도 예측을 위해 데이터 정제, task-specific tagging, LLM 파인튜닝을 결합한 검색 경진대회 프로젝트입니다.">
+<meta name="twitter:image" content="https://ojungii.com/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/styles.css">
+<script>
+(()=>{document.documentElement.classList.add('js');let t=null;try{t=localStorage.getItem('ojungii-theme')}catch{};if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;document.querySelector('meta[name="theme-color"]').content=t==='dark'?'#07111f':'#ffffff'})();
+</script>
+<script defer src="/assets/script.js"></script>
+
+</head>
+<body data-title-ko="Alibaba International E-commerce Product Search | 프로젝트" data-title-en="Alibaba International E-commerce Product Search | Project" data-description-ko="다국어 Query–Category와 Query–Item 관련도 예측을 위해 데이터 정제, task-specific tagging, LLM 파인튜닝을 결합한 검색 경진대회 프로젝트입니다." data-description-en="A multilingual search competition project combining data refinement, task-specific tagging, and LLM fine-tuning for Query–Category and Query–Item relevance prediction.">
+<a class="skip-link" href="#main-content" data-ko="본문으로 바로가기" data-en="Skip to main content">본문으로 바로가기</a>
+
+<header class="site-header" id="site-header">
+<nav class="nav-shell" aria-label="Primary navigation">
+<a class="brand" href="/" aria-label="Junghyun Oh home">
+<span class="brand-mark" aria-hidden="true">JO</span>
+<span class="brand-name">Junghyun Oh</span>
+</a>
+<div class="nav-links" id="nav-links">
+<a href="/research/" data-ko="연구" data-en="Research">연구</a><a href="/projects/" aria-current="page" data-ko="프로젝트" data-en="Projects">프로젝트</a><a href="/about/" data-ko="소개" data-en="About">소개</a><a href="/#contact" data-ko="연락처" data-en="Contact">연락처</a>
+</div>
+<div class="nav-actions">
+<button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language" title="Switch language">
+<span class="language-option" data-language-option="ko">KO</span><span aria-hidden="true">/</span><span class="language-option" data-language-option="en">EN</span>
+</button>
+<button class="icon-button" id="theme-toggle" type="button" aria-label="다크 모드로 전환" title="다크 모드로 전환">
+<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"></path></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 15.3A8.5 8.5 0 0 1 8.7 3.9 8.5 8.5 0 1 0 20.1 15.3Z"></path></svg>
+</button>
+<button class="menu-toggle" id="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="메뉴 열기">
+<span></span><span></span>
+</button>
+</div>
+</nav>
+</header>
+
+<main id="main-content">
+<section class="case-hero">
+  <div class="case-hero-grid shell">
+    <div class="reveal">
+      <div class="breadcrumbs"><a href="/" data-ko="홈" data-en="Home">홈</a><span aria-hidden="true">/</span><a href="/projects/" data-ko="프로젝트" data-en="Projects">프로젝트</a><span aria-hidden="true">/</span><span data-ko="Alibaba International E-commerce Product Search" data-en="Alibaba International E-commerce Product Search">Alibaba International E-commerce Product Search</span></div>
+      <p class="eyebrow">COMPETITION · MULTILINGUAL INFORMATION RETRIEVAL</p>
+      <h1 data-ko="Alibaba International E-commerce Product Search" data-en="Alibaba International E-commerce Product Search">Alibaba International E-commerce Product Search</h1>
+      <p class="case-summary" data-ko="다국어 Query–Category와 Query–Item 관련도 예측을 위해 데이터 정제, task-specific tagging, LLM 파인튜닝을 결합한 검색 경진대회 프로젝트입니다." data-en="A multilingual search competition project combining data refinement, task-specific tagging, and LLM fine-tuning for Query–Category and Query–Item relevance prediction.">다국어 Query–Category와 Query–Item 관련도 예측을 위해 데이터 정제, task-specific tagging, LLM 파인튜닝을 결합한 검색 경진대회 프로젝트입니다.</p>
+      <div class="tag-row" style="margin-top:22px"><span class="tag">Multilingual IR</span><span class="tag">Data Refinement</span><span class="tag">LoRA</span><span class="tag">eCeLLM-M</span><span class="tag">QC/QI</span></div>
+      
+    </div>
+    
+    <div class="case-facts reveal">
+      <div class="case-fact"><span data-ko="기간" data-en="Period">기간</span><strong>2025</strong></div>
+      <div class="case-fact"><span data-ko="역할" data-en="Role">역할</span><strong data-ko="팀원 · 기술보고서 공동저자" data-en="Team Member · Technical-report Co-author">팀원 · 기술보고서 공동저자</strong></div>
+      <div class="case-fact"><span data-ko="기관·대회" data-en="Organization">기관·대회</span><strong>Alibaba International Tech · CIKM 2025</strong></div>
+      <div class="case-fact"><span data-ko="대표 결과" data-en="Key outcome">대표 결과</span><strong data-ko="0.8819 · Special Award" data-en="0.8819 · Special Award">0.8819 · Special Award</strong></div>
+    </div>
+    
+  </div>
+</section>
+<div class="case-cover shell reveal">
+<svg viewBox="0 0 1200 420" role="img" aria-label="Multilingual product-search relevance pipeline">
+<defs>
+ <linearGradient id="abg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--bg-soft)"/><stop offset="1" stop-color="var(--blue-soft)"/></linearGradient>
+ <marker id="aa" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8z" fill="var(--blue)"/></marker>
+</defs>
+<rect width="1200" height="420" fill="url(#abg)"/>
+<g font-family="var(--font-sans)">
+ <text x="62" y="62" fill="var(--blue)" font-size="14" font-weight="850" letter-spacing="2">MULTILINGUAL RELEVANCE MODELING</text>
+ <g transform="translate(65 105)">
+  <rect width="245" height="230" rx="25" fill="var(--surface)" stroke="var(--line)"/>
+  <text x="25" y="37" fill="var(--text)" font-size="17" font-weight="850">QUERY × PRODUCT</text>
+  <g transform="translate(25 63)" fill="var(--surface-2)">
+   <rect width="83" height="35" rx="11"/><rect x="93" width="83" height="35" rx="11"/><rect x="186" width="34" height="35" rx="11"/>
+   <rect y="46" width="63" height="35" rx="11"/><rect x="73" y="46" width="101" height="35" rx="11"/><rect x="184" y="46" width="36" height="35" rx="11"/>
+  </g>
+  <g fill="var(--navy)" font-size="12" font-weight="800"><text x="48" y="86">EN</text><text x="141" y="86">KO</text><text x="221" y="86">JA</text><text x="45" y="132">ES</text><text x="112" y="132">FR · AR</text><text x="195" y="132">+</text></g>
+  <text x="25" y="181" fill="var(--muted)" font-size="13">QC · Query–Category</text>
+  <text x="25" y="204" fill="var(--muted)" font-size="13">QI · Query–Item</text>
+ </g>
+ <path d="M330 220H430" stroke="var(--blue)" stroke-width="4" marker-end="url(#aa)"/>
+ <g transform="translate(450 90)">
+  <rect width="300" height="260" rx="26" fill="var(--surface)" stroke="var(--line)"/>
+  <text x="28" y="40" fill="var(--blue)" font-size="12" font-weight="850">DATA-CENTRIC PIPELINE</text>
+  <g font-size="15" font-weight="800" fill="var(--text)">
+   <rect x="28" y="65" width="244" height="42" rx="13" fill="var(--surface-2)"/><text x="49" y="91">01 · Quality Refinement</text>
+   <rect x="28" y="117" width="244" height="42" rx="13" fill="var(--surface-2)"/><text x="49" y="143">02 · Task-specific Tagging</text>
+   <rect x="28" y="169" width="244" height="42" rx="13" fill="var(--surface-2)"/><text x="49" y="195">03 · LoRA Fine-tuning</text>
+  </g>
+  <text x="28" y="240" fill="var(--muted)" font-size="12">LT · HCT · SIT · DG · ICL/CoT</text>
+ </g>
+ <path d="M770 220H850" stroke="var(--blue)" stroke-width="4" marker-end="url(#aa)"/>
+ <g transform="translate(870 105)">
+  <rect width="265" height="230" rx="26" fill="var(--navy)"/>
+  <text x="28" y="42" fill="#9dc4f4" font-size="12" font-weight="850">FINAL SCORE</text>
+  <text x="28" y="118" fill="#fff" font-size="68" font-weight="900" letter-spacing="-5">0.8819</text>
+  <text x="28" y="158" fill="#fff" font-size="17" font-weight="850">SPECIAL AWARD</text>
+  <text x="28" y="187" fill="#bcd8f5" font-size="13">QC 0.8861 · QI 0.8778</text>
+ </g>
+</g>
+</svg>
+</div>
+<section class="section-compact">
+  <div class="case-layout shell">
+    
+    <aside class="case-nav" aria-label="Case study sections">
+      <strong>CONTENTS</strong>
+      <a href="#context" data-ko="문제와 맥락" data-en="Problem & context">문제와 맥락</a>
+      <a href="#role" data-ko="역할과 제약" data-en="Role & constraints">역할과 제약</a>
+      <a href="#approach" data-ko="접근 방법" data-en="Approach">접근 방법</a>
+      <a href="#outcome" data-ko="결과" data-en="Outcome">결과</a>
+      <a href="#learning" data-ko="배운 점" data-en="Learnings">배운 점</a>
+    </aside>
+    
+    <article class="case-body">
+      
+<section id="context">
+  <p class="eyebrow">01 · PROBLEM &amp; CONTEXT</p>
+  <h2 data-ko="언어가 달라도 ‘이 상품이 이 질의와 관련 있는가’를 판단해야 했습니다." data-en="Predicting query–product relevance across languages.">언어가 달라도 ‘이 상품이 이 질의와 관련 있는가’를 판단해야 했습니다.</h2>
+  <p data-ko="대회는 다국어 전자상거래 검색에서 Query–Category(QC)와 Query–Item(QI)의 관련도를 예측하는 문제였습니다. 일부 언어는 학습 데이터에 없고 테스트에만 등장했기 때문에, 특정 언어의 표면 표현보다 언어 간 일반화와 데이터 품질이 중요했습니다." data-en="The competition focused on predicting Query–Category (QC) and Query–Item (QI) relevance in multilingual e-commerce search. Some languages appeared only at test time, making cross-lingual generalization and data quality more important than memorizing language-specific surface patterns.">대회는 다국어 전자상거래 검색에서 Query–Category(QC)와 Query–Item(QI)의 관련도를 예측하는 문제였습니다. 일부 언어는 학습 데이터에 없고 테스트에만 등장했기 때문에, 특정 언어의 표면 표현보다 언어 간 일반화와 데이터 품질이 중요했습니다.</p>
+  <div class="insight"><strong data-ko="핵심 관찰" data-en="Core observation">핵심 관찰</strong><span data-ko="더 큰 모델 하나보다, 노이즈가 섞인 데이터와 언어·카테고리 구조를 어떻게 정리해 모델에 전달하는지가 성능에 크게 영향을 주었습니다." data-en="Performance depended not only on model scale, but on how noisy data and language/category structure were curated and exposed to the model.">더 큰 모델 하나보다, 노이즈가 섞인 데이터와 언어·카테고리 구조를 어떻게 정리해 모델에 전달하는지가 성능에 크게 영향을 주었습니다.</span></div>
+</section>
+
+<section id="role">
+  <p class="eyebrow">02 · ROLE &amp; CONSTRAINTS</p>
+  <h2 data-ko="팀원과 기술보고서 공동저자로 참여했습니다." data-en="I participated as a team member and technical-report co-author.">팀원과 기술보고서 공동저자로 참여했습니다.</h2>
+  <p data-ko="공개 기술보고서에는 개인별 구현 범위가 분리되어 있지 않으므로, 이 페이지는 개인 기여를 과장하지 않고 팀 차원의 방법과 결과를 설명합니다. 핵심 제약은 다국어 분포 차이, 라벨 노이즈 가능성, QC/QI 두 과업의 상이한 구조, 그리고 제한된 실험 예산이었습니다." data-en="The public technical report does not separate implementation ownership by individual, so this page describes the team-level method and outcome without overstating personal contribution. Constraints included cross-language distribution shifts, potential label noise, different QC/QI structures, and a limited experimentation budget.">공개 기술보고서에는 개인별 구현 범위가 분리되어 있지 않으므로, 이 페이지는 개인 기여를 과장하지 않고 팀 차원의 방법과 결과를 설명합니다. 핵심 제약은 다국어 분포 차이, 라벨 노이즈 가능성, QC/QI 두 과업의 상이한 구조, 그리고 제한된 실험 예산이었습니다.</p>
+</section>
+
+<section id="approach">
+  <p class="eyebrow">03 · APPROACH</p>
+  <h2 data-ko="모델보다 먼저 데이터를 정제하고 구조 신호를 넣었습니다." data-en="Curate the data first, then inject task structure.">모델보다 먼저 데이터를 정제하고 구조 신호를 넣었습니다.</h2>
+  <div class="process">
+    <div class="process-item"><div class="process-number">01</div><div><h3>Quality Refinement</h3><p data-ko="파인튜닝 모델의 재예측과 TF-IDF/Jaccard 유사도를 결합해 라벨·예측·표면 유사도가 강하게 충돌하는 샘플을 탐지하고 정제했습니다." data-en="Combined model re-predictions with TF-IDF/Jaccard similarity to identify samples where labels, predictions, and lexical evidence strongly disagreed.">파인튜닝 모델의 재예측과 TF-IDF/Jaccard 유사도를 결합해 라벨·예측·표면 유사도가 강하게 충돌하는 샘플을 탐지하고 정제했습니다.</p></div></div>
+    <div class="process-item"><div class="process-number">02</div><div><h3 data-ko="언어·과업별 태깅" data-en="Language- and task-specific tagging">언어·과업별 태깅</h3><p data-ko="Language Tagging과 함께 QC에는 계층 카테고리 태깅, QI에는 의미 속성 태깅과 설명 생성을 적용했습니다." data-en="Added language tags, hierarchical-category tags for QC, and semantic-item tags plus description generation for QI.">Language Tagging과 함께 QC에는 계층 카테고리 태깅, QI에는 의미 속성 태깅과 설명 생성을 적용했습니다.</p></div></div>
+    <div class="process-item"><div class="process-number">03</div><div><h3 data-ko="경량 파인튜닝과 추론 전략" data-en="Parameter-efficient tuning and inference">경량 파인튜닝과 추론 전략</h3><p data-ko="eCeLLM-M 기반 LoRA 파인튜닝을 수행하고, ICL과 CoT를 포함한 여러 추론 구성을 검토했습니다." data-en="Used LoRA adaptation on eCeLLM-M and explored inference configurations including in-context learning and chain-of-thought.">eCeLLM-M 기반 LoRA 파인튜닝을 수행하고, ICL과 CoT를 포함한 여러 추론 구성을 검토했습니다.</p></div></div>
+    <div class="process-item"><div class="process-number">04</div><div><h3 data-ko="QC/QI 균형 최적화" data-en="Balance QC and QI">QC/QI 균형 최적화</h3><p data-ko="한 과업의 점수만 높이는 대신 검증 세트에서 두 과업의 평균 성능과 언어별 안정성을 함께 확인했습니다." data-en="Optimized for balanced performance across QC and QI while monitoring stability across languages.">한 과업의 점수만 높이는 대신 검증 세트에서 두 과업의 평균 성능과 언어별 안정성을 함께 확인했습니다.</p></div></div>
+  </div>
+</section>
+
+<section id="outcome">
+  <p class="eyebrow">04 · OUTCOME</p>
+  <h2 data-ko="공개 기술보고서 기준 최종 0.8819와 Special Award." data-en="A final score of 0.8819 and a Special Award in the public technical report.">공개 기술보고서 기준 최종 0.8819와 Special Award.</h2>
+  <p data-ko="공개 기술보고서는 QC 0.8861, QI 0.8778, 종합 0.8819를 기록하고 최종 리더보드 5위와 Special Award를 보고합니다. 방법과 실험은 CIKM 2025에서 기술보고서로 발표되었습니다." data-en="The public technical report records QC 0.8861, QI 0.8778, and 0.8819 overall, reporting fifth place on the final leaderboard and a Special Award. The approach was presented as a technical report at CIKM 2025.">공개 기술보고서는 QC 0.8861, QI 0.8778, 종합 0.8819를 기록하고 최종 리더보드 5위와 Special Award를 보고합니다. 방법과 실험은 CIKM 2025에서 기술보고서로 발표되었습니다.</p>
+  <div class="result-grid">
+    <div class="result-card"><strong>0.8861</strong><span>QC score</span></div>
+    <div class="result-card"><strong>0.8778</strong><span>QI score</span></div>
+    <div class="result-card"><strong>0.8819</strong><span>Overall</span></div>
+  </div>
+  <p style="margin-top:24px"><a class="text-link" href="https://arxiv.org/abs/2510.18499" target="_blank" rel="noreferrer" data-ko="기술보고서 보기" data-en="Read technical report">기술보고서 보기</a></p>
+</section>
+
+<section id="learning">
+  <p class="eyebrow">05 · LEARNINGS</p>
+  <h2 data-ko="다국어 검색에서는 데이터 품질 자체가 모델 설계입니다." data-en="In multilingual retrieval, data quality is part of model design.">다국어 검색에서는 데이터 품질 자체가 모델 설계입니다.</h2>
+  <p data-ko="언어별 데이터량과 분포가 다를 때는 모든 샘플을 동일하게 취급하는 것보다, 노이즈와 구조를 명시적으로 다루는 편이 안정적이었습니다. 이후 RAG 연구에서도 검색 범위를 넓히기 전에 후보의 품질과 조직 방식을 먼저 보게 된 계기가 됐습니다." data-en="When language coverage and distributions differ, explicitly handling noise and structure is more robust than treating every sample uniformly. This experience later informed my RAG work: candidate quality and organization should be addressed before expanding retrieval breadth.">언어별 데이터량과 분포가 다를 때는 모든 샘플을 동일하게 취급하는 것보다, 노이즈와 구조를 명시적으로 다루는 편이 안정적이었습니다. 이후 RAG 연구에서도 검색 범위를 넓히기 전에 후보의 품질과 조직 방식을 먼저 보게 된 계기가 됐습니다.</p>
+</section>
+
+      <section><div class="next-projects"><a class="next-project" href="/projects/steel-rag/"><span data-ko="이전 프로젝트" data-en="Previous project">이전 프로젝트</span><h3 data-ko="철강 수주규격 검토 자동화" data-en="Steel Specification Review Automation">철강 수주규격 검토 자동화</h3></a><a class="next-project" href="/projects/scienceon-mpr-citeg/"><span data-ko="다음 프로젝트" data-en="Next project">다음 프로젝트</span><h3 data-ko="ScienceON MPR-CiteG" data-en="ScienceON MPR-CiteG">ScienceON MPR-CiteG</h3></a></div></section>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="footer-shell shell">
+<div>© <span data-current-year></span> Junghyun Oh · <span data-ko="신뢰할 수 있는 검색과 추론을 연구합니다." data-en="Researching reliable retrieval and reasoning.">신뢰할 수 있는 검색과 추론을 연구합니다.</span></div>
+<div><a href="https://github.com/Ojung-ii" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/ojungii" target="_blank" rel="noreferrer">LinkedIn</a> · <a href="/research/" data-ko="연구" data-en="Research">연구</a></div>
+</div>
+</footer>
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+</body></html>

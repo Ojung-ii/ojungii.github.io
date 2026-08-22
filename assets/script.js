@@ -1,244 +1,206 @@
+
 (() => {
   'use strict';
-
   const root = document.documentElement;
   const languageToggle = document.getElementById('language-toggle');
   const themeToggle = document.getElementById('theme-toggle');
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
-  const siteHeader = document.getElementById('site-header');
+  const header = document.getElementById('site-header');
   const backToTop = document.getElementById('back-to-top');
-  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
   const storage = {
-    get(key) {
-      try {
-        return localStorage.getItem(key);
-      } catch {
-        return null;
-      }
-    },
-    set(key, value) {
-      try {
-        localStorage.setItem(key, value);
-      } catch {
-        // The interface remains functional when storage is unavailable.
-      }
-    },
+    get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+    set(key, value) { try { localStorage.setItem(key, value); } catch {} }
   };
 
-  const pageMeta = {
+  const meta = {
     ko: {
-      title: '오정현 | GraphRAG & AI Researcher',
-      description:
-        'GraphRAG, 구조 인식 검색, 다중 홉 추론을 연구하는 AI 연구자 오정현의 포트폴리오입니다.',
       themeDark: '다크 모드로 전환',
       themeLight: '라이트 모드로 전환',
       menuOpen: '메뉴 열기',
       menuClose: '메뉴 닫기',
+      copied: '이메일 주소를 복사했습니다',
+      copy: '이메일 복사'
     },
     en: {
-      title: 'Junghyun Oh | GraphRAG & AI Researcher',
-      description:
-        'Portfolio of Junghyun Oh, an AI researcher working on GraphRAG, structure-aware retrieval, and multi-hop reasoning.',
       themeDark: 'Switch to dark mode',
       themeLight: 'Switch to light mode',
       menuOpen: 'Open menu',
       menuClose: 'Close menu',
-    },
-  };
-
-  const getSavedLanguage = () => {
-    const saved = storage.get('ojungii-language');
-    if (saved === 'ko' || saved === 'en') return saved;
-    return navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en';
-  };
-
-  let currentLanguage = getSavedLanguage();
-
-  const updateTranslatedAttributes = (language) => {
-    const attributePairs = [
-      ['aria-label', `data-${language}-aria-label`],
-      ['title', `data-${language}-title`],
-      ['placeholder', `data-${language}-placeholder`],
-    ];
-
-    for (const [targetAttribute, sourceAttribute] of attributePairs) {
-      document.querySelectorAll(`[${sourceAttribute}]`).forEach((element) => {
-        const value = element.getAttribute(sourceAttribute);
-        if (value) element.setAttribute(targetAttribute, value);
-      });
+      copied: 'Email address copied',
+      copy: 'Copy email'
     }
   };
 
-  const updateThemeControlLabel = () => {
-    if (!themeToggle) return;
-    const isDark = root.dataset.theme === 'dark';
-    const label = isDark
-      ? pageMeta[currentLanguage].themeLight
-      : pageMeta[currentLanguage].themeDark;
-    themeToggle.setAttribute('aria-label', label);
-    themeToggle.setAttribute('title', label);
+  let language = storage.get('ojungii-language');
+  if (language !== 'ko' && language !== 'en') {
+    language = navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en';
+  }
+
+  const translateAttributes = () => {
+    const pairs = [
+      ['aria-label', `data-${language}-aria-label`],
+      ['title', `data-${language}-title`],
+      ['alt', `data-${language}-alt`]
+    ];
+    pairs.forEach(([target, source]) => {
+      document.querySelectorAll(`[${source}]`).forEach(el => {
+        const value = el.getAttribute(source);
+        if (value !== null) el.setAttribute(target, value);
+      });
+    });
   };
 
-  const updateMenuControlLabel = () => {
-    if (!menuToggle) return;
-    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute(
-      'aria-label',
-      isOpen ? pageMeta[currentLanguage].menuClose : pageMeta[currentLanguage].menuOpen
+  const updateControls = () => {
+    document.querySelectorAll('[data-language-option]').forEach(el => {
+      el.classList.toggle('is-active', el.dataset.languageOption === language);
+    });
+    if (themeToggle) {
+      const dark = root.dataset.theme === 'dark';
+      const label = dark ? meta[language].themeLight : meta[language].themeDark;
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+    }
+    if (menuToggle) {
+      const open = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-label', open ? meta[language].menuClose : meta[language].menuOpen);
+    }
+  };
+
+  const setLanguage = (next, persist = true) => {
+    language = next === 'en' ? 'en' : 'ko';
+    root.lang = language;
+    root.dataset.language = language;
+    document.querySelectorAll('[data-ko][data-en]').forEach(el => {
+      const text = el.getAttribute(`data-${language}`);
+      if (text !== null) el.textContent = text;
+    });
+    document.querySelectorAll('[data-ko-html][data-en-html]').forEach(el => {
+      const html = el.getAttribute(`data-${language}-html`);
+      if (html !== null) el.innerHTML = html;
+    });
+    translateAttributes();
+    const pageTitle = document.body.getAttribute(`data-title-${language}`);
+    const pageDescription = document.body.getAttribute(`data-description-${language}`);
+    if (pageTitle) {
+      document.title = pageTitle;
+      document.querySelector('meta[property="og:title"]')?.setAttribute('content', pageTitle);
+      document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', pageTitle);
+    }
+    if (pageDescription) {
+      document.querySelector('meta[name="description"]')?.setAttribute('content', pageDescription);
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', pageDescription);
+      document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', pageDescription);
+    }
+    if (persist) storage.set('ojungii-language', language);
+    updateControls();
+  };
+
+  const preferredTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  let theme = storage.get('ojungii-theme');
+  if (theme !== 'dark' && theme !== 'light') theme = preferredTheme;
+
+  const setTheme = (next, persist = true) => {
+    theme = next === 'dark' ? 'dark' : 'light';
+    root.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      'content', theme === 'dark' ? '#07111f' : '#ffffff'
     );
+    if (persist) storage.set('ojungii-theme', theme);
+    updateControls();
   };
 
-  const setLanguage = (language, persist = true) => {
-    currentLanguage = language === 'en' ? 'en' : 'ko';
-    root.lang = currentLanguage;
-    root.dataset.language = currentLanguage;
-
-    document.querySelectorAll('[data-ko][data-en]').forEach((element) => {
-      const translatedText = element.getAttribute(`data-${currentLanguage}`);
-      if (translatedText !== null) element.textContent = translatedText;
-    });
-
-    updateTranslatedAttributes(currentLanguage);
-
-    document.title = pageMeta[currentLanguage].title;
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute('content', pageMeta[currentLanguage].description);
-    document
-      .querySelector('meta[property="og:title"]')
-      ?.setAttribute('content', pageMeta[currentLanguage].title);
-    document
-      .querySelector('meta[property="og:description"]')
-      ?.setAttribute('content', pageMeta[currentLanguage].description);
-    document
-      .querySelector('meta[name="twitter:title"]')
-      ?.setAttribute('content', pageMeta[currentLanguage].title);
-    document
-      .querySelector('meta[name="twitter:description"]')
-      ?.setAttribute('content', pageMeta[currentLanguage].description);
-    document
-      .querySelector('meta[property="og:locale"]')
-      ?.setAttribute('content', currentLanguage === 'ko' ? 'ko_KR' : 'en_US');
-
-    document.querySelectorAll('[data-language-option]').forEach((option) => {
-      const isActive = option.getAttribute('data-language-option') === currentLanguage;
-      option.classList.toggle('active', isActive);
-      option.setAttribute('aria-hidden', String(!isActive));
-    });
-
-    updateThemeControlLabel();
-    updateMenuControlLabel();
-
-    if (persist) storage.set('ojungii-language', currentLanguage);
-  };
-
-  const setTheme = (theme, persist = true) => {
-    const safeTheme = theme === 'dark' ? 'dark' : 'light';
-    root.dataset.theme = safeTheme;
-    themeColorMeta?.setAttribute('content', safeTheme === 'dark' ? '#07111f' : '#ffffff');
-    updateThemeControlLabel();
-    if (persist) storage.set('ojungii-theme', safeTheme);
-  };
-
-  languageToggle?.addEventListener('click', () => {
-    setLanguage(currentLanguage === 'ko' ? 'en' : 'ko');
-  });
-
-  themeToggle?.addEventListener('click', () => {
-    setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
-  });
+  languageToggle?.addEventListener('click', () => setLanguage(language === 'ko' ? 'en' : 'ko'));
+  themeToggle?.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
   const closeMenu = () => {
-    if (!menuToggle || !navLinks) return;
-    navLinks.classList.remove('open');
+    if (!navLinks || !menuToggle) return;
+    navLinks.classList.remove('is-open');
     menuToggle.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('menu-open');
-    updateMenuControlLabel();
+    updateControls();
   };
-
   menuToggle?.addEventListener('click', () => {
-    if (!navLinks) return;
-    const willOpen = menuToggle.getAttribute('aria-expanded') !== 'true';
-    navLinks.classList.toggle('open', willOpen);
-    menuToggle.setAttribute('aria-expanded', String(willOpen));
-    document.body.classList.toggle('menu-open', willOpen);
-    updateMenuControlLabel();
+    const open = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!open));
+    navLinks?.classList.toggle('is-open', !open);
+    updateControls();
   });
+  navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  addEventListener('resize', () => { if (innerWidth > 980) closeMenu(); });
 
-  navLinks?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 920) closeMenu();
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
-  });
-
-  const updateScrollState = () => {
-    const scrollTop = window.scrollY;
-    siteHeader?.classList.toggle('scrolled', scrollTop > 16);
-    backToTop?.classList.toggle('visible', scrollTop > 760);
+  const onScroll = () => {
+    header?.classList.toggle('is-scrolled', scrollY > 16);
+    backToTop?.classList.toggle('is-visible', scrollY > 620);
   };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  backToTop?.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 
-  updateScrollState();
-  window.addEventListener('scroll', updateScrollState, { passive: true });
+  const observer = 'IntersectionObserver' in window
+    ? new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 })
+    : null;
+  document.querySelectorAll('.reveal').forEach(el => observer ? observer.observe(el) : el.classList.add('is-visible'));
+  setTimeout(() => document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => el.classList.add('is-visible')), 2200);
 
-  backToTop?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.querySelectorAll('img[data-fallback]').forEach(img => {
+    img.addEventListener('error', () => {
+      if (img.dataset.fallback && img.src !== new URL(img.dataset.fallback, location.href).href) {
+        img.src = img.dataset.fallback;
+      }
+    }, { once: true });
   });
 
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealElements = document.querySelectorAll('.reveal');
+  document.querySelectorAll('[data-copy-email]').forEach(button => {
+    button.addEventListener('click', async () => {
+      const email = button.dataset.copyEmail;
+      try {
+        await navigator.clipboard.writeText(email);
+        const label = button.querySelector('[data-copy-label]');
+        if (label) {
+          label.textContent = meta[language].copied;
+          setTimeout(() => label.textContent = meta[language].copy, 1700);
+        }
+      } catch {
+        location.href = `mailto:${email}`;
+      }
+    });
+  });
 
-  if (reducedMotion || !('IntersectionObserver' in window)) {
-    revealElements.forEach((element) => element.classList.add('is-visible'));
-  } else {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: '0px 0px -9% 0px', threshold: 0.08 }
-    );
+  document.querySelectorAll('[data-filter]').forEach(button => {
+    button.addEventListener('click', () => {
+      const group = button.closest('[data-filter-group]');
+      const value = button.dataset.filter;
+      group?.querySelectorAll('[data-filter]').forEach(btn => btn.classList.toggle('is-active', btn === button));
+      document.querySelectorAll('[data-filter-item]').forEach(item => {
+        item.hidden = value !== 'all' && item.dataset.filterItem !== value;
+      });
+    });
+  });
 
-    revealElements.forEach((element) => revealObserver.observe(element));
+  const visual = document.querySelector('[data-parallax-visual]');
+  if (visual && !matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedia('(pointer:fine)').matches) {
+    visual.addEventListener('pointermove', event => {
+      const rect = visual.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - .5) * 2;
+      const y = ((event.clientY - rect.top) / rect.height - .5) * 2;
+      visual.style.setProperty('--mx', `${x * 7}px`);
+      visual.style.setProperty('--my', `${y * 7}px`);
+    });
+    visual.addEventListener('pointerleave', () => {
+      visual.style.setProperty('--mx', '0px');
+      visual.style.setProperty('--my', '0px');
+    });
   }
 
-  const sectionElements = [...document.querySelectorAll('main section[id]')];
-  const navAnchors = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-
-  if ('IntersectionObserver' in window) {
-    const activeSectionObserver = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        const activeId = visibleEntries[0]?.target.id;
-        if (!activeId) return;
-
-        navAnchors.forEach((anchor) => {
-          const isActive = anchor.getAttribute('href') === `#${activeId}`;
-          anchor.classList.toggle('active', isActive);
-          if (isActive) anchor.setAttribute('aria-current', 'location');
-          else anchor.removeAttribute('aria-current');
-        });
-      },
-      { rootMargin: '-28% 0px -58% 0px', threshold: [0, 0.1, 0.3] }
-    );
-
-    sectionElements.forEach((section) => activeSectionObserver.observe(section));
-  }
-
-  document.getElementById('current-year').textContent = String(new Date().getFullYear());
-
-  setLanguage(currentLanguage, false);
-  setTheme(root.dataset.theme || 'light', false);
+  document.querySelectorAll('[data-current-year]').forEach(el => el.textContent = new Date().getFullYear());
+  setTheme(theme, false);
+  setLanguage(language, false);
 })();

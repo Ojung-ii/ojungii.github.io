@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-label="Junghyun Oh profile placeholder">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7f9fc"/><stop offset="1" stop-color="#dbe8f7"/></linearGradient>
+ <radialGradient id="halo"><stop stop-color="#8eb8ef" stop-opacity=".55"/><stop offset="1" stop-color="#8eb8ef" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="720" height="900" rx="48" fill="url(#bg)"/>
+<circle cx="550" cy="190" r="250" fill="url(#halo)"/>
+<g fill="none" stroke="#0b2b53" stroke-opacity=".16" stroke-width="2">
+ <path d="M80 160C230 40 420 70 650 235"/><path d="M20 570C230 420 430 480 710 650"/>
+ <circle cx="90" cy="160" r="6" fill="#0b2b53"/><circle cx="640" cy="235" r="6" fill="#2764a5"/>
+</g>
+<circle cx="360" cy="354" r="128" fill="#b7cce6"/>
+<path d="M132 820c16-190 106-292 228-292s212 102 228 292" fill="#8ba7c8"/>
+<path d="M250 353c0-73 46-128 110-128s110 55 110 128v72c0 69-49 122-110 122s-110-53-110-122z" fill="#d8e3ef"/>
+<text x="58" y="82" fill="#0b2b53" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="4">JUNGHYUN OH</text>
+<text x="58" y="862" fill="#0b2b53" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="650">Replace with your portrait · assets/profile.jpg</text>
+</svg>

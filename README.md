@@ -1,108 +1,117 @@
-# ojungii.com
+# ojungii.com — Research Portfolio v2
 
-Junghyun Oh의 연구자 포트폴리오 사이트입니다. 별도 빌드 과정이 없는 정적 HTML/CSS/JavaScript 구조이므로 GitHub Pages의 저장소 루트에서 바로 배포할 수 있습니다.
+Junghyun Oh(오정현)의 공개용 연구자 포트폴리오입니다. 별도 빌드 과정 없이 GitHub Pages 루트에서 배포되는 정적 HTML/CSS/JavaScript 사이트입니다.
 
-## 주요 기능
+## v2에서 바뀐 점
 
-- 한국어 / 영어 전환 및 사용자 선택 저장
-- Day / Night 모드, 시스템 테마 자동 감지 및 사용자 선택 저장
-- 데스크톱·태블릿·모바일 반응형 레이아웃
-- GraphRAG 연구, 프로젝트, 경력, 수상 이력 구성
-- 모바일 메뉴, 현재 섹션 표시, 스크롤 애니메이션
-- 키보드 포커스, 본문 바로가기, reduced-motion 등 접근성 처리
-- Open Graph 이미지, sitemap, robots.txt, web manifest, 404 페이지 포함
+- 홈을 `연구 포지셔닝 → 검증된 성과 → 대표 연구 → case studies → 프로필 → 연락` 흐름으로 재구성
+- GraphRAG의 `query → graph → compact evidence → reasoning`을 표현한 인터랙티브 SVG
+- 별도 `Research`, `Projects`, `About & Bio` 페이지
+- 프로젝트별 상세 case study
+  - ScienceON AI Challenge / MPR-CiteG
+  - Alibaba Multilingual Product Search
+  - Steel Specification Review RAG
+  - Sentinel-based Blue Carbon Monitoring
+  - Bio-AI competition award record
+- 한국어/영어 전환과 Light/Dark 모드 유지
+- LinkedIn 직접 링크와 QR 코드
+- JSON-LD Person/ProfilePage, Open Graph, sitemap, robots, manifest
+- 키보드 포커스, skip link, reduced motion, 24px 이상 인터랙션 타깃
+- 모바일 메뉴와 반응형 case-study 레이아웃
 
-## 파일 구성
+## 공개용 편집 원칙
+
+- 전화번호, 고등학교, 어학점수, 자격증 전체 목록, 자기평가형 skill bars는 메인 사이트에서 제외
+- 연구·직무 정체성과 직접 연결되는 결과만 전면 배치
+- 수상명보다 문제·역할·방법·결과의 연결을 우선
+- 팀 프로젝트는 공개 자료에서 개인 역할이 확인되는 범위만 기재
+- Alibaba 순위는 공개 기술보고서 기준으로 표기
+- 동일 이름 연구자가 병합된 DBLP author profile은 제거하고 StAR 개별 레코드만 연결
+- BioAI는 확인 가능한 3위 수상 결과와 참여 맥락만 공개하고 비공개 기술 세부는 추정하지 않음
+
+## 사진 교체
+
+현재 페이지는 GitHub 공개 프로필 이미지를 사용하며 로딩 실패 시 `assets/profile-fallback.svg`를 표시합니다.
+
+정식 프로필 사진을 사용할 때:
+
+1. `assets/profile.jpg`를 추가합니다.
+2. `index.html`과 `about/index.html`에서 아래 URL을 `/assets/profile.jpg`로 교체합니다.
+
+```text
+https://avatars.githubusercontent.com/u/112710022?v=4
+```
+
+권장 사진:
+- 세로 4:5
+- 1600 × 2000px 이상
+- 자연광 또는 단색 배경
+- 얼굴과 상반신이 충분히 크게 보이는 연구자/비즈니스 프로필
+
+## 파일 구조
 
 ```text
 .
-├── index.html              # 사이트 콘텐츠 및 구조
-├── 404.html                # GitHub Pages용 오류 페이지
-├── CNAME                   # ojungii.com 사용자 지정 도메인
-├── .nojekyll               # Jekyll 처리 비활성화
-├── README.md
-├── robots.txt
+├── index.html
+├── research/index.html
+├── about/index.html
+├── projects/
+│   ├── index.html
+│   ├── steel-rag/index.html
+│   ├── blue-carbon/index.html
+│   ├── alibaba-search/index.html
+│   ├── scienceon-mpr-citeg/index.html
+│   └── bioai/index.html
+├── assets/
+│   ├── styles.css
+│   ├── script.js
+│   ├── linkedin-qr.png
+│   ├── profile-fallback.svg
+│   ├── favicon.svg
+│   └── og-image.png
+├── 404.html
 ├── sitemap.xml
+├── robots.txt
 ├── site.webmanifest
-└── assets/
-    ├── styles.css           # 전체 디자인 및 반응형 스타일
-    ├── script.js            # 언어·테마·모바일 메뉴·스크롤 동작
-    ├── favicon.svg
-    └── og-image.png         # 링크 공유 미리보기 이미지
+├── CNAME
+└── .nojekyll
 ```
 
-## 로컬에서 확인
-
-압축을 푼 디렉터리에서 다음 명령을 실행합니다.
+## 로컬 확인
 
 ```bash
 python -m http.server 8000
 ```
 
-브라우저에서 `http://localhost:8000`을 엽니다. HTML 파일을 직접 더블클릭하는 것보다 로컬 서버로 확인하는 편이 경로 동작까지 정확히 검증할 수 있습니다.
-
-## 콘텐츠 수정
-
-- 소개, 연구, 프로젝트, 경력, 수상, 연락처: `index.html`
-- 색상, 여백, 폰트, 반응형 레이아웃: `assets/styles.css`
-- 언어·테마·메뉴 동작: `assets/script.js`
-- 사용자 지정 도메인: `CNAME`
-
-한국어와 영어 문구는 동일 요소의 `data-ko`와 `data-en` 속성으로 관리합니다.
-
-```html
-<span data-ko="대표 연구" data-en="Selected research">대표 연구</span>
-```
-
-논문이나 프로젝트를 갱신할 때는 두 언어 문구를 함께 변경합니다.
+브라우저에서 `http://localhost:8000`을 엽니다.
 
 ## 기존 GitHub Pages 저장소에 배포
 
-대상 저장소: `Ojung-ii/ojungii.github.io`
-
-### 방법 A: Git 명령 사용
+저장소 루트에서 v2 파일을 덮어쓴 뒤:
 
 ```bash
-git clone https://github.com/Ojung-ii/ojungii.github.io.git
-cd ojungii.github.io
-git switch -c feat/bilingual-portfolio
+git status --short
+git add -- .nojekyll 404.html CNAME README.md index.html robots.txt site.webmanifest sitemap.xml assets about research projects
+git commit -m "feat: redesign portfolio with case studies and profile"
+git push origin main
 ```
 
-이 프로젝트의 파일을 저장소 루트에 복사한 뒤, 아래처럼 필요한 경로만 명시하여 커밋합니다.
-
-```bash
-git add -- .nojekyll 404.html CNAME README.md index.html robots.txt sitemap.xml site.webmanifest assets
-git commit -m "Build bilingual research portfolio"
-git push -u origin feat/bilingual-portfolio
-```
-
-GitHub에서 `feat/bilingual-portfolio` → `main` Pull Request를 만들고 내용을 확인한 다음 병합합니다.
-
-### 방법 B: GitHub 웹 화면 사용
-
-1. `Ojung-ii/ojungii.github.io` 저장소에서 새 브랜치 `feat/bilingual-portfolio`를 만듭니다.
-2. **Add file → Upload files**에서 압축을 푼 파일과 `assets` 폴더를 저장소 루트에 업로드합니다.
-3. 기존 `index.html`을 새 파일로 교체합니다.
-4. Pull Request를 만들어 검토한 뒤 `main`에 병합합니다.
-
-## GitHub Pages 설정 확인
-
-저장소의 **Settings → Pages**에서 다음을 확인합니다.
+GitHub의 `Settings → Pages`는 다음을 유지합니다.
 
 ```text
 Source: Deploy from a branch
 Branch: main
-Folder: /(root)
+Folder: / (root)
 Custom domain: ojungii.com
 Enforce HTTPS: enabled
 ```
 
-이 프로젝트에는 `CNAME`이 포함되어 있지만, GitHub Pages의 **Custom domain** 설정도 `ojungii.com`으로 유지되어야 합니다. 기존 도메인이 이미 GitHub Pages 저장소에 연결되어 있다면 일반적으로 콘텐츠 교체만으로 동일 주소를 계속 사용할 수 있습니다.
+## 배포 전 최종 확인
 
-## 공개 전 확인할 항목
-
-- `ojh7839@o.cnu.ac.kr`, LinkedIn, DBLP 링크가 현재 사용하는 주소인지
-- StAR의 논문·코드·포스터 링크 추가 여부
-- GRef-RAG의 심사 상태와 공개 가능 범위
-- 학위 예정일, 수상 명칭, 프로젝트 설명의 최신성
-- GitHub Pages 배포 후 `https://ojungii.com`과 모바일 화면
+- GitHub 프로필 이미지가 공개용 사진으로 적절한지
+- BioAI의 문제 정의, 본인 역할, 방법론, 결과 자료 보강 여부
+- Alibaba 개인 역할을 더 구체적으로 공개할 수 있는지
+- ScienceON 개인 역할을 더 구체적으로 공개할 수 있는지
+- StAR paper/poster/code의 최종 공개 링크
+- GRef-RAG 심사 상태와 공개 가능 범위
+- 학위 예정일과 이메일 주소

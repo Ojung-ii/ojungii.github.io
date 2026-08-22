@@ -1,29 +1,79 @@
 <!doctype html>
 <html lang="ko" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
-    <meta name="color-scheme" content="light dark" />
-    <title>404 | Junghyun Oh</title>
-    <style>
-      :root { color-scheme: light; --bg:#fff; --surface:#f5f7fb; --text:#071426; --muted:#5f6b7c; --navy:#0b2b53; --line:#dde4ee; }
-      @media (prefers-color-scheme: dark) { :root { color-scheme: dark; --bg:#07111f; --surface:#0b1728; --text:#f7faff; --muted:#a7b4c8; --navy:#8eb8ef; --line:#20324a; } }
-      * { box-sizing:border-box; }
-      body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px; color:var(--text); background:var(--bg); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif; }
-      main { width:min(100%,680px); padding:clamp(36px,7vw,72px); border:1px solid var(--line); border-radius:28px; background:var(--surface); }
-      .code { margin:0 0 18px; color:var(--navy); font:700 13px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace; letter-spacing:.12em; }
-      h1 { margin:0 0 18px; font-size:clamp(38px,8vw,72px); line-height:1.03; letter-spacing:-.055em; }
-      p { margin:0 0 30px; color:var(--muted); font-size:17px; line-height:1.75; }
-      a { display:inline-flex; padding:13px 20px; border-radius:999px; color:#fff; background:#0b2b53; font-weight:750; text-decoration:none; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <p class="code">404 · PAGE NOT FOUND</p>
-      <h1>길을 잃은 페이지입니다.</h1>
-      <p>요청한 페이지를 찾을 수 없습니다.<br />The page you requested could not be found.</p>
-      <a href="/">홈으로 돌아가기 · Back home</a>
-    </main>
-  </body>
-</html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff">
+<title>404 | 오정현</title>
+<meta name="description" content="요청한 페이지를 찾을 수 없습니다.">
+<meta name="author" content="Junghyun Oh">
+<link rel="canonical" href="https://ojungii.com/404.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ojungii.com/404.html">
+<meta property="og:title" content="404 | 오정현">
+<meta property="og:description" content="요청한 페이지를 찾을 수 없습니다.">
+<meta property="og:image" content="https://ojungii.com/assets/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="404 | 오정현">
+<meta name="twitter:description" content="요청한 페이지를 찾을 수 없습니다.">
+<meta name="twitter:image" content="https://ojungii.com/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/styles.css">
+<script>
+(()=>{document.documentElement.classList.add('js');let t=null;try{t=localStorage.getItem('ojungii-theme')}catch{};if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;document.querySelector('meta[name="theme-color"]').content=t==='dark'?'#07111f':'#ffffff'})();
+</script>
+<script defer src="/assets/script.js"></script>
+
+</head>
+<body data-title-ko="404 | 오정현" data-title-en="404 | Junghyun Oh" data-description-ko="요청한 페이지를 찾을 수 없습니다." data-description-en="The requested page could not be found.">
+<a class="skip-link" href="#main-content" data-ko="본문으로 바로가기" data-en="Skip to main content">본문으로 바로가기</a>
+
+<header class="site-header" id="site-header">
+<nav class="nav-shell" aria-label="Primary navigation">
+<a class="brand" href="/" aria-label="Junghyun Oh home">
+<span class="brand-mark" aria-hidden="true">JO</span>
+<span class="brand-name">Junghyun Oh</span>
+</a>
+<div class="nav-links" id="nav-links">
+<a href="/research/" data-ko="연구" data-en="Research">연구</a><a href="/projects/" data-ko="프로젝트" data-en="Projects">프로젝트</a><a href="/about/" data-ko="소개" data-en="About">소개</a><a href="/#contact" data-ko="연락처" data-en="Contact">연락처</a>
+</div>
+<div class="nav-actions">
+<button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language" title="Switch language">
+<span class="language-option" data-language-option="ko">KO</span><span aria-hidden="true">/</span><span class="language-option" data-language-option="en">EN</span>
+</button>
+<button class="icon-button" id="theme-toggle" type="button" aria-label="다크 모드로 전환" title="다크 모드로 전환">
+<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"></path></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 15.3A8.5 8.5 0 0 1 8.7 3.9 8.5 8.5 0 1 0 20.1 15.3Z"></path></svg>
+</button>
+<button class="menu-toggle" id="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="메뉴 열기">
+<span></span><span></span>
+</button>
+</div>
+</nav>
+</header>
+
+<main id="main-content">
+<section class="section">
+<div class="shell" style="min-height:62vh;display:grid;place-items:center">
+  <div class="bento-card reveal is-visible" style="max-width:720px;text-align:center">
+    <p class="eyebrow" style="justify-content:center">404 · PAGE NOT FOUND</p>
+    <h1 style="font-size:clamp(48px,9vw,90px);margin-bottom:20px" data-ko="길을 잃은 페이지입니다." data-en="This page is off the map.">길을 잃은 페이지입니다.</h1>
+    <p class="lede" style="margin-inline:auto" data-ko="주소가 바뀌었거나 존재하지 않는 페이지입니다. 프로젝트와 연구는 아래 홈에서 다시 탐색할 수 있습니다." data-en="The address may have changed or the page may not exist. Continue exploring research and projects from the home page.">주소가 바뀌었거나 존재하지 않는 페이지입니다. 프로젝트와 연구는 아래 홈에서 다시 탐색할 수 있습니다.</p>
+    <a class="button button-primary" href="/" data-ko="홈으로 돌아가기" data-en="Back home">홈으로 돌아가기</a>
+  </div>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="footer-shell shell">
+<div>© <span data-current-year></span> Junghyun Oh · <span data-ko="신뢰할 수 있는 검색과 추론을 연구합니다." data-en="Researching reliable retrieval and reasoning.">신뢰할 수 있는 검색과 추론을 연구합니다.</span></div>
+<div><a href="https://github.com/Ojung-ii" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/ojungii" target="_blank" rel="noreferrer">LinkedIn</a> · <a href="/research/" data-ko="연구" data-en="Research">연구</a></div>
+</div>
+</footer>
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+</body></html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff">
+<title>생성형 AI 기반 철강 수주규격 검토 자동화 | 프로젝트</title>
+<meta name="description" content="1만여 개 수주규격 사례의 문서 탐색·비교·엑셀 산출을 연결한 산업용 RAG 프로토타입입니다.">
+<meta name="author" content="Junghyun Oh">
+<link rel="canonical" href="https://ojungii.com/projects/steel-rag/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ojungii.com/projects/steel-rag/">
+<meta property="og:title" content="생성형 AI 기반 철강 수주규격 검토 자동화 | 프로젝트">
+<meta property="og:description" content="1만여 개 수주규격 사례의 문서 탐색·비교·엑셀 산출을 연결한 산업용 RAG 프로토타입입니다.">
+<meta property="og:image" content="https://ojungii.com/assets/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="생성형 AI 기반 철강 수주규격 검토 자동화 | 프로젝트">
+<meta name="twitter:description" content="1만여 개 수주규격 사례의 문서 탐색·비교·엑셀 산출을 연결한 산업용 RAG 프로토타입입니다.">
+<meta name="twitter:image" content="https://ojungii.com/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/styles.css">
+<script>
+(()=>{document.documentElement.classList.add('js');let t=null;try{t=localStorage.getItem('ojungii-theme')}catch{};if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;document.querySelector('meta[name="theme-color"]').content=t==='dark'?'#07111f':'#ffffff'})();
+</script>
+<script defer src="/assets/script.js"></script>
+
+</head>
+<body data-title-ko="생성형 AI 기반 철강 수주규격 검토 자동화 | 프로젝트" data-title-en="Generative-AI Steel Specification Review Automation | Project" data-description-ko="1만여 개 수주규격 사례의 문서 탐색·비교·엑셀 산출을 연결한 산업용 RAG 프로토타입입니다." data-description-en="An industrial RAG prototype connecting document retrieval, comparison, and spreadsheet output across more than 10,000 specification cases.">
+<a class="skip-link" href="#main-content" data-ko="본문으로 바로가기" data-en="Skip to main content">본문으로 바로가기</a>
+
+<header class="site-header" id="site-header">
+<nav class="nav-shell" aria-label="Primary navigation">
+<a class="brand" href="/" aria-label="Junghyun Oh home">
+<span class="brand-mark" aria-hidden="true">JO</span>
+<span class="brand-name">Junghyun Oh</span>
+</a>
+<div class="nav-links" id="nav-links">
+<a href="/research/" data-ko="연구" data-en="Research">연구</a><a href="/projects/" aria-current="page" data-ko="프로젝트" data-en="Projects">프로젝트</a><a href="/about/" data-ko="소개" data-en="About">소개</a><a href="/#contact" data-ko="연락처" data-en="Contact">연락처</a>
+</div>
+<div class="nav-actions">
+<button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language" title="Switch language">
+<span class="language-option" data-language-option="ko">KO</span><span aria-hidden="true">/</span><span class="language-option" data-language-option="en">EN</span>
+</button>
+<button class="icon-button" id="theme-toggle" type="button" aria-label="다크 모드로 전환" title="다크 모드로 전환">
+<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"></path></svg>
+<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 15.3A8.5 8.5 0 0 1 8.7 3.9 8.5 8.5 0 1 0 20.1 15.3Z"></path></svg>
+</button>
+<button class="menu-toggle" id="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="메뉴 열기">
+<span></span><span></span>
+</button>
+</div>
+</nav>
+</header>
+
+<main id="main-content">
+<section class="case-hero">
+  <div class="case-hero-grid shell">
+    <div class="reveal">
+      <div class="breadcrumbs"><a href="/" data-ko="홈" data-en="Home">홈</a><span aria-hidden="true">/</span><a href="/projects/" data-ko="프로젝트" data-en="Projects">프로젝트</a><span aria-hidden="true">/</span><span data-ko="생성형 AI 기반 철강 수주규격 검토 자동화" data-en="Generative-AI Steel Specification Review Automation">생성형 AI 기반 철강 수주규격 검토 자동화</span></div>
+      <p class="eyebrow">APPLIED AI · INDUSTRIAL RAG</p>
+      <h1 data-ko="생성형 AI 기반 철강 수주규격 검토 자동화" data-en="Generative-AI Steel Specification Review Automation">생성형 AI 기반 철강 수주규격 검토 자동화</h1>
+      <p class="case-summary" data-ko="1만여 개 수주규격 사례의 문서 탐색·비교·엑셀 산출을 연결한 산업용 RAG 프로토타입입니다." data-en="An industrial RAG prototype connecting document retrieval, comparison, and spreadsheet output across more than 10,000 specification cases.">1만여 개 수주규격 사례의 문서 탐색·비교·엑셀 산출을 연결한 산업용 RAG 프로토타입입니다.</p>
+      <div class="tag-row" style="margin-top:22px"><span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">Python</span><span class="tag">Unstructured</span><span class="tag">XlsxWriter</span></div>
+      
+    </div>
+    
+    <div class="case-facts reveal">
+      <div class="case-fact"><span data-ko="기간" data-en="Period">기간</span><strong>2023.09 — 2024.01</strong></div>
+      <div class="case-fact"><span data-ko="역할" data-en="Role">역할</span><strong data-ko="팀장 · 전처리·임베딩·검색 설계" data-en="Team Lead · Preprocessing, Embeddings &amp; Retrieval">팀장 · 전처리·임베딩·검색 설계</strong></div>
+      <div class="case-fact"><span data-ko="기관·대회" data-en="Organization">기관·대회</span><strong>SeAH Besteel · Future Work Experience Program</strong></div>
+      <div class="case-fact"><span data-ko="대표 결과" data-en="Key outcome">대표 결과</span><strong data-ko="내부 평가 80% · 공로상" data-en="80% internal evaluation · Contribution Award">내부 평가 80% · 공로상</strong></div>
+    </div>
+    
+  </div>
+</section>
+<div class="case-cover shell reveal">
+<svg viewBox="0 0 1200 420" role="img" aria-label="Industrial RAG workflow from specifications to structured review">
+<defs>
+ <linearGradient id="sbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--bg-soft)"/><stop offset="1" stop-color="var(--surface-2)"/></linearGradient>
+ <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8z" fill="var(--blue)"/></marker>
+</defs>
+<rect width="1200" height="420" fill="url(#sbg)"/>
+<g font-family="var(--font-sans)">
+ <text x="62" y="62" fill="var(--blue)" font-size="14" font-weight="800" letter-spacing="2">INDUSTRIAL RAG PIPELINE</text>
+ <g transform="translate(70 105)">
+   <rect width="210" height="220" rx="24" fill="var(--surface)" stroke="var(--line)"/>
+   <rect x="35" y="35" width="140" height="18" rx="9" fill="var(--line-strong)"/>
+   <rect x="35" y="72" width="112" height="11" rx="5" fill="var(--line)"/>
+   <rect x="35" y="94" width="128" height="11" rx="5" fill="var(--line)"/>
+   <rect x="35" y="116" width="94" height="11" rx="5" fill="var(--line)"/>
+   <text x="35" y="178" fill="var(--text)" font-size="17" font-weight="850">10K+ SPEC CASES</text>
+   <text x="35" y="202" fill="var(--muted)" font-size="13">PDF · DOCX · XLSX</text>
+ </g>
+ <path d="M300 215H390" stroke="var(--blue)" stroke-width="4" marker-end="url(#arr)"/>
+ <g transform="translate(410 105)">
+   <rect width="255" height="220" rx="24" fill="var(--surface)" stroke="var(--line)"/>
+   <circle cx="64" cy="68" r="31" fill="var(--blue-soft)"/>
+   <path d="M48 67h32M64 51v32" stroke="var(--navy)" stroke-width="4"/>
+   <text x="34" y="135" fill="var(--text)" font-size="18" font-weight="850">PARSE &amp; RETRIEVE</text>
+   <text x="34" y="164" fill="var(--muted)" font-size="13">Chunk · Embed · Rank</text>
+   <text x="34" y="188" fill="var(--muted)" font-size="13">Traceable source passages</text>
+ </g>
+ <path d="M685 215H775" stroke="var(--blue)" stroke-width="4" marker-end="url(#arr)"/>
+ <g transform="translate(795 105)">
+   <rect width="335" height="220" rx="24" fill="var(--navy)"/>
+   <text x="36" y="48" fill="#9dc4f4" font-size="13" font-weight="800">HUMAN-REVIEWABLE OUTPUT</text>
+   <g transform="translate(36 75)">
+    <rect width="263" height="105" rx="14" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.20)"/>
+    <path d="M0 34H263M0 69H263M88 0V105M177 0V105" stroke="rgba(255,255,255,.20)"/>
+    <circle cx="45" cy="17" r="5" fill="#76d5bc"/><circle cx="45" cy="51" r="5" fill="#76d5bc"/><circle cx="45" cy="87" r="5" fill="#f0c46f"/>
+   </g>
+   <text x="36" y="204" fill="#fff" font-size="17" font-weight="850">STRUCTURED REVIEW · XLSX</text>
+ </g>
+</g>
+</svg>
+</div>
+<section class="section-compact">
+  <div class="case-layout shell">
+    
+    <aside class="case-nav" aria-label="Case study sections">
+      <strong>CONTENTS</strong>
+      <a href="#context" data-ko="문제와 맥락" data-en="Problem & context">문제와 맥락</a>
+      <a href="#role" data-ko="역할과 제약" data-en="Role & constraints">역할과 제약</a>
+      <a href="#approach" data-ko="접근 방법" data-en="Approach">접근 방법</a>
+      <a href="#outcome" data-ko="결과" data-en="Outcome">결과</a>
+      <a href="#learning" data-ko="배운 점" data-en="Learnings">배운 점</a>
+    </aside>
+    
+    <article class="case-body">
+      
+<section id="context">
+  <p class="eyebrow">01 · PROBLEM &amp; CONTEXT</p>
+  <h2 data-ko="반복적인 문서 탐색을 검토 가능한 AI 워크플로로." data-en="Turning repetitive document lookup into a reviewable AI workflow.">반복적인 문서 탐색을 검토 가능한 AI 워크플로로.</h2>
+  <p data-ko="수주규격 검토는 여러 문서에서 필요한 정보를 찾아 비교하고, 그 결과를 정해진 엑셀 양식으로 옮기는 반복 작업이었습니다. 기존 공개 포트폴리오에는 1만 가지 이상의 데이터 케이스와 건당 평균 약 2시간이 소요되는 업무로 설명되어 있습니다." data-en="Specification review required repeatedly locating and comparing information across documents, then transferring the result into a fixed spreadsheet template. The prior public portfolio describes more than 10,000 cases and roughly two hours of work per case.">수주규격 검토는 여러 문서에서 필요한 정보를 찾아 비교하고, 그 결과를 정해진 엑셀 양식으로 옮기는 반복 작업이었습니다. 기존 공개 포트폴리오에는 1만 가지 이상의 데이터 케이스와 건당 평균 약 2시간이 소요되는 업무로 설명되어 있습니다.</p>
+  <div class="insight"><strong data-ko="핵심 문제" data-en="Core problem">핵심 문제</strong><span data-ko="문서를 ‘요약’하는 것이 아니라, 규격 항목별로 근거를 찾아 비교하고 사람이 검토할 수 있는 구조화된 결과를 만들어야 했습니다." data-en="The goal was not generic summarization; it was to find evidence for each specification item, compare it, and produce a structured output a human could review.">문서를 ‘요약’하는 것이 아니라, 규격 항목별로 근거를 찾아 비교하고 사람이 검토할 수 있는 구조화된 결과를 만들어야 했습니다.</span></div>
+</section>
+
+<section id="role">
+  <p class="eyebrow">02 · ROLE &amp; CONSTRAINTS</p>
+  <h2 data-ko="팀장으로서 검색 기반과 데이터 파이프라인을 맡았습니다." data-en="I led the team and owned the retrieval/data pipeline.">팀장으로서 검색 기반과 데이터 파이프라인을 맡았습니다.</h2>
+  <p data-ko="프로젝트 팀장을 맡았으며 문서 전처리, 임베딩, 검색 설계를 중심으로 구현했습니다. 핵심 제약은 문서 형식의 이질성, 높은 오류 비용, 기존 엑셀 업무와의 연결, 그리고 결과를 직원이 다시 확인할 수 있어야 한다는 점이었습니다." data-en="As team lead, I focused on document preprocessing, embeddings, and retrieval design. Key constraints included heterogeneous file formats, high error cost, integration with an existing spreadsheet workflow, and the need for employees to verify every result.">프로젝트 팀장을 맡았으며 문서 전처리, 임베딩, 검색 설계를 중심으로 구현했습니다. 핵심 제약은 문서 형식의 이질성, 높은 오류 비용, 기존 엑셀 업무와의 연결, 그리고 결과를 직원이 다시 확인할 수 있어야 한다는 점이었습니다.</p>
+  <ul>
+    <li data-ko="다양한 문서 형식을 동일한 검색 단위로 변환" data-en="Normalize heterogeneous document formats into searchable units">다양한 문서 형식을 동일한 검색 단위로 변환</li>
+    <li data-ko="규격 항목과 근거 문단의 대응 관계 유지" data-en="Preserve the mapping between specification fields and source passages">규격 항목과 근거 문단의 대응 관계 유지</li>
+    <li data-ko="LLM 출력이 기존 XLSX 검토 양식으로 이어지도록 설계" data-en="Map LLM outputs into the existing XLSX review template">LLM 출력이 기존 XLSX 검토 양식으로 이어지도록 설계</li>
+  </ul>
+</section>
+
+<section id="approach">
+  <p class="eyebrow">03 · APPROACH</p>
+  <h2 data-ko="검색, 비교, 산출을 하나의 파이프라인으로 연결했습니다." data-en="Connecting retrieval, comparison, and structured output.">검색, 비교, 산출을 하나의 파이프라인으로 연결했습니다.</h2>
+  <div class="process">
+    <div class="process-item"><div class="process-number">01</div><div><h3 data-ko="문서 파싱과 정규화" data-en="Document parsing and normalization">문서 파싱과 정규화</h3><p data-ko="Unstructured 기반으로 문서를 추출하고 항목·표·본문을 검색 가능한 단위로 정리했습니다." data-en="Extracted documents with Unstructured and normalized sections, tables, and prose into searchable units.">Unstructured 기반으로 문서를 추출하고 항목·표·본문을 검색 가능한 단위로 정리했습니다.</p></div></div>
+    <div class="process-item"><div class="process-number">02</div><div><h3 data-ko="임베딩과 근거 검색" data-en="Embedding and evidence retrieval">임베딩과 근거 검색</h3><p data-ko="규격 질문과 관련된 문단을 검색하고, 이후 비교 단계에서 원문 근거를 다시 확인할 수 있도록 출처를 유지했습니다." data-en="Retrieved passages relevant to each specification question while retaining provenance for later verification.">규격 질문과 관련된 문단을 검색하고, 이후 비교 단계에서 원문 근거를 다시 확인할 수 있도록 출처를 유지했습니다.</p></div></div>
+    <div class="process-item"><div class="process-number">03</div><div><h3 data-ko="LLM 기반 항목 비교" data-en="LLM-based field comparison">LLM 기반 항목 비교</h3><p data-ko="검색된 문맥을 바탕으로 요구사항과 기준을 비교하되, 자유로운 서술보다 정해진 출력 스키마를 우선했습니다." data-en="Compared requirements and standards from retrieved context, prioritizing a constrained output schema over free-form prose.">검색된 문맥을 바탕으로 요구사항과 기준을 비교하되, 자유로운 서술보다 정해진 출력 스키마를 우선했습니다.</p></div></div>
+    <div class="process-item"><div class="process-number">04</div><div><h3 data-ko="XLSX 산출과 사람 검토" data-en="XLSX output and human review">XLSX 산출과 사람 검토</h3><p data-ko="XlsxWriter로 기존 업무 양식에 결과를 기록하고, 최종 판단은 담당자가 근거와 함께 검토하도록 구성했습니다." data-en="Wrote results into the existing template with XlsxWriter, leaving final judgment to a reviewer with source evidence.">XlsxWriter로 기존 업무 양식에 결과를 기록하고, 최종 판단은 담당자가 근거와 함께 검토하도록 구성했습니다.</p></div></div>
+  </div>
+</section>
+
+<section id="outcome">
+  <p class="eyebrow">04 · OUTCOME</p>
+  <h2 data-ko="프로토타입의 가치는 ‘자동 답변’보다 반복 업무의 구조화였습니다." data-en="The value was workflow structuring, not autonomous answers.">프로토타입의 가치는 ‘자동 답변’보다 반복 업무의 구조화였습니다.</h2>
+  <p data-ko="기존 포트폴리오에는 프로젝트 내부 평가에서 80% 정확도를 기록한 것으로 정리되어 있으며, 프로젝트는 세아베스틸 공로상으로 이어졌습니다. 공개 페이지에서는 이 수치를 외부 벤치마크가 아닌 당시 프로젝트의 내부 평가 결과로 명확히 구분합니다." data-en="The prior portfolio reports 80% accuracy on the project’s internal evaluation, and the work received a SeAH Besteel contribution award. On this public page, the figure is explicitly presented as an internal project result rather than an external benchmark.">기존 포트폴리오에는 프로젝트 내부 평가에서 80% 정확도를 기록한 것으로 정리되어 있으며, 프로젝트는 세아베스틸 공로상으로 이어졌습니다. 공개 페이지에서는 이 수치를 외부 벤치마크가 아닌 당시 프로젝트의 내부 평가 결과로 명확히 구분합니다.</p>
+  <div class="result-grid">
+    <div class="result-card"><strong>10K+</strong><span data-ko="규격 검토 사례" data-en="review cases">규격 검토 사례</span></div>
+    <div class="result-card"><strong>80%</strong><span data-ko="프로젝트 내부 평가" data-en="internal project evaluation">프로젝트 내부 평가</span></div>
+    <div class="result-card"><strong>Award</strong><span data-ko="세아베스틸 공로상" data-en="SeAH Besteel contribution award">세아베스틸 공로상</span></div>
+  </div>
+</section>
+
+<section id="learning">
+  <p class="eyebrow">05 · LEARNINGS</p>
+  <h2 data-ko="산업 RAG는 검색 정확도보다 검증 경로가 먼저입니다." data-en="Industrial RAG needs a verification path before a better score.">산업 RAG는 검색 정확도보다 검증 경로가 먼저입니다.</h2>
+  <p data-ko="이 경험은 이후 연구에서 compact context와 provenance를 함께 보게 된 출발점이었습니다. 문맥을 많이 넣는 것이 안전성을 보장하지 않으며, 사용자가 어떤 근거로 결과가 생성됐는지 되짚을 수 있어야 실제 업무에 적용할 수 있다는 점을 배웠습니다." data-en="This project became a starting point for later work on compact context and provenance. More context does not guarantee safety; practical deployment requires a user to trace each result back to its evidence.">이 경험은 이후 연구에서 compact context와 provenance를 함께 보게 된 출발점이었습니다. 문맥을 많이 넣는 것이 안전성을 보장하지 않으며, 사용자가 어떤 근거로 결과가 생성됐는지 되짚을 수 있어야 실제 업무에 적용할 수 있다는 점을 배웠습니다.</p>
+</section>
+
+      <section><div class="next-projects"><a class="next-project" href="/projects/blue-carbon/"><span data-ko="이전 프로젝트" data-en="Previous project">이전 프로젝트</span><h3 data-ko="블루카본 변화탐지" data-en="Blue Carbon Monitoring">블루카본 변화탐지</h3></a><a class="next-project" href="/projects/alibaba-search/"><span data-ko="다음 프로젝트" data-en="Next project">다음 프로젝트</span><h3 data-ko="Alibaba Product Search" data-en="Alibaba Product Search">Alibaba Product Search</h3></a></div></section>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="footer-shell shell">
+<div>© <span data-current-year></span> Junghyun Oh · <span data-ko="신뢰할 수 있는 검색과 추론을 연구합니다." data-en="Researching reliable retrieval and reasoning.">신뢰할 수 있는 검색과 추론을 연구합니다.</span></div>
+<div><a href="https://github.com/Ojung-ii" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/ojungii" target="_blank" rel="noreferrer">LinkedIn</a> · <a href="/research/" data-ko="연구" data-en="Research">연구</a></div>
+</div>
+</footer>
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+</body></html>
