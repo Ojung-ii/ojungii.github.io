@@ -174,15 +174,34 @@
     });
   });
 
-  document.querySelectorAll('[data-filter]').forEach(button => {
-    button.addEventListener('click', () => {
-      const group = button.closest('[data-filter-group]');
-      const value = button.dataset.filter;
-      group?.querySelectorAll('[data-filter]').forEach(btn => btn.classList.toggle('is-active', btn === button));
-      document.querySelectorAll('[data-filter-item]').forEach(item => {
-        item.hidden = value !== 'all' && item.dataset.filterItem !== value;
+  document.querySelectorAll('[data-filter-toolbar]').forEach(toolbar => {
+    const targetSelector = toolbar.getAttribute('data-filter-target');
+    const target = targetSelector ? document.querySelector(targetSelector) : document;
+    const emptyState = document.querySelector(toolbar.getAttribute('data-empty-target') || '');
+    const applyFilters = () => {
+      const criteria = {};
+      toolbar.querySelectorAll('[data-filter-group]').forEach(group => {
+        const key = group.dataset.filterGroup;
+        const active = group.querySelector('[data-filter].is-active') || group.querySelector('[data-filter]');
+        if (key && active) criteria[key] = active.dataset.filter;
+      });
+      let visibleCount = 0;
+      target?.querySelectorAll('[data-filter-item]').forEach(item => {
+        const visible = Object.entries(criteria).every(([key, value]) => value === 'all' || item.dataset[key] === value);
+        item.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+      if (emptyState) emptyState.hidden = visibleCount !== 0;
+    };
+
+    toolbar.querySelectorAll('[data-filter]').forEach(button => {
+      button.addEventListener('click', () => {
+        const group = button.closest('[data-filter-group]');
+        group?.querySelectorAll('[data-filter]').forEach(btn => btn.classList.toggle('is-active', btn === button));
+        applyFilters();
       });
     });
+    applyFilters();
   });
 
   const visual = document.querySelector('[data-parallax-visual]');
