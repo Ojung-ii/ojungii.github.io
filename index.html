@@ -36,15 +36,24 @@
       <div class="site-graph-card reveal">
         <div class="visual-top"><span>GRAPH OVERVIEW · 01</span><span class="visual-chip" data-ko="SELECT NODE" data-en="SELECT NODE">SELECT NODE</span></div>
         <div class="graph-map graph-map-nav" aria-label="Interactive portfolio graph navigator">
-          <svg class="graph-map-svg" viewBox="0 0 620 420" aria-hidden="true"><rect x="18" y="18" width="584" height="384" rx="28" fill="none" stroke="var(--line)" stroke-width="1"/><g opacity=".35"><path class="gridline" d="M60 70H560M60 140H560M60 210H560M60 280H560M60 350H560"/><path class="gridline" d="M100 45V370M180 45V370M260 45V370M340 45V370M420 45V370M500 45V370"/></g><g stroke="var(--line-strong)" stroke-width="2.1" fill="none" opacity=".88"><path d="M310 210L132 110"/><path d="M310 210L312 100"/><path d="M310 210L494 110"/><path d="M310 210L110 230"/><path d="M310 210L510 230"/><path d="M310 210L190 330"/><path d="M310 210L434 330"/></g></svg>
-          <div class="graph-node-center">JH.Oh</div>
-          <button class="graph-node-btn node-top-left is-active" type="button" data-graph-group="research"><strong data-ko="연구" data-en="Research">연구</strong><span>Publications</span></button>
-          <button class="graph-node-btn node-top-center" type="button" data-graph-group="education"><strong data-ko="학력" data-en="Education">학력</strong><span>Education</span></button>
-          <button class="graph-node-btn node-top-right" type="button" data-graph-group="awards"><strong data-ko="수상" data-en="Awards">수상</strong><span>Awards</span></button>
-          <button class="graph-node-btn node-mid-left" type="button" data-graph-group="projects"><strong data-ko="프로젝트" data-en="Projects">프로젝트</strong><span>Case studies</span></button>
-          <button class="graph-node-btn node-mid-right" type="button" data-graph-group="contact"><strong>Contact</strong><span>Email · LinkedIn</span></button>
-          <button class="graph-node-btn node-bottom-left" type="button" data-graph-group="scholar"><strong>Scholar</strong><span>Google Scholar</span></button>
-          <button class="graph-node-btn node-bottom-right" type="button" data-graph-group="linkedin"><strong>LinkedIn</strong><span>@ojungii</span></button>
+          <svg class="graph-map-svg" viewBox="0 0 620 420" aria-hidden="true">
+            <rect x="18" y="18" width="584" height="384" rx="28" fill="none" stroke="var(--line)" stroke-width="1"/>
+            <g opacity=".32"><path class="gridline" d="M60 70H560M60 140H560M60 210H560M60 280H560M60 350H560"/><path class="gridline" d="M100 45V370M180 45V370M260 45V370M340 45V370M420 45V370M500 45V370"/></g>
+            <g stroke="var(--line-strong)" stroke-width="2.1" fill="none" opacity=".72">
+              <path d="M310 210L132 110"/><path d="M310 210L312 100"/><path d="M310 210L494 110"/><path d="M310 210L110 230"/><path d="M310 210L510 230"/><path d="M310 210L190 330"/><path d="M310 210L434 330"/>
+            </g>
+            <g stroke="var(--line-strong)" stroke-width="1.5" fill="none" opacity=".38">
+              <path d="M132 110L110 230"/><path d="M132 110L312 100"/><path d="M312 100L494 110"/><path d="M494 110L510 230"/><path d="M110 230L190 330"/><path d="M510 230L434 330"/><path d="M190 330L434 330"/>
+            </g>
+          </svg>
+          <div class="graph-node graph-node-center is-center">JH.Oh</div>
+          <button class="graph-node graph-node-select node-top-left is-active" type="button" data-graph-group="research"><strong data-ko="연구" data-en="Research">연구</strong><span>Publications</span></button>
+          <button class="graph-node graph-node-select node-top-center" type="button" data-graph-group="education"><strong data-ko="학력" data-en="Education">학력</strong><span>Education</span></button>
+          <button class="graph-node graph-node-select node-top-right" type="button" data-graph-group="awards"><strong data-ko="수상" data-en="Awards">수상</strong><span>Awards</span></button>
+          <button class="graph-node graph-node-select node-mid-left" type="button" data-graph-group="projects"><strong data-ko="프로젝트" data-en="Projects">프로젝트</strong><span>Case studies</span></button>
+          <button class="graph-node graph-node-select node-mid-right" type="button" data-graph-group="contact"><strong>Contact</strong><span>Email · LinkedIn</span></button>
+          <button class="graph-node graph-node-select node-bottom-left" type="button" data-graph-group="scholar"><strong>Scholar</strong><span>Google Scholar ↗</span></button>
+          <button class="graph-node graph-node-select node-bottom-right" type="button" data-graph-group="linkedin"><strong>LinkedIn</strong><span>@ojungii ↗</span></button>
         </div>
         <div class="graph-subnav" data-graph-nav>
           <div class="graph-detail-group is-active" data-graph-detail="research"><p class="graph-detail-title" data-ko="연구" data-en="Research">연구</p><div class="graph-detail-links"><a href="/research/">All Publications</a><a href="/research/#star">StAR</a><a href="/research/#gref">GRef-RAG</a></div></div>
@@ -55,7 +64,7 @@
           <div class="graph-detail-group" data-graph-detail="scholar" hidden><p class="graph-detail-title">Scholar</p><div class="graph-detail-links"><a href="https://scholar.google.com/citations?user=sHkiTMQAAAAJ&hl=ko" target="_blank" rel="noreferrer">Profile ↗</a><a href="/research/">Research</a></div></div>
           <div class="graph-detail-group" data-graph-detail="linkedin" hidden><p class="graph-detail-title">LinkedIn</p><div class="graph-detail-links"><a href="https://www.linkedin.com/in/ojungii" target="_blank" rel="noreferrer">Profile ↗</a><a href="/about/#connect">Connect</a></div></div>
         </div>
-      </div>
+      </div></div>
     </div>
   </div>
   <div class="highlights-marquee shell reveal" id="highlights" aria-label="Recent highlights"><div class="marquee-track"><div class="highlight-card"><strong>SIGIR ’26</strong><span>StAR · Short Paper</span></div><div class="highlight-card"><strong>2nd Place</strong><span>ScienceON AI Challenge</span></div><div class="highlight-card"><strong>Special Award</strong><span>Alibaba Product Search</span></div><div class="highlight-card"><strong>NRF Fellowship</strong><span data-ko="석사과정생 연구장려금" data-en="Master’s Research Fellowship">석사과정생 연구장려금</span></div><div class="highlight-card"><strong>KISTI Award</strong><span>ScienceON AI Challenge</span></div><div class="highlight-card"><strong>SeAH Award</strong><span>Industrial RAG Project</span></div><div class="highlight-card"><strong>SIGIR ’26</strong><span>StAR · Short Paper</span></div><div class="highlight-card"><strong>2nd Place</strong><span>ScienceON AI Challenge</span></div><div class="highlight-card"><strong>Special Award</strong><span>Alibaba Product Search</span></div><div class="highlight-card"><strong>NRF Fellowship</strong><span data-ko="석사과정생 연구장려금" data-en="Master’s Research Fellowship">석사과정생 연구장려금</span></div><div class="highlight-card"><strong>KISTI Award</strong><span>ScienceON AI Challenge</span></div><div class="highlight-card"><strong>SeAH Award</strong><span>Industrial RAG Project</span></div></div></div>

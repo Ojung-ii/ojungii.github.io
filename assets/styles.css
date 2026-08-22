@@ -636,3 +636,35 @@ html[data-theme="dark"] .graph-node-btn{background:rgba(13,26,43,.92)}
   .graph-node-center{min-width:96px;padding:14px 14px}
   .graph-node-btn{min-width:92px;padding:9px 10px}
 }
+
+/* --- v5.1 graph navigator repair --- */
+.graph-map-nav{height:420px}
+.graph-map-nav .graph-node{z-index:2}
+.graph-map-nav .graph-node strong,
+.graph-map-nav .graph-node span{display:block}
+.graph-node-select{
+  appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;
+}
+.graph-node-select:hover,
+.graph-node-select.is-active{transform:translateY(-2px) scale(1.04);border-color:var(--line-strong);box-shadow:var(--shadow)}
+.graph-node-select.is-active{background:var(--surface)}
+.graph-node-center{left:50%;top:46%;transform:translate(-50%,-50%);pointer-events:none;z-index:3}
+.graph-subnav{margin-top:14px;padding:16px 16px 14px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+.graph-detail-group{display:grid;gap:10px}
+.graph-detail-title{margin:0;font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle)}
+.graph-detail-links{display:flex;flex-wrap:wrap;gap:8px}
+.graph-detail-links a{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg-soft);text-decoration:none;font-size:12px;font-weight:760}
+.graph-detail-links a:hover{border-color:var(--line-strong);color:var(--navy)}
+@media(max-width:720px){
+  .graph-map-nav{height:470px}
+  .graph-map-nav .graph-node{min-width:92px;padding:9px 10px}
+  .graph-map-nav .graph-node strong{font-size:11px}
+  .graph-map-nav .graph-node span{font-size:9px}
+  .graph-map-nav .node-top-left{left:4%;top:9%}
+  .graph-map-nav .node-top-center{top:6%}
+  .graph-map-nav .node-top-right{right:4%;top:9%}
+  .graph-map-nav .node-mid-left{left:3%;top:39%}
+  .graph-map-nav .node-mid-right{right:2%;top:42%}
+  .graph-map-nav .node-bottom-left{left:8%;bottom:11%}
+  .graph-map-nav .node-bottom-right{right:7%;bottom:11%}
+}
