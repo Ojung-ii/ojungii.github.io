@@ -1,0 +1,17 @@
+{
+  "name": "Junghyun Oh — GraphRAG & AI Researcher",
+  "short_name": "Junghyun Oh",
+  "description": "Portfolio of Junghyun Oh, an AI researcher working on GraphRAG, structure-aware retrieval, and multi-hop reasoning.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b2b53",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

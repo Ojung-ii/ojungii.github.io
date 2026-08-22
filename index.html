@@ -1,21 +1,746 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junghyun Oh</title>
-  <script>
-    window.location.href = "https://courageous-wood-b6d.notion.site/ebd/2ae48c448e7245f48787ce00fd8e8d62";
-  </script>
-  <meta http-equiv="refresh" content="0; url=https://courageous-wood-b6d.notion.site/ebd/2ae48c448e7245f48787ce00fd8e8d62" />
-</head>
-<body>
-  <p>
-    Redirecting to profile...<br />
-    If you are not redirected automatically,
-    <a href="https://courageous-wood-b6d.notion.site/ebd/2ae48c448e7245f48787ce00fd8e8d62">
-      click here
-    </a>.
-  </p>
-</body>
+<!doctype html>
+<html lang="ko" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <title>오정현 | GraphRAG & AI Researcher</title>
+    <meta
+      name="description"
+      content="GraphRAG, 구조 인식 검색, 다중 홉 추론을 연구하는 AI 연구자 오정현의 포트폴리오입니다."
+    />
+    <meta name="author" content="Junghyun Oh" />
+    <link rel="canonical" href="https://ojungii.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ojungii.com/" />
+    <meta property="og:title" content="오정현 | GraphRAG & AI Researcher" />
+    <meta
+      property="og:description"
+      content="GraphRAG, 구조 인식 검색, 다중 홉 추론을 연구하는 AI 연구자 오정현의 포트폴리오입니다."
+    />
+    <meta property="og:image" content="https://ojungii.com/assets/og-image.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="오정현 | GraphRAG & AI Researcher" />
+    <meta
+      name="twitter:description"
+      content="GraphRAG, 구조 인식 검색, 다중 홉 추론을 연구하는 AI 연구자 오정현의 포트폴리오입니다."
+    />
+    <meta name="twitter:image" content="https://ojungii.com/assets/og-image.png" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+
+    <script>
+      (() => {
+        let savedTheme = null;
+        try {
+          savedTheme = localStorage.getItem('ojungii-theme');
+        } catch {
+          savedTheme = null;
+        }
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+        const theme = savedTheme || preferredTheme;
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute(
+          'content',
+          theme === 'dark' ? '#07111f' : '#ffffff'
+        );
+      })();
+    </script>
+    <script defer src="assets/script.js"></script>
+  </head>
+
+  <body>
+    <a
+      class="skip-link"
+      href="#main-content"
+      data-ko="본문으로 바로가기"
+      data-en="Skip to main content"
+    >본문으로 바로가기</a>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="Junghyun Oh home">
+          <span class="brand-mark" aria-hidden="true">JO</span>
+          <span class="brand-name">Junghyun Oh</span>
+        </a>
+
+        <div class="nav-links" id="nav-links">
+          <a href="#about" data-ko="소개" data-en="About">소개</a>
+          <a href="#research" data-ko="연구" data-en="Research">연구</a>
+          <a href="#projects" data-ko="프로젝트" data-en="Projects">프로젝트</a>
+          <a href="#experience" data-ko="경력" data-en="Experience">경력</a>
+          <a href="#contact" data-ko="연락처" data-en="Contact">연락처</a>
+        </div>
+
+        <div class="nav-actions">
+          <button
+            class="language-toggle"
+            id="language-toggle"
+            type="button"
+            aria-label="Switch language"
+            title="Switch language"
+          >
+            <span class="language-option" data-language-option="ko">KO</span>
+            <span aria-hidden="true">/</span>
+            <span class="language-option" data-language-option="en">EN</span>
+          </button>
+
+          <button
+            class="icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="다크 모드로 전환"
+            data-ko-aria-label="다크 모드로 전환"
+            data-en-aria-label="Switch to dark mode"
+            title="다크 모드로 전환"
+            data-ko-title="다크 모드로 전환"
+            data-en-title="Switch to dark mode"
+          >
+            <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.5"></circle>
+              <path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"></path>
+            </svg>
+            <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.1 15.3A8.5 8.5 0 0 1 8.7 3.9 8.5 8.5 0 1 0 20.1 15.3Z"></path>
+            </svg>
+          </button>
+
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-controls="nav-links"
+            aria-expanded="false"
+            aria-label="메뉴 열기"
+            data-ko-aria-label="메뉴 열기"
+            data-en-aria-label="Open menu"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section" id="home" aria-labelledby="hero-title">
+        <div class="hero-grid shell">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span
+                data-ko="AI Researcher · GraphRAG · Information Retrieval"
+                data-en="AI Researcher · GraphRAG · Information Retrieval"
+              >AI Researcher · GraphRAG · Information Retrieval</span>
+            </p>
+
+            <h1 id="hero-title">
+              <span data-ko="구조를 이해하는 검색으로" data-en="Structure‑aware retrieval for"></span>
+              <strong data-ko="더 신뢰할 수 있는 AI" data-en="more reliable AI."></strong>
+              <span data-ko="를 만듭니다." data-en=""></span>
+            </h1>
+
+            <p
+              class="hero-description"
+              data-ko="GraphRAG, 구조 인식 검색, 다중 홉 추론을 연구합니다. 의미적 관련성과 그래프 구조를 함께 활용해 언어 모델에 더 작고 신뢰할 수 있는 근거를 제공하는 방법을 설계합니다."
+              data-en="I study GraphRAG, structure-aware retrieval, and multi-hop reasoning. My work aligns semantic relevance with graph structure to provide language models with compact, reliable evidence."
+            >GraphRAG, 구조 인식 검색, 다중 홉 추론을 연구합니다. 의미적 관련성과 그래프 구조를 함께 활용해 언어 모델에 더 작고 신뢰할 수 있는 근거를 제공하는 방법을 설계합니다.</p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#research">
+                <span data-ko="대표 연구 보기" data-en="View research">대표 연구 보기</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+              </a>
+              <a class="button button-secondary" href="mailto:ojh7839@o.cnu.ac.kr">
+                <span data-ko="이메일 보내기" data-en="Email me">이메일 보내기</span>
+              </a>
+            </div>
+
+            <div class="profile-links" aria-label="Profile links">
+              <a href="https://github.com/Ojung-ii" target="_blank" rel="noreferrer">GitHub</a>
+              <span aria-hidden="true">·</span>
+              <a href="https://www.linkedin.com/in/ojungii" target="_blank" rel="noreferrer">LinkedIn</a>
+              <span aria-hidden="true">·</span>
+              <a href="https://dblp.org/pid/185/4613" target="_blank" rel="noreferrer">DBLP</a>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal" aria-label="Structure-aware retrieval illustration">
+            <div class="graph-panel">
+              <div class="graph-panel-topline">
+                <span data-ko="RESEARCH MAP" data-en="RESEARCH MAP">RESEARCH MAP</span>
+                <span class="live-indicator" aria-hidden="true"></span>
+              </div>
+
+              <svg class="hero-graph" viewBox="0 0 560 430" role="img" aria-labelledby="graph-title graph-desc">
+                <title id="graph-title">GraphRAG research map</title>
+                <desc id="graph-desc">A network illustration connecting semantic relevance, graph structure, evidence refinement, and reliable reasoning.</desc>
+                <defs>
+                  <linearGradient id="edgeGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="currentColor" stop-opacity="0.12"></stop>
+                    <stop offset="0.55" stop-color="currentColor" stop-opacity="0.72"></stop>
+                    <stop offset="1" stop-color="currentColor" stop-opacity="0.18"></stop>
+                  </linearGradient>
+                  <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="7" result="blur"></feGaussianBlur>
+                    <feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+                  </filter>
+                </defs>
+
+                <g class="graph-grid" aria-hidden="true">
+                  <path d="M60 78H500M60 158H500M60 238H500M60 318H500"></path>
+                  <path d="M100 40V370M200 40V370M300 40V370M400 40V370M500 40V370"></path>
+                </g>
+
+                <g class="graph-edges" fill="none">
+                  <path d="M112 278C173 208 224 152 284 110"></path>
+                  <path d="M112 278C214 297 316 300 430 236"></path>
+                  <path d="M284 110C353 128 394 169 430 236"></path>
+                  <path d="M284 110C274 190 278 245 302 324"></path>
+                  <path d="M302 324C360 308 404 278 430 236"></path>
+                  <path d="M112 278C169 328 230 344 302 324"></path>
+                  <path class="highlight-edge" d="M112 278C173 208 224 152 284 110C353 128 394 169 430 236"></path>
+                </g>
+
+                <g class="graph-nodes">
+                  <g transform="translate(112 278)">
+                    <circle class="node-halo" r="32"></circle>
+                    <circle class="node-core" r="13"></circle>
+                    <text x="-46" y="56" text-anchor="middle" data-ko="의미" data-en="Semantic">의미</text>
+                  </g>
+                  <g transform="translate(284 110)">
+                    <circle class="node-halo" r="36"></circle>
+                    <circle class="node-core node-core-accent" r="15"></circle>
+                    <text x="0" y="-48" text-anchor="middle" data-ko="구조" data-en="Structure">구조</text>
+                  </g>
+                  <g transform="translate(430 236)">
+                    <circle class="node-halo" r="42"></circle>
+                    <circle class="node-core node-core-focus" r="18" filter="url(#softGlow)"></circle>
+                    <text x="48" y="6" text-anchor="start" data-ko="근거" data-en="Evidence">근거</text>
+                  </g>
+                  <g transform="translate(302 324)">
+                    <circle class="node-halo" r="30"></circle>
+                    <circle class="node-core" r="12"></circle>
+                    <text x="0" y="50" text-anchor="middle" data-ko="추론" data-en="Reasoning">추론</text>
+                  </g>
+                </g>
+
+                <g class="micro-nodes" aria-hidden="true">
+                  <circle cx="74" cy="138" r="4"></circle>
+                  <circle cx="168" cy="84" r="3"></circle>
+                  <circle cx="468" cy="104" r="4"></circle>
+                  <circle cx="488" cy="318" r="3"></circle>
+                  <circle cx="202" cy="354" r="4"></circle>
+                </g>
+              </svg>
+
+              <div class="graph-legend">
+                <div>
+                  <span class="legend-index">01</span>
+                  <span data-ko="Semantic Relevance" data-en="Semantic Relevance">Semantic Relevance</span>
+                </div>
+                <div>
+                  <span class="legend-index">02</span>
+                  <span data-ko="Graph Structure" data-en="Graph Structure">Graph Structure</span>
+                </div>
+                <div>
+                  <span class="legend-index">03</span>
+                  <span data-ko="Compact Evidence" data-en="Compact Evidence">Compact Evidence</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-marquee" aria-hidden="true">
+          <div>
+            <span>GraphRAG</span><i></i>
+            <span>Structure-aware Retrieval</span><i></i>
+            <span>Multi-hop QA</span><i></i>
+            <span>Evidence Refinement</span><i></i>
+            <span>Efficient Reasoning</span><i></i>
+            <span>GraphRAG</span><i></i>
+            <span>Structure-aware Retrieval</span><i></i>
+            <span>Multi-hop QA</span><i></i>
+            <span>Evidence Refinement</span><i></i>
+            <span>Efficient Reasoning</span><i></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="about" aria-labelledby="about-title">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="section-kicker" data-ko="01 · 소개" data-en="01 · ABOUT">01 · 소개</p>
+            <h2 id="about-title" data-ko="검색과 구조 사이의 간극을 연구합니다." data-en="I study the gap between retrieval and structure.">검색과 구조 사이의 간극을 연구합니다.</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy reveal">
+              <p
+                class="lead"
+                data-ko="충남대학교 컴퓨터공학과 인공지능 전공 석사과정으로, Data Intelligence Lab에서 GraphRAG와 정보검색을 연구하고 있습니다."
+                data-en="I am an M.S. student in Computer Science at Chungnam National University, conducting research on GraphRAG and information retrieval in the Data Intelligence Lab."
+              >충남대학교 컴퓨터공학과 인공지능 전공 석사과정으로, Data Intelligence Lab에서 GraphRAG와 정보검색을 연구하고 있습니다.</p>
+              <p
+                data-ko="현재는 의미적 관련성만으로는 놓치기 쉬운 그래프 구조를 검색과 재랭킹에 반영하고, 넓게 수집된 문맥을 추론에 필요한 작은 근거 집합으로 정제하는 방법에 집중합니다. 대학원 이전에는 산업 문서 검토 RAG, 위성영상 기반 변화탐지, 데이터 서비스 기획 등 실제 문제를 다루는 AI 프로젝트를 수행했습니다."
+                data-en="My current work incorporates graph structure into retrieval and reranking, then refines broad contexts into compact evidence sets for reasoning. Before graduate school, I worked on applied AI projects including industrial document-review RAG, satellite-based change detection, and data-driven service design."
+              >현재는 의미적 관련성만으로는 놓치기 쉬운 그래프 구조를 검색과 재랭킹에 반영하고, 넓게 수집된 문맥을 추론에 필요한 작은 근거 집합으로 정제하는 방법에 집중합니다. 대학원 이전에는 산업 문서 검토 RAG, 위성영상 기반 변화탐지, 데이터 서비스 기획 등 실제 문제를 다루는 AI 프로젝트를 수행했습니다.</p>
+
+              <div class="about-meta">
+                <div>
+                  <span class="meta-label" data-ko="소속" data-en="Affiliation">소속</span>
+                  <strong data-ko="충남대학교 Data Intelligence Lab" data-en="Data Intelligence Lab, CNU">충남대학교 Data Intelligence Lab</strong>
+                </div>
+                <div>
+                  <span class="meta-label" data-ko="연구 분야" data-en="Research">연구 분야</span>
+                  <strong data-ko="GraphRAG · IR · Multi-hop QA" data-en="GraphRAG · IR · Multi-hop QA">GraphRAG · IR · Multi-hop QA</strong>
+                </div>
+                <div>
+                  <span class="meta-label" data-ko="위치" data-en="Based in">위치</span>
+                  <strong data-ko="대전, 대한민국" data-en="Daejeon, Republic of Korea">대전, 대한민국</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="focus-grid reveal">
+              <article class="focus-card">
+                <span class="focus-number">01</span>
+                <h3 data-ko="구조 인식 검색" data-en="Structure-aware Retrieval">구조 인식 검색</h3>
+                <p
+                  data-ko="의미적 관련성과 그래프 연결성을 함께 반영해 다중 홉 근거의 검색 순위를 개선합니다."
+                  data-en="Combine semantic relevance with graph connectivity to improve the ranking of multi-hop evidence."
+                >의미적 관련성과 그래프 연결성을 함께 반영해 다중 홉 근거의 검색 순위를 개선합니다.</p>
+              </article>
+              <article class="focus-card">
+                <span class="focus-number">02</span>
+                <h3 data-ko="근거 정제" data-en="Evidence Refinement">근거 정제</h3>
+                <p
+                  data-ko="넓게 검색된 문맥에서 중복과 방해 요소를 줄이고, 상호보완적인 근거 체인을 구성합니다."
+                  data-en="Reduce redundancy and distractors in broad contexts while constructing complementary evidence chains."
+                >넓게 검색된 문맥에서 중복과 방해 요소를 줄이고, 상호보완적인 근거 체인을 구성합니다.</p>
+              </article>
+              <article class="focus-card">
+                <span class="focus-number">03</span>
+                <h3 data-ko="신뢰 가능한 추론" data-en="Reliable Reasoning">신뢰 가능한 추론</h3>
+                <p
+                  data-ko="검색 품질과 토큰 비용을 함께 고려해 더 효율적이고 검증 가능한 다중 홉 추론을 지향합니다."
+                  data-en="Optimize retrieval quality and token cost together for efficient, verifiable multi-hop reasoning."
+                >검색 품질과 토큰 비용을 함께 고려해 더 효율적이고 검증 가능한 다중 홉 추론을 지향합니다.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="research" aria-labelledby="research-title">
+        <div class="shell">
+          <div class="section-heading section-heading-row reveal">
+            <div>
+              <p class="section-kicker" data-ko="02 · 연구" data-en="02 · RESEARCH">02 · 연구</p>
+              <h2 id="research-title" data-ko="대표 연구" data-en="Selected research">대표 연구</h2>
+            </div>
+            <p
+              class="section-note"
+              data-ko="GraphRAG의 검색 품질, 구조 정렬, 근거 효율성을 중심으로 연구합니다."
+              data-en="My research focuses on retrieval quality, structural alignment, and evidence efficiency in GraphRAG."
+            >GraphRAG의 검색 품질, 구조 정렬, 근거 효율성을 중심으로 연구합니다.</p>
+          </div>
+
+          <div class="featured-research">
+            <article class="research-card research-card-featured reveal">
+              <div class="research-visual visual-star" aria-hidden="true">
+                <div class="visual-label">StAR</div>
+                <svg viewBox="0 0 560 320">
+                  <g class="paper-grid">
+                    <path d="M40 74H520M40 154H520M40 234H520"></path>
+                    <path d="M100 30V286M220 30V286M340 30V286M460 30V286"></path>
+                  </g>
+                  <g class="paper-edges" fill="none">
+                    <path d="M92 226C150 163 197 133 260 102"></path>
+                    <path d="M260 102C335 108 390 145 458 205"></path>
+                    <path d="M92 226C190 255 312 253 458 205"></path>
+                    <path class="paper-highlight" d="M92 226C150 163 197 133 260 102C335 108 390 145 458 205"></path>
+                  </g>
+                  <g class="paper-nodes">
+                    <circle cx="92" cy="226" r="20"></circle>
+                    <circle cx="260" cy="102" r="24"></circle>
+                    <circle cx="458" cy="205" r="28"></circle>
+                  </g>
+                  <text x="53" y="274">semantic</text>
+                  <text x="232" y="60">structure</text>
+                  <text x="428" y="258">rank</text>
+                </svg>
+                <div class="visual-caption">semantic × structural alignment</div>
+              </div>
+
+              <div class="research-content">
+                <div class="research-meta">
+                  <span class="status status-published" data-ko="게재" data-en="Published">게재</span>
+                  <span>SIGIR 2026 · Short Paper</span>
+                </div>
+                <h3>StAR: Adaptive Structure-Aware Reranking for Semantic–Structural Alignment in GraphRAG</h3>
+                <p class="authors"><strong>Junghyun Oh</strong>, Sungsu Lim</p>
+                <p
+                  data-ko="의미적 관련성과 하이퍼볼릭 구조 유사도를 적응적으로 결합하는 플러그앤플레이 재랭킹 모듈입니다. 그래프의 연결 구조가 실제 다중 홉 근거 선택에 기여하도록 설계했습니다."
+                  data-en="A plug-and-play reranking module that adaptively combines semantic relevance with hyperbolic structural similarity, enabling graph connectivity to guide multi-hop evidence selection."
+                >의미적 관련성과 하이퍼볼릭 구조 유사도를 적응적으로 결합하는 플러그앤플레이 재랭킹 모듈입니다. 그래프의 연결 구조가 실제 다중 홉 근거 선택에 기여하도록 설계했습니다.</p>
+                <div class="tag-list" aria-label="Research keywords">
+                  <span>GraphRAG</span><span>Reranking</span><span>Hyperbolic Similarity</span>
+                </div>
+                <div class="research-links">
+                  <a href="https://dblp.org/rec/conf/sigir/OhL26" target="_blank" rel="noreferrer">
+                    <span data-ko="논문 정보" data-en="Paper record">논문 정보</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+                  </a>
+                  <a href="https://sigir2026.org/en-AU/pages/program/accepted-papers" target="_blank" rel="noreferrer">
+                    <span data-ko="학회 페이지" data-en="Conference">학회 페이지</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="research-card research-card-featured reveal">
+              <div class="research-visual visual-gref" aria-hidden="true">
+                <div class="visual-label">GRef-RAG</div>
+                <svg viewBox="0 0 560 320">
+                  <g class="bundle bundle-left">
+                    <circle cx="86" cy="88" r="8"></circle>
+                    <circle cx="72" cy="160" r="8"></circle>
+                    <circle cx="116" cy="226" r="8"></circle>
+                    <circle cx="158" cy="126" r="8"></circle>
+                    <circle cx="178" cy="226" r="8"></circle>
+                    <path d="M86 88 72 160 116 226M86 88 158 126 178 226M72 160 158 126M116 226 178 226"></path>
+                  </g>
+                  <path class="refine-arrow" d="M220 160H326"></path>
+                  <path class="refine-arrow-head" d="m311 145 16 15-16 15"></path>
+                  <g class="bundle bundle-right">
+                    <circle cx="386" cy="92" r="11"></circle>
+                    <circle cx="432" cy="158" r="11"></circle>
+                    <circle cx="478" cy="224" r="11"></circle>
+                    <path class="evidence-path" d="M386 92 432 158 478 224"></path>
+                    <circle class="support-node" cx="386" cy="224" r="6"></circle>
+                    <path d="M386 224 432 158"></path>
+                  </g>
+                  <text x="76" y="278">broad context</text>
+                  <text x="375" y="278">refined evidence</text>
+                </svg>
+                <div class="visual-caption">seed → refine → compact evidence</div>
+              </div>
+
+              <div class="research-content">
+                <div class="research-meta">
+                  <span class="status status-review" data-ko="심사 중" data-en="Under review">심사 중</span>
+                  <span>ACL ARR 2026 August</span>
+                </div>
+                <h3>GRef-RAG: Is Broader Retrieval Always Better for GraphRAG?</h3>
+                <p class="authors"><strong>Junghyun Oh</strong>, Jin-woo Lee, Sungsu Lim</p>
+                <p
+                  data-ko="넓은 그래프 확장이 항상 더 좋은 근거를 제공하지는 않는다는 문제에서 출발합니다. 이질적인 seed를 찾은 뒤 그래프 제약 하에서 상호보완적인 evidence bundle로 정제해 방해 문맥과 토큰 비용을 줄입니다."
+                  data-en="This work questions whether broader graph expansion always yields better evidence. It retrieves heterogeneous seeds and refines them into complementary graph-constrained evidence bundles to reduce distractors and context cost."
+                >넓은 그래프 확장이 항상 더 좋은 근거를 제공하지는 않는다는 문제에서 출발합니다. 이질적인 seed를 찾은 뒤 그래프 제약 하에서 상호보완적인 evidence bundle로 정제해 방해 문맥과 토큰 비용을 줄입니다.</p>
+                <div class="tag-list" aria-label="Research keywords">
+                  <span>Evidence Chains</span><span>Context Efficiency</span><span>Multi-hop QA</span>
+                </div>
+                <p class="review-note" data-ko="심사 중인 연구로, 상태와 공개 자료는 추후 업데이트됩니다." data-en="This work is under review; status and public materials will be updated later.">심사 중인 연구로, 상태와 공개 자료는 추후 업데이트됩니다.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="research-list reveal">
+            <article class="research-row">
+              <div class="research-year">2026</div>
+              <div class="research-row-main">
+                <div class="research-meta">
+                  <span class="status status-preprint">Preprint</span>
+                  <span>RAG · Citation Grounding</span>
+                </div>
+                <h3>MPR-CiteG: Enhancing RAG with Multi-Portfolio Retrieval and Citation-Grounded Generation</h3>
+                <p>Hyewon Lee, Minkyung Song, <strong>Junghyun Oh</strong>, Seunghoon Han, Sungsu Lim</p>
+              </div>
+              <a class="row-link" href="https://arxiv.org/abs/2607.22706" target="_blank" rel="noreferrer" aria-label="Open MPR-CiteG paper">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+              </a>
+            </article>
+
+            <article class="research-row">
+              <div class="research-year">2025</div>
+              <div class="research-row-main">
+                <div class="research-meta">
+                  <span class="status status-preprint" data-ko="기술보고서" data-en="Technical report">기술보고서</span>
+                  <span>CIKM 2025 AnalytiCup</span>
+                </div>
+                <h3>Alibaba International E-commerce Product Search Competition DILAB Team Technical Report</h3>
+                <p>Hyewon Lee, <strong>Junghyun Oh</strong>, Minkyung Song, Soyoung Park, Seunghoon Han</p>
+              </div>
+              <a class="row-link" href="https://arxiv.org/abs/2510.18499" target="_blank" rel="noreferrer" aria-label="Open Alibaba technical report">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="projects" aria-labelledby="projects-title">
+        <div class="shell">
+          <div class="section-heading section-heading-row reveal">
+            <div>
+              <p class="section-kicker" data-ko="03 · 프로젝트" data-en="03 · PROJECTS">03 · 프로젝트</p>
+              <h2 id="projects-title" data-ko="연구를 현실의 문제에 연결한 작업" data-en="Applied work connecting research to real problems">연구를 현실의 문제에 연결한 작업</h2>
+            </div>
+            <p
+              class="section-note"
+              data-ko="문제 정의부터 데이터 처리, 검색·모델링, 서비스 구현까지 전 과정을 경험했습니다."
+              data-en="I have worked across the full pipeline—from problem definition and data processing to retrieval, modeling, and service implementation."
+            >문제 정의부터 데이터 처리, 검색·모델링, 서비스 구현까지 전 과정을 경험했습니다.</p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <div class="project-visual project-steel" aria-hidden="true">
+                <div class="document-stack">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="retrieval-line"></div>
+                <div class="result-sheet">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <div class="project-visual-label">INDUSTRIAL RAG</div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span>2023–2024</span>
+                  <span data-ko="팀장 · RAG 개발" data-en="Team lead · RAG development">팀장 · RAG 개발</span>
+                </div>
+                <h3 data-ko="생성형 AI 기반 수주 규격 검토 자동화" data-en="Generative-AI Specification Review Automation">생성형 AI 기반 수주 규격 검토 자동화</h3>
+                <p
+                  data-ko="반복적으로 긴 수주 규격 문서를 검색하고 엑셀 검토서를 작성하던 업무를 자동화하기 위해 문서 분할, 임베딩, 검색, 비교 결과 생성을 연결한 철강 도메인 RAG 프로토타입을 개발했습니다."
+                  data-en="Built a steel-domain RAG prototype that connected document segmentation, embedding, retrieval, and comparison output to automate repetitive specification review and spreadsheet reporting."
+                >반복적으로 긴 수주 규격 문서를 검색하고 엑셀 검토서를 작성하던 업무를 자동화하기 위해 문서 분할, 임베딩, 검색, 비교 결과 생성을 연결한 철강 도메인 RAG 프로토타입을 개발했습니다.</p>
+                <div class="project-facts">
+                  <div><span data-ko="역할" data-en="Role">역할</span><strong data-ko="팀 리딩, 전처리, 임베딩 연구" data-en="Team leadership, preprocessing, embedding">팀 리딩, 전처리, 임베딩 연구</strong></div>
+                  <div><span data-ko="기술" data-en="Stack">기술</span><strong>Python · LangChain · LLM API · Streamlit</strong></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-visual project-bluecarbon" aria-hidden="true">
+                <div class="satellite">
+                  <span class="satellite-body"></span>
+                  <span class="satellite-wing wing-left"></span>
+                  <span class="satellite-wing wing-right"></span>
+                </div>
+                <div class="scan-beam"></div>
+                <div class="terrain">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="project-visual-label">GEO AI</div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span>2023</span>
+                  <span data-ko="PM · 데이터 분석" data-en="PM · Data analysis">PM · 데이터 분석</span>
+                </div>
+                <h3 data-ko="Sentinel 위성영상 기반 블루카본 변화탐지" data-en="Blue-Carbon Change Detection with Sentinel Imagery">Sentinel 위성영상 기반 블루카본 변화탐지</h3>
+                <p
+                  data-ko="Sentinel-1/2 위성영상과 Google Earth Engine을 활용해 국립공원 내 블루카본 저장소의 시계열 변화와 위험 구간을 탐색하는 모니터링 서비스를 구현했습니다."
+                  data-en="Developed a monitoring service using Sentinel-1/2 imagery and Google Earth Engine to explore time-series changes and risk areas in national-park blue-carbon reservoirs."
+                >Sentinel-1/2 위성영상과 Google Earth Engine을 활용해 국립공원 내 블루카본 저장소의 시계열 변화와 위험 구간을 탐색하는 모니터링 서비스를 구현했습니다.</p>
+                <div class="project-facts">
+                  <div><span data-ko="역할" data-en="Role">역할</span><strong data-ko="PM, GEE 기능 개발, 데이터 분석" data-en="PM, GEE feature development, data analysis">PM, GEE 기능 개발, 데이터 분석</strong></div>
+                  <div><span data-ko="기술" data-en="Stack">기술</span><strong>GEE · Python · Prophet · Streamlit</strong></div>
+                </div>
+                <a class="text-link" href="https://github.com/Ojung-ii/Bluecarbon-Surveillence-Service-with-Sentinel-Satellite" target="_blank" rel="noreferrer">
+                  <span data-ko="GitHub에서 보기" data-en="View on GitHub">GitHub에서 보기</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="earlier-work reveal">
+            <p class="earlier-label" data-ko="이전 프로젝트" data-en="EARLIER WORK">이전 프로젝트</p>
+            <div class="earlier-items">
+              <article>
+                <span>2023</span>
+                <h3 data-ko="의료영상 기반 경도인지장애 예측" data-en="Mild Cognitive Impairment Prediction from Medical Imaging">의료영상 기반 경도인지장애 예측</h3>
+                <p>OpenCV · CNN · Scikit-learn · Streamlit</p>
+              </article>
+              <article>
+                <span>2024</span>
+                <h3 data-ko="스타트업 지원사업 AI 맞춤 플랫폼 UX/UI" data-en="AI-Personalized Startup Support Platform UX/UI">스타트업 지원사업 AI 맞춤 플랫폼 UX/UI</h3>
+                <p>Service Design · UX Research · Figma</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="section-kicker" data-ko="04 · 경력과 교육" data-en="04 · EXPERIENCE & EDUCATION">04 · 경력과 교육</p>
+            <h2 id="experience-title" data-ko="연구자로 이어진 경험" data-en="Experience that shaped my research">연구자로 이어진 경험</h2>
+          </div>
+
+          <div class="experience-layout">
+            <div class="timeline reveal">
+              <article class="timeline-item">
+                <div class="timeline-date">2025.03 — 2027.02</div>
+                <div class="timeline-content">
+                  <span class="timeline-type" data-ko="석사과정 · 연구" data-en="M.S. · Research">석사과정 · 연구</span>
+                  <h3 data-ko="충남대학교 Data Intelligence Lab" data-en="Data Intelligence Lab, Chungnam National University">충남대학교 Data Intelligence Lab</h3>
+                  <p
+                    data-ko="컴퓨터공학과 인공지능 전공. GraphRAG, 그래프 표현학습, 정보검색, 다중 홉 질의응답을 연구합니다. 지도교수: 임성수 교수."
+                    data-en="M.S. in Computer Science and Engineering. Research on GraphRAG, graph representation learning, information retrieval, and multi-hop QA. Advisor: Prof. Sungsu Lim."
+                  >컴퓨터공학과 인공지능 전공. GraphRAG, 그래프 표현학습, 정보검색, 다중 홉 질의응답을 연구합니다. 지도교수: 임성수 교수.</p>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <div class="timeline-date">2024.06 — 2024.07</div>
+                <div class="timeline-content">
+                  <span class="timeline-type" data-ko="프로젝트 인턴" data-en="Project internship">프로젝트 인턴</span>
+                  <h3 data-ko="인턴10 UX/UI 프로그램" data-en="Intern10 UX/UI Program">인턴10 UX/UI 프로그램</h3>
+                  <p
+                    data-ko="스타트업 지원사업을 개인화해 탐색하는 AI 플랫폼의 서비스 구조와 UX/UI를 기획했습니다."
+                    data-en="Designed the service structure and UX/UI of an AI platform for personalized discovery of startup-support programs."
+                  >스타트업 지원사업을 개인화해 탐색하는 AI 플랫폼의 서비스 구조와 UX/UI를 기획했습니다.</p>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <div class="timeline-date">2023.06 — 2024.03</div>
+                <div class="timeline-content">
+                  <span class="timeline-type" data-ko="산학 프로젝트" data-en="Industry projects">산학 프로젝트</span>
+                  <h3 data-ko="빅리더 프로젝트 인턴십" data-en="BigLeader Project Internship">빅리더 프로젝트 인턴십</h3>
+                  <p
+                    data-ko="철강 문서 RAG와 위성영상 변화탐지 프로젝트를 수행하고, 후속 고도화와 서비스 배포를 경험했습니다."
+                    data-en="Worked on an industrial-document RAG system and a satellite change-detection service, followed by performance improvement and deployment."
+                  >철강 문서 RAG와 위성영상 변화탐지 프로젝트를 수행하고, 후속 고도화와 서비스 배포를 경험했습니다.</p>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <div class="timeline-date">2022.12 — 2023.05</div>
+                <div class="timeline-content">
+                  <span class="timeline-type" data-ko="AI 교육" data-en="AI training">AI 교육</span>
+                  <h3 data-ko="멋쟁이사자처럼 AI 스쿨 8기" data-en="LikeLion AI School, Cohort 8">멋쟁이사자처럼 AI 스쿨 8기</h3>
+                  <p
+                    data-ko="Python, 데이터 분석, 머신러닝, 딥러닝을 학습하고 공공데이터 및 의료영상 프로젝트를 수행했습니다."
+                    data-en="Studied Python, data analysis, machine learning, and deep learning while completing public-data and medical-imaging projects."
+                  >Python, 데이터 분석, 머신러닝, 딥러닝을 학습하고 공공데이터 및 의료영상 프로젝트를 수행했습니다.</p>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <div class="timeline-date">2017.03 — 2023.08</div>
+                <div class="timeline-content">
+                  <span class="timeline-type" data-ko="학사" data-en="B.S.">학사</span>
+                  <h3 data-ko="전북대학교 생물환경화학" data-en="B.S. in Bioenvironmental Chemistry, Jeonbuk National University">전북대학교 생물환경화학</h3>
+                  <p
+                    data-ko="환경과 생물 데이터를 다루는 전공 경험을 바탕으로 데이터 분석과 AI로 관심을 확장했습니다."
+                    data-en="Expanded from environmental and biological data toward data analysis and artificial intelligence."
+                  >환경과 생물 데이터를 다루는 전공 경험을 바탕으로 데이터 분석과 AI로 관심을 확장했습니다.</p>
+                </div>
+              </article>
+            </div>
+
+            <aside class="recognition reveal" aria-labelledby="recognition-title">
+              <p class="recognition-kicker" data-ko="SELECTED RECOGNITION" data-en="SELECTED RECOGNITION">SELECTED RECOGNITION</p>
+              <h3 id="recognition-title" data-ko="주요 성과" data-en="Selected honors">주요 성과</h3>
+              <ul>
+                <li>
+                  <span class="award-year">2026</span>
+                  <div><strong data-ko="ACM SIGIR Short Paper" data-en="ACM SIGIR Short Paper">ACM SIGIR Short Paper</strong><p>StAR</p></div>
+                </li>
+                <li>
+                  <span class="award-year">2025</span>
+                  <div><strong data-ko="한국연구재단 석사과정생 연구장려금" data-en="NRF Master's Research Fellowship">한국연구재단 석사과정생 연구장려금</strong><p data-ko="구조 반영 GraphRAG 연구" data-en="Structure-aware GraphRAG research">구조 반영 GraphRAG 연구</p></div>
+                </li>
+                <li>
+                  <span class="award-year">2025</span>
+                  <div><strong data-ko="ScienceON AI Challenge 2위" data-en="2nd Place, ScienceON AI Challenge">ScienceON AI Challenge 2위</strong><p data-ko="KISTI 원장상" data-en="KISTI President's Award">KISTI 원장상</p></div>
+                </li>
+                <li>
+                  <span class="award-year">2025</span>
+                  <div><strong>CNU-Star Fellowship</strong><p data-ko="충남대학교" data-en="Chungnam National University">충남대학교</p></div>
+                </li>
+                <li>
+                  <span class="award-year">2025</span>
+                  <div><strong data-ko="Alibaba International Tech 특별상" data-en="Alibaba International Tech Special Award">Alibaba International Tech 특별상</strong><p>CIKM AnalytiCup</p></div>
+                </li>
+                <li>
+                  <span class="award-year">2023</span>
+                  <div><strong data-ko="고용노동부 장관상" data-en="Minister of Employment and Labor Award">고용노동부 장관상</strong><p data-ko="미래내일 일경험 우수사례 최우수상" data-en="Grand Prize, Work-Experience Best Practice">미래내일 일경험 우수사례 최우수상</p></div>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="shell contact-grid">
+          <div class="contact-copy reveal">
+            <p class="section-kicker section-kicker-light" data-ko="05 · 연락처" data-en="05 · CONTACT">05 · 연락처</p>
+            <h2 id="contact-title" data-ko="좋은 연구와 협업에 열려 있습니다." data-en="Open to thoughtful research and collaboration.">좋은 연구와 협업에 열려 있습니다.</h2>
+            <p
+              data-ko="GraphRAG, 정보검색, 그래프 학습, 신뢰 가능한 생성형 AI와 관련된 연구 교류나 협업 제안은 이메일로 연락해주세요."
+              data-en="Feel free to reach out about research discussions or collaboration in GraphRAG, information retrieval, graph learning, and reliable generative AI."
+            >GraphRAG, 정보검색, 그래프 학습, 신뢰 가능한 생성형 AI와 관련된 연구 교류나 협업 제안은 이메일로 연락해주세요.</p>
+          </div>
+
+          <div class="contact-actions reveal">
+            <a class="contact-email" href="mailto:ojh7839@o.cnu.ac.kr">
+              <span data-ko="이메일" data-en="Email">이메일</span>
+              <strong>ojh7839@o.cnu.ac.kr</strong>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+            </a>
+            <div class="contact-socials">
+              <a href="https://github.com/Ojung-ii" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/ojungii" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://dblp.org/pid/185/4613" target="_blank" rel="noreferrer">DBLP</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div>
+          <strong>Junghyun Oh</strong>
+          <span data-ko="GraphRAG & AI Researcher" data-en="GraphRAG & AI Researcher">GraphRAG & AI Researcher</span>
+        </div>
+        <p>
+          <span>© <span id="current-year">2026</span> Junghyun Oh.</span>
+          <span data-ko="GitHub Pages에서 운영됩니다." data-en="Hosted on GitHub Pages.">GitHub Pages에서 운영됩니다.</span>
+        </p>
+      </div>
+    </footer>
+
+    <button
+      class="back-to-top"
+      id="back-to-top"
+      type="button"
+      aria-label="맨 위로 이동"
+      data-ko-aria-label="맨 위로 이동"
+      data-en-aria-label="Back to top"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"></path></svg>
+    </button>
+  </body>
 </html>
