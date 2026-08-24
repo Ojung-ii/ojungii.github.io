@@ -776,3 +776,24 @@ html[data-theme="dark"] .network-node.is-detail .node-core{fill:var(--surface-2)
 @media(prefers-reduced-motion:reduce){
   .network-node .node-core,.network-link,.network-node .node-halo{transition:none}
 }
+
+/* --- v7 AI Researcher positioning --- */
+.hero-key-title span{display:block}
+.hero-key-title strong{font-size:.58em;line-height:1.18;margin-top:10px;letter-spacing:-.035em}
+.research-focus-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.research-focus-grid .work-card{min-height:350px}
+.research-area-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.research-area-grid .thesis-card{min-height:260px}
+.graph-learning-visual svg{background:var(--bg-soft)}
+@media(max-width:980px){
+  .research-focus-grid{grid-template-columns:1fr 1fr}
+  .research-focus-grid .work-card:first-child{grid-column:1/-1}
+  .research-area-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .hero-key-title strong{font-size:.64em;line-height:1.24}
+  .research-focus-grid,.research-area-grid{grid-template-columns:1fr}
+  .research-focus-grid .work-card:first-child{grid-column:auto}
+  .research-focus-grid .work-card{min-height:290px}
+  .research-area-grid .thesis-card{min-height:unset}
+}

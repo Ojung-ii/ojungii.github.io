@@ -1,155 +1,73 @@
-<!doctype html>
-<html lang="ko" data-theme="light">
+<!DOCTYPE html>
+
+<html data-theme="light" lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff">
-<title>Research | 오정현</title>
-<meta name="description" content="오정현의 GraphRAG, structure-aware retrieval, evidence refinement, and multi-hop reasoning research.">
-<meta name="author" content="Junghyun Oh">
-<link rel="canonical" href="https://ojungii.com/research/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ojungii.com/research/">
-<meta property="og:title" content="Research | 오정현">
-<meta property="og:description" content="오정현의 GraphRAG, structure-aware retrieval, evidence refinement, and multi-hop reasoning research.">
-<meta property="og:image" content="https://ojungii.com/assets/og-image.png">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:locale:alternate" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Research | 오정현">
-<meta name="twitter:description" content="오정현의 GraphRAG, structure-aware retrieval, evidence refinement, and multi-hop reasoning research.">
-<meta name="twitter:image" content="https://ojungii.com/assets/og-image.png">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="/assets/styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#ffffff" name="theme-color"/>
+<title>Research | 오정현 · AI Researcher</title>
+<meta content="Graph Neural Networks, GraphRAG, Information Retrieval, LLM reasoning을 중심으로 한 오정현의 연구 영역과 publications." name="description"/>
+<meta content="Junghyun Oh" name="author"/>
+<link href="https://ojungii.com/research/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ojungii.com/research/" property="og:url"/>
+<meta content="Research | 오정현 · AI Researcher" property="og:title"/>
+<meta content="Graph Neural Networks, GraphRAG, Information Retrieval, LLM reasoning을 중심으로 한 오정현의 연구 영역과 publications." property="og:description"/>
+<meta content="https://ojungii.com/assets/og-image.png" property="og:image"/>
+<meta content="ko_KR" property="og:locale"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Research | 오정현 · AI Researcher" name="twitter:title"/>
+<meta content="Graph Neural Networks, GraphRAG, Information Retrieval, LLM reasoning을 중심으로 한 오정현의 연구 영역과 publications." name="twitter:description"/>
+<meta content="https://ojungii.com/assets/og-image.png" name="twitter:image"/>
+<link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="/assets/styles.css" rel="stylesheet"/>
 <script>
 (()=>{document.documentElement.classList.add('js');let t=null;try{t=localStorage.getItem('ojungii-theme')}catch{};if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;document.querySelector('meta[name="theme-color"]').content=t==='dark'?'#07111f':'#ffffff'})();
 </script>
-<script defer src="/assets/script.js"></script>
+<script defer="" src="/assets/script.js"></script>
 </head>
-<body data-title-ko="Research | 오정현" data-title-en="Research | Junghyun Oh" data-description-ko="오정현의 GraphRAG, structure-aware retrieval, evidence refinement, and multi-hop reasoning research." data-description-en="Research by Junghyun Oh on GraphRAG, structure-aware retrieval, evidence refinement, and multi-hop reasoning.">
-<a class="skip-link" href="#main-content" data-ko="본문으로 바로가기" data-en="Skip to main content">본문으로 바로가기</a>
+<body data-description-en="Research areas and publications by Junghyun Oh across graph neural networks, GraphRAG, information retrieval, and LLM reasoning." data-description-ko="Graph Neural Networks, GraphRAG, Information Retrieval, LLM reasoning을 중심으로 한 오정현의 연구 영역과 publications." data-title-en="Research | Junghyun Oh · AI Researcher" data-title-ko="Research | 오정현 · AI Researcher">
+<a class="skip-link" data-en="Skip to main content" data-ko="본문으로 바로가기" href="#main-content">본문으로 바로가기</a>
 <header class="site-header" id="site-header">
-<nav class="nav-shell" aria-label="Primary navigation">
-<a class="brand" href="/" aria-label="Junghyun Oh home"><span class="brand-mark" aria-hidden="true">JO</span><span class="brand-name">Junghyun Oh</span></a>
-<div class="nav-links" id="nav-links"><a href="/research/" aria-current="page" data-ko="연구" data-en="Research">연구</a><a href="/projects/" data-ko="프로젝트" data-en="Projects">프로젝트</a><a href="/about/" data-ko="소개" data-en="About">소개</a><a href="/#contact" data-ko="연락처" data-en="Contact">연락처</a></div>
+<nav aria-label="Primary navigation" class="nav-shell">
+<a aria-label="Junghyun Oh home" class="brand" href="/"><span aria-hidden="true" class="brand-mark">JO</span><span class="brand-name">Junghyun Oh</span></a>
+<div class="nav-links" id="nav-links"><a aria-current="page" data-en="Research" data-ko="연구" href="/research/">연구</a><a data-en="Projects" data-ko="프로젝트" href="/projects/">프로젝트</a><a data-en="About" data-ko="소개" href="/about/">소개</a><a data-en="Contact" data-ko="연락처" href="/#contact">연락처</a></div>
 <div class="nav-actions">
-<button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="language-option" data-language-option="ko">KO</span><span aria-hidden="true">/</span><span class="language-option" data-language-option="en">EN</span></button>
-<button class="icon-button" id="theme-toggle" type="button" aria-label="다크 모드로 전환" title="다크 모드로 전환"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 15.3A8.5 8.5 0 0 1 8.7 3.9 8.5 8.5 0 1 0 20.1 15.3Z"></path></svg></button>
-<button class="menu-toggle" id="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="메뉴 열기"><span></span><span></span></button>
+<button aria-label="Switch language" class="language-toggle" id="language-toggle" title="Switch language" type="button"><span class="language-option" data-language-option="ko">KO</span><span aria-hidden="true">/</span><span class="language-option" data-language-option="en">EN</span></button>
+<button aria-label="다크 모드로 전환" class="icon-button" id="theme-toggle" title="다크 모드로 전환" type="button"><svg aria-hidden="true" class="icon-sun" viewbox="0 0 24 24"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"></path></svg><svg aria-hidden="true" class="icon-moon" viewbox="0 0 24 24"><path d="M20.1 15.3A8.5 8.5 0 0 1 8.7 3.9 8.5 8.5 0 1 0 20.1 15.3Z"></path></svg></button>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="메뉴 열기" class="menu-toggle" id="menu-toggle" type="button"><span></span><span></span></button>
 </div></nav></header>
 <main id="main-content">
 <section class="page-hero">
-  <div class="page-hero-grid shell">
-    <div class="reveal">
-      <div class="breadcrumbs"><a href="/" data-ko="홈" data-en="Home">홈</a><span aria-hidden="true">/</span><span>Research</span></div>
-      <p class="eyebrow">RESEARCH</p>
-      <h1 data-ko="Retrieved information to evidence." data-en="From retrieved information to reasoning-ready evidence.">Retrieved information to evidence.</h1>
-      <p class="lede" data-ko="GraphRAG에서 retrieval breadth, structural signal, evidence organization이 multi-hop reasoning에 미치는 영향을 연구합니다." data-en="I study how retrieval breadth, structural signals, and evidence organization in GraphRAG shape multi-hop reasoning.">GraphRAG에서 retrieval breadth, structural signal, evidence organization이 multi-hop reasoning에 미치는 영향을 연구합니다.</p>
-    </div>
-    <aside class="page-hero-aside reveal">
-      <p class="kicker">CURRENT FOCUS</p>
-      <p data-ko="Structure-aware reranking, evidence-chain refinement, retrieval–generation trade-off, uncertainty-aware reasoning." data-en="Structure-aware reranking, evidence-chain refinement, retrieval–generation trade-offs, and uncertainty-aware reasoning.">Structure-aware reranking, evidence-chain refinement, retrieval–generation trade-off, uncertainty-aware reasoning.</p>
-      <div class="tag-row" style="margin-top:14px"><span class="tag">SIGIR 2026</span><span class="tag">GraphRAG</span><span class="tag">IR</span></div>
-    </aside>
-  </div>
+<div class="page-hero-grid shell">
+<div class="reveal"><div class="breadcrumbs"><a data-en="Home" data-ko="홈" href="/">홈</a><span aria-hidden="true">/</span><span>Research</span></div><p class="eyebrow">RESEARCH</p><h1>AI Research · Graph Learning · Retrieval · Reasoning</h1><p class="lede" data-en="My research spans graph neural networks, GraphRAG, information retrieval, and LLM reasoning. I use graph structure as a modeling tool and validate methods through controlled experiments and downstream evaluation." data-ko="Graph Neural Networks, GraphRAG, Information Retrieval, LLM reasoning을 중심으로 연구합니다. graph structure를 모델링에 활용하고, 실험과 평가를 통해 downstream 성능을 검증합니다.">Graph Neural Networks, GraphRAG, Information Retrieval, LLM reasoning을 중심으로 연구합니다. graph structure를 모델링에 활용하고, 실험과 평가를 통해 downstream 성능을 검증합니다.</p></div>
+<aside class="page-hero-aside reveal"><p class="kicker">CURRENT AREAS</p><div class="tag-row"><span class="tag">Graph Neural Networks</span><span class="tag">GraphRAG</span><span class="tag">Information Retrieval</span><span class="tag">RAG Evaluation</span></div></aside>
+</div>
 </section>
-
-<section class="section-compact">
-  <div class="shell">
-    <div class="research-thesis">
-      <article class="thesis-card reveal"><span class="kicker">01 · ALIGN</span><h3 data-ko="semantic relevance와 structure를 함께 봅니다." data-en="I align semantic relevance with structure.">semantic relevance와 structure를 함께 봅니다.</h3><p class="muted" data-ko="문장 relevance만 높아도 evidence가 서로 연결되지 않을 수 있습니다. 질의에 따라 semantic signal과 graph structure의 균형을 조정합니다." data-en="High sentence relevance alone does not guarantee connected evidence. I adjust the balance between semantic signals and graph structure per query.">문장 relevance만 높아도 evidence가 서로 연결되지 않을 수 있습니다. 질의에 따라 semantic signal과 graph structure의 균형을 조정합니다.</p></article>
-      <article class="thesis-card reveal"><span class="kicker">02 · REFINE</span><h3 data-ko="많이 찾는 것보다, 필요한 evidence를 남깁니다." data-en="I keep the evidence that is actually needed.">많이 찾는 것보다, 필요한 evidence를 남깁니다.</h3><p class="muted" data-ko="graph expansion으로 넓게 얻은 후보를 그대로 넘기지 않고, compact evidence bundle이나 evidence chain으로 다시 구성합니다." data-en="Instead of passing broad graph expansion directly, I reorganize it into compact evidence bundles or evidence chains.">graph expansion으로 넓게 얻은 후보를 그대로 넘기지 않고, compact evidence bundle이나 evidence chain으로 다시 구성합니다.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="publications">
-  <div class="shell">
-    <div class="section-head reveal">
-      <div class="section-head-copy">
-        <p class="eyebrow">PUBLICATIONS</p>
-        <h2 data-ko="논문과 Manuscripts" data-en="Publications and manuscripts">논문과 Manuscripts</h2>
-      </div>
-    </div>
-    <div class="filter-toolbar reveal" data-filter-toolbar data-filter-target="#publication-list" data-empty-target="#publication-empty">
-      <div class="filter-block">
-        <span class="filter-label">Type</span>
-        <div class="filter-row" data-filter-group="type">
-          <button class="filter-button is-active" type="button" data-filter="all">All</button>
-          <button class="filter-button" type="button" data-filter="conference">Conference</button>
-          <button class="filter-button" type="button" data-filter="journal">Journal</button>
-          <button class="filter-button" type="button" data-filter="workshop">Workshop</button>
-          <button class="filter-button" type="button" data-filter="report">Technical Report</button>
-          <button class="filter-button" type="button" data-filter="manuscript">Manuscript</button>
-        </div>
-      </div>
-      <div class="filter-block">
-        <span class="filter-label">Region</span>
-        <div class="filter-row" data-filter-group="region">
-          <button class="filter-button is-active" type="button" data-filter="all">All</button>
-          <button class="filter-button" type="button" data-filter="international">International</button>
-          <button class="filter-button" type="button" data-filter="domestic">Domestic</button>
-        </div>
-      </div>
-    </div>
-    <div class="publication-list" id="publication-list">
-      <a class="publication reveal" id="star" data-filter-item data-type="conference" data-region="international" href="https://dblp.org/rec/conf/sigir/OhL26" target="_blank" rel="noreferrer">
-        <div class="pub-year">2026<br><span class="status published">SIGIR</span></div>
-        <div>
-          <h3>StAR: Adaptive Structure-Aware Reranking for Semantic–Structural Alignment in GraphRAG</h3>
-          <p data-ko="semantic relevance와 graph structure를 질의별로 결합하는 adaptive reranking 연구입니다. SIGIR 2026 Short Paper로 발표됩니다." data-en="A SIGIR 2026 Short Paper on adaptive reranking with semantic relevance and graph structure.">semantic relevance와 graph structure를 질의별로 결합하는 adaptive reranking 연구입니다. SIGIR 2026 Short Paper로 발표됩니다.</p>
-          <div class="tag-row" style="margin-top:14px"><span class="tag accent" data-ko="제1저자" data-en="First author">제1저자</span><span class="tag">Conference</span><span class="tag">International</span><span class="tag">GraphRAG</span></div>
-        </div>
-        <div class="pub-action">DBLP ↗</div>
-      </a>
-      <article class="publication reveal" id="gref" data-filter-item data-type="manuscript" data-region="international">
-        <div class="pub-year">2026<br><span class="status review">Under Review</span></div>
-        <div>
-          <h3>GRef-RAG: Is Broader Retrieval Always Better for GraphRAG?</h3>
-          <p data-ko="넓은 retrieval context를 질문에 맞는 compact evidence bundle로 정리하는 seed-then-refine framework입니다." data-en="A seed-then-refine framework that turns broad retrieval into compact evidence bundles.">넓은 retrieval context를 질문에 맞는 compact evidence bundle로 정리하는 seed-then-refine framework입니다.</p>
-          <div class="tag-row" style="margin-top:14px"><span class="tag accent" data-ko="제1저자" data-en="First author">제1저자</span><span class="tag">Manuscript</span><span class="tag">International</span><span class="tag">Evidence Chains</span></div>
-        </div>
-        <div class="pub-action" data-ko="심사 중" data-en="In review">심사 중</div>
-      </article>
-      <a class="publication reveal" data-filter-item data-type="workshop" data-region="international" href="https://arxiv.org/abs/2607.22706" target="_blank" rel="noreferrer">
-        <div class="pub-year">2025<br><span class="status published">CIKM Workshop</span></div>
-        <div>
-          <h3>MPR-CiteG: Enhancing RAG with Multi-Portfolio Retrieval and Citation-Grounded Generation</h3>
-          <p data-ko="retrieval portfolio와 sentence-level citation grounding을 결합한 scientific RAG framework입니다." data-en="A scientific RAG framework that combines retrieval portfolios with sentence-level citation grounding.">retrieval portfolio와 sentence-level citation grounding을 결합한 scientific RAG framework입니다.</p>
-          <div class="tag-row" style="margin-top:14px"><span class="tag">Workshop</span><span class="tag">International</span><span class="tag">RAG</span><span class="tag">Citation Grounding</span></div>
-        </div>
-        <div class="pub-action">arXiv ↗</div>
-      </a>
-      <a class="publication reveal" data-filter-item data-type="report" data-region="international" href="https://arxiv.org/abs/2510.18499" target="_blank" rel="noreferrer">
-        <div class="pub-year">2025<br><span class="status published">Technical Report</span></div>
-        <div>
-          <h3>Alibaba International E-commerce Product Search Competition — DILAB Team Technical Report</h3>
-          <p data-ko="다국어 product-search relevance prediction을 위한 data refinement, tagging, LLM fine-tuning pipeline을 정리한 technical report입니다." data-en="A technical report describing a data-refinement, tagging, and LLM fine-tuning pipeline for multilingual product-search relevance prediction.">다국어 product-search relevance prediction을 위한 data refinement, tagging, LLM fine-tuning pipeline을 정리한 technical report입니다.</p>
-          <div class="tag-row" style="margin-top:14px"><span class="tag">Technical Report</span><span class="tag">International</span><span class="tag">Multilingual IR</span></div>
-        </div>
-        <div class="pub-action">arXiv ↗</div>
-      </a>
-    </div>
-    <p class="filter-empty" id="publication-empty" hidden data-ko="선택한 조건에 맞는 항목이 아직 없습니다." data-en="No items match the selected filters yet.">선택한 조건에 맞는 항목이 아직 없습니다.</p>
-  </div>
-</section>
-
-<section class="section-compact">
-  <div class="shell">
-    <div class="contact-panel reveal">
-      <div>
-        <p class="eyebrow">RESEARCH CONTACT</p>
-        <h2 data-ko="논문, 코드, 공동연구에 관한 문의" data-en="Questions about papers, code, or collaboration">논문, 코드, 공동연구에 관한 문의</h2>
-        <p data-ko="GraphRAG와 Information Retrieval 관련 연락을 받습니다." data-en="Open to messages about GraphRAG and information retrieval research.">GraphRAG와 Information Retrieval 관련 연락을 받습니다.</p>
-        <div class="contact-actions"><a class="button button-primary" href="mailto:ojh7839@o.cnu.ac.kr">ojh7839@o.cnu.ac.kr</a><a class="button button-secondary" href="https://scholar.google.com/citations?user=sHkiTMQAAAAJ&hl=ko" target="_blank" rel="noreferrer">Google Scholar ↗</a></div>
-      </div>
-      <div class="qr-card"><img src="/assets/linkedin-qr.png" alt="LinkedIn QR code"><strong>LinkedIn</strong></div>
-    </div>
-  </div>
-</section>
+<section class="section-compact" id="research-areas"><div class="shell"><div class="section-head reveal"><div class="section-head-copy"><p class="eyebrow">RESEARCH AREAS</p><h2 data-en="Research areas" data-ko="주요 연구 영역">주요 연구 영역</h2></div></div><div class="research-area-grid">
+<article class="thesis-card reveal"><span class="kicker">01 · GRAPH LEARNING</span><h3>Graph Learning</h3><div class="tag-row compact-tags"><span class="tag">Graph Neural Networks</span><span class="tag">Multilayer Graphs</span><span class="tag">Relation-aware Models</span></div><p class="muted" data-en="I model heterogeneous relations with relation-specific message passing and learn relation importance and node representations. RAM-GNN is the representative project in this area." data-ko="heterogeneous relation을 분리해 message passing하고, relation importance와 node representation을 학습합니다. RAM-GNN이 대표 연구입니다.">heterogeneous relation을 분리해 message passing하고, relation importance와 node representation을 학습합니다. RAM-GNN이 대표 연구입니다.</p></article>
+<article class="thesis-card reveal"><span class="kicker">02 · RETRIEVAL &amp; RAG</span><h3>Retrieval &amp; RAG</h3><div class="tag-row compact-tags"><span class="tag">Information Retrieval</span><span class="tag">GraphRAG</span><span class="tag">Reranking</span><span class="tag">Evidence Chains</span></div><p class="muted" data-en="I study retrieval, reranking, and evidence refinement by combining semantic relevance with graph structure. StAR, GRef-RAG, and MPR-CiteG belong to this area." data-ko="semantic relevance와 graph structure를 함께 사용해 retrieval, reranking, evidence refinement를 연구합니다. StAR, GRef-RAG, MPR-CiteG가 이 영역에 속합니다.">semantic relevance와 graph structure를 함께 사용해 retrieval, reranking, evidence refinement를 연구합니다. StAR, GRef-RAG, MPR-CiteG가 이 영역에 속합니다.</p></article>
+<article class="thesis-card reveal"><span class="kicker">03 · REASONING &amp; EVALUATION</span><h3>LLM Reasoning &amp; Evaluation</h3><div class="tag-row compact-tags"><span class="tag">Multi-hop QA</span><span class="tag">RAG Evaluation</span><span class="tag">Token Efficiency</span><span class="tag">Reproducibility</span></div><p class="muted" data-en="I evaluate systems beyond retrieval metrics, including final answers, context length, latency, ablations, and reproducibility." data-ko="retrieval metric뿐 아니라 final answer, context length, latency, ablation, reproducibility까지 함께 평가합니다.">retrieval metric뿐 아니라 final answer, context length, latency, ablation, reproducibility까지 함께 평가합니다.</p></article>
+<article class="thesis-card reveal"><span class="kicker">04 · RESEARCH ENGINEERING</span><h3>Research Engineering</h3><div class="tag-row compact-tags"><span class="tag">PyTorch</span><span class="tag">vLLM</span><span class="tag">LLM Inference</span><span class="tag">Experiment Pipelines</span></div><p class="muted" data-en="I build research pipelines from model implementation and local LLM serving to experiment sweeps, evaluation code, and reproducibility checks." data-ko="모델 구현부터 local LLM serving, 실험 sweep, 평가 코드, 재현성 점검까지 연구 파이프라인을 구성합니다.">모델 구현부터 local LLM serving, 실험 sweep, 평가 코드, 재현성 점검까지 연구 파이프라인을 구성합니다.</p></article>
+</div></div></section>
+<section class="section" id="representative-research"><div class="shell"><div class="section-head reveal"><div class="section-head-copy"><p class="eyebrow">REPRESENTATIVE RESEARCH</p><h2 data-en="Representative research" data-ko="대표 연구">대표 연구</h2></div></div><div class="research-focus-grid">
+<article class="work-card reveal" id="ram-gnn"><div class="work-card-top"><span class="work-card-number">GRAPH LEARNING</span><span class="status">RESEARCH PROJECT</span></div><div class="card-visual graph-learning-visual"><svg aria-hidden="true" viewbox="0 0 600 120"><rect fill="var(--bg-soft)" height="120" width="600"></rect><g fill="none" stroke="var(--line-strong)" stroke-width="2.5"><path d="M80 74L185 35L300 70L418 30L520 76"></path><path d="M80 74L205 96L300 70L418 98L520 76"></path><path d="M185 35L205 96M418 30L418 98"></path></g><g fill="var(--navy)"><circle cx="80" cy="74" r="9"></circle><circle cx="300" cy="70" r="13"></circle><circle cx="520" cy="76" r="9"></circle></g><g fill="var(--blue)"><circle cx="185" cy="35" r="7"></circle><circle cx="205" cy="96" r="7"></circle><circle cx="418" cy="30" r="7"></circle><circle cx="418" cy="98" r="7"></circle></g></svg></div><h3>RAM-GNN: Relation-Aware Multilayer Graph Neural Network</h3><p data-en="A GNN project using relation-specific encoders and node-level relation attention on a multilayer occupational graph." data-ko="multilayer occupational graph에서 relation-specific encoder와 node-level relation attention을 사용하는 GNN 연구입니다.">multilayer occupational graph에서 relation-specific encoder와 node-level relation attention을 사용하는 GNN 연구입니다.</p><div class="work-card-footer"><div class="tag-row"><span class="tag">GNN</span><span class="tag">Multilayer Graph</span><span class="tag">Relation Attention</span></div></div></article>
+<a class="work-card reveal" href="https://dblp.org/rec/conf/sigir/OhL26" id="star" rel="noreferrer" target="_blank"><div class="work-card-top"><span class="work-card-number">GRAPHRAG</span><span class="status published">SIGIR 2026</span></div><div class="card-visual"><svg aria-hidden="true" viewbox="0 0 600 120"><rect fill="var(--bg-soft)" height="120" width="600"></rect><path d="M40 74L160 48L302 70L430 44L560 64" fill="none" stroke="var(--line-strong)" stroke-width="4"></path><path d="M40 74L160 48L302 70" fill="none" stroke="var(--blue)" stroke-width="6"></path><g fill="var(--navy)"><circle cx="40" cy="74" r="9"></circle><circle cx="302" cy="70" r="11"></circle></g><g fill="var(--sky)"><circle cx="160" cy="48" r="7"></circle><circle cx="560" cy="64" r="7"></circle></g></svg></div><h3>StAR: Adaptive Structure-Aware Reranking</h3><p data-en="Adaptive reranking that combines semantic relevance with graph structure per query." data-ko="semantic relevance와 graph structure를 질의별로 결합하는 adaptive reranking 연구입니다.">semantic relevance와 graph structure를 질의별로 결합하는 adaptive reranking 연구입니다.</p><div class="work-card-footer"><div class="tag-row"><span class="tag">SIGIR 2026</span><span class="tag">GraphRAG</span><span class="tag">Reranking</span></div><span class="work-card-arrow">↗</span></div></a>
+<article class="work-card reveal" id="gref"><div class="work-card-top"><span class="work-card-number">RETRIEVAL &amp; RAG</span><span class="status review">UNDER REVIEW</span></div><div class="card-visual"><svg aria-hidden="true" viewbox="0 0 600 120"><rect fill="var(--bg-soft)" height="120" width="600"></rect><g fill="none" stroke="var(--line-strong)" stroke-width="2"><path d="M32 28L156 88L248 32L344 90L448 26L570 86"></path><path d="M32 92L156 32L248 88L344 30L448 92L570 34"></path></g><path d="M32 60L168 60L302 60L434 60L568 60" fill="none" stroke="var(--blue)" stroke-width="7"></path><g fill="var(--navy)"><circle cx="32" cy="60" r="9"></circle><circle cx="302" cy="60" r="11"></circle><circle cx="568" cy="60" r="9"></circle></g></svg></div><h3>GRef-RAG: Is Broader Retrieval Always Better?</h3><p data-en="Refines broad retrieval into compact evidence bundles and evaluates the quality–token trade-off." data-ko="broad retrieval을 compact evidence bundles로 정리하고 quality–token trade-off를 평가합니다.">broad retrieval을 compact evidence bundles로 정리하고 quality–token trade-off를 평가합니다.</p><div class="work-card-footer"><div class="tag-row"><span class="tag">Evidence Chains</span><span class="tag">Multi-hop QA</span><span class="tag">Efficiency</span></div></div></article>
+</div></div></section>
+<section class="section" id="publications"><div class="shell"><div class="section-head reveal"><div class="section-head-copy"><p class="eyebrow">PUBLICATIONS</p><h2 data-en="Publications &amp; manuscripts" data-ko="Publications &amp; Manuscripts">Publications &amp; Manuscripts</h2></div></div>
+<div class="filter-toolbar reveal" data-empty-target="#publication-empty" data-filter-target="#publication-list" data-filter-toolbar=""><div class="filter-block"><span class="filter-label">Type</span><div class="filter-row" data-filter-group="type"><button class="filter-button is-active" data-filter="all" type="button">All</button><button class="filter-button" data-filter="conference" type="button">Conference</button><button class="filter-button" data-filter="journal" type="button">Journal</button><button class="filter-button" data-filter="workshop" type="button">Workshop</button><button class="filter-button" data-filter="report" type="button">Technical Report</button><button class="filter-button" data-filter="manuscript" type="button">Manuscript</button></div></div><div class="filter-block"><span class="filter-label">Region</span><div class="filter-row" data-filter-group="region"><button class="filter-button is-active" data-filter="all" type="button">All</button><button class="filter-button" data-filter="international" type="button">International</button><button class="filter-button" data-filter="domestic" type="button">Domestic</button></div></div></div>
+<div class="publication-list" id="publication-list">
+<a class="publication reveal" data-filter-item="" data-region="international" data-type="conference" href="https://dblp.org/rec/conf/sigir/OhL26" rel="noreferrer" target="_blank"><div class="pub-year">2026<br/><span class="status published">SIGIR</span></div><div><h3>StAR: Adaptive Structure-Aware Reranking for Semantic–Structural Alignment in GraphRAG</h3><p data-en="SIGIR 2026 Short Paper · adaptive reranking combining semantic relevance and graph structure." data-ko="SIGIR 2026 Short Paper · semantic relevance와 graph structure를 결합한 adaptive reranking.">SIGIR 2026 Short Paper · semantic relevance와 graph structure를 결합한 adaptive reranking.</p><div class="tag-row"><span class="tag accent" data-en="First author" data-ko="제1저자">제1저자</span><span class="tag">Conference</span><span class="tag">International</span><span class="tag">GraphRAG</span></div></div><div class="pub-action">DBLP ↗</div></a>
+<article class="publication reveal" data-filter-item="" data-region="international" data-type="manuscript"><div class="pub-year">2026<br/><span class="status review">Under Review</span></div><div><h3>GRef-RAG: Is Broader Retrieval Always Better for GraphRAG?</h3><p data-en="A seed-then-refine framework for turning broad graph retrieval into compact evidence bundles." data-ko="broad graph retrieval을 compact evidence bundles로 정리하는 seed-then-refine framework.">broad graph retrieval을 compact evidence bundles로 정리하는 seed-then-refine framework.</p><div class="tag-row"><span class="tag accent" data-en="First author" data-ko="제1저자">제1저자</span><span class="tag">Manuscript</span><span class="tag">International</span><span class="tag">Retrieval</span></div></div><div class="pub-action" data-en="In review" data-ko="심사 중">심사 중</div></article>
+<a class="publication reveal" data-filter-item="" data-region="international" data-type="workshop" href="https://arxiv.org/abs/2607.22706" rel="noreferrer" target="_blank"><div class="pub-year">2025<br/><span class="status published">CIKM Workshop</span></div><div><h3>MPR-CiteG: Enhancing RAG with Multi-Portfolio Retrieval and Citation-Grounded Generation</h3><p data-en="Scientific RAG combining multi-portfolio retrieval with sentence-level citation grounding." data-ko="multi-portfolio retrieval과 sentence-level citation grounding을 결합한 scientific RAG framework.">multi-portfolio retrieval과 sentence-level citation grounding을 결합한 scientific RAG framework.</p><div class="tag-row"><span class="tag">Workshop</span><span class="tag">International</span><span class="tag">Information Retrieval</span><span class="tag">Citation Grounding</span></div></div><div class="pub-action">arXiv ↗</div></a>
+<a class="publication reveal" data-filter-item="" data-region="international" data-type="report" href="https://arxiv.org/abs/2510.18499" rel="noreferrer" target="_blank"><div class="pub-year">2025<br/><span class="status published">Technical Report</span></div><div><h3>Alibaba International E-commerce Product Search Competition — DILAB Team Technical Report</h3><p data-en="Data refinement, tagging, and LLM fine-tuning for multilingual product-search relevance prediction." data-ko="multilingual product-search relevance prediction을 위한 data refinement, tagging, LLM fine-tuning pipeline.">multilingual product-search relevance prediction을 위한 data refinement, tagging, LLM fine-tuning pipeline.</p><div class="tag-row"><span class="tag">Technical Report</span><span class="tag">International</span><span class="tag">Multilingual IR</span></div></div><div class="pub-action">arXiv ↗</div></a>
+</div><p class="filter-empty" data-en="No items match the selected filters." data-ko="선택한 조건에 맞는 항목이 없습니다." hidden="" id="publication-empty">선택한 조건에 맞는 항목이 없습니다.</p></div></section>
+<section class="section-compact"><div class="shell"><div class="contact-panel reveal"><div><p class="eyebrow">RESEARCH CONTACT</p><h2 data-en="AI/ML research contact" data-ko="AI/ML 연구 관련 연락">AI/ML 연구 관련 연락</h2><p data-en="Open to messages about graph learning, retrieval, RAG, and LLM systems." data-ko="Graph Learning, Retrieval, RAG, LLM systems 관련 연락을 받습니다.">Graph Learning, Retrieval, RAG, LLM systems 관련 연락을 받습니다.</p><div class="contact-actions"><a class="button button-primary" href="mailto:ojh7839@o.cnu.ac.kr">ojh7839@o.cnu.ac.kr</a><a class="button button-secondary" href="https://scholar.google.com/citations?user=sHkiTMQAAAAJ&amp;hl=ko" rel="noreferrer" target="_blank">Google Scholar ↗</a></div></div><div class="qr-card"><img alt="LinkedIn QR code" src="/assets/linkedin-qr.png"/><strong>LinkedIn</strong></div></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-shell shell"><div>© <span data-current-year></span> Junghyun Oh · <span data-ko="GraphRAG · Information Retrieval · RAG Systems" data-en="GraphRAG · Information Retrieval · RAG Systems">GraphRAG · Information Retrieval · RAG Systems</span></div><div><a href="https://github.com/Ojung-ii" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/ojungii" target="_blank" rel="noreferrer">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=sHkiTMQAAAAJ&hl=ko" target="_blank" rel="noreferrer">Google Scholar</a> · <a href="/research/" data-ko="연구" data-en="Research">연구</a></div></div></footer>
-<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+<footer class="site-footer"><div class="footer-shell shell"><div>© <span data-current-year=""></span> Junghyun Oh · <span>AI Research · Graph Learning · Retrieval · LLM Systems</span></div><div><a href="https://github.com/Ojung-ii" rel="noreferrer" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/ojungii" rel="noreferrer" target="_blank">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=sHkiTMQAAAAJ&amp;hl=ko" rel="noreferrer" target="_blank">Google Scholar</a></div></div></footer>
+<button aria-label="Back to top" class="back-to-top" id="back-to-top" type="button">↑</button>
 </body></html>

@@ -205,6 +205,24 @@
     applyFilters();
   });
 
+
+  document.querySelectorAll('[data-filter-group]').forEach(group => {
+    if (group.closest('[data-filter-toolbar]')) return;
+    const buttons = group.querySelectorAll('[data-filter]');
+    if (!buttons.length) return;
+    const scope = group.closest('.shell') || document;
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.toggle('is-active', btn === button));
+        const value = button.dataset.filter;
+        scope.querySelectorAll('[data-filter-item]').forEach(item => {
+          const itemValue = item.dataset.filterItem;
+          item.hidden = value !== 'all' && itemValue !== value;
+        });
+      });
+    });
+  });
+
   const visual = document.querySelector('[data-parallax-visual]');
   if (visual && !matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedia('(pointer:fine)').matches) {
     visual.addEventListener('pointermove', event => {
