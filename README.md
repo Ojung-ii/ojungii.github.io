@@ -1,11 +1,15 @@
-# ojungii.com — Research Portfolio v2
+# ojungii.com — Research Portfolio v6
 
 Junghyun Oh(오정현)의 공개용 연구자 포트폴리오입니다. 별도 빌드 과정 없이 GitHub Pages 루트에서 배포되는 정적 HTML/CSS/JavaScript 사이트입니다.
 
-## v2에서 바뀐 점
+## 주요 구성
 
 - 홈을 `연구 포지셔닝 → 검증된 성과 → 대표 연구 → case studies → 프로필 → 연락` 흐름으로 재구성
-- GraphRAG의 `query → graph → compact evidence → reasoning`을 표현한 인터랙티브 SVG
+- 메인 페이지의 force-directed dynamic network graph
+  - 중앙 `JH.Oh`와 연구·프로젝트·학력·수상·Contact·Scholar·LinkedIn 노드
+  - 카테고리 선택 시 세부 노드 확장
+  - 노드 드래그, hover 관계 강조, detail-node navigation
+  - 카테고리 간 교차 관계선으로 star 구조 완화
 - 별도 `Research`, `Projects`, `About & Bio` 페이지
 - 프로젝트별 상세 case study
   - ScienceON AI Challenge / MPR-CiteG
@@ -65,6 +69,7 @@ https://avatars.githubusercontent.com/u/112710022?v=4
 ├── assets/
 │   ├── styles.css
 │   ├── script.js
+│   ├── network.js
 │   ├── linkedin-qr.png
 │   ├── profile-fallback.svg
 │   ├── favicon.svg
@@ -87,12 +92,12 @@ python -m http.server 8000
 
 ## 기존 GitHub Pages 저장소에 배포
 
-저장소 루트에서 v2 파일을 덮어쓴 뒤:
+저장소 루트에서 v6 파일을 덮어쓴 뒤:
 
 ```bash
 git status --short
 git add -- .nojekyll 404.html CNAME README.md index.html robots.txt site.webmanifest sitemap.xml assets about research projects
-git commit -m "feat: redesign portfolio with case studies and profile"
+git commit -m "feat: add dynamic portfolio network graph"
 git push origin main
 ```
 

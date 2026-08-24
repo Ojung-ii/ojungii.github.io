@@ -95,6 +95,7 @@
     }
     if (persist) storage.set('ojungii-language', language);
     updateControls();
+    document.dispatchEvent(new CustomEvent('portfolio-language-change', { detail: { language } }));
   };
 
   const preferredTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -220,26 +221,6 @@
   }
 
 
-
-  document.querySelectorAll('[data-graph-nav]').forEach(nav => {
-    const buttons = document.querySelectorAll('[data-graph-group]');
-    const panels = nav.querySelectorAll('[data-graph-detail]');
-    const setGroup = group => {
-      buttons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.graphGroup === group));
-      panels.forEach(panel => {
-        const active = panel.dataset.graphDetail === group;
-        panel.hidden = !active;
-        panel.classList.toggle('is-active', active);
-      });
-    };
-    buttons.forEach(button => {
-      button.addEventListener('click', () => setGroup(button.dataset.graphGroup));
-      button.addEventListener('mouseenter', () => { if (matchMedia('(pointer:fine)').matches) setGroup(button.dataset.graphGroup); });
-      button.addEventListener('focus', () => setGroup(button.dataset.graphGroup));
-    });
-    const initial = nav.querySelector('[data-graph-detail].is-active')?.dataset.graphDetail || buttons[0]?.dataset.graphGroup;
-    if (initial) setGroup(initial);
-  });
 
   document.querySelectorAll('[data-current-year]').forEach(el => el.textContent = new Date().getFullYear());
   setTheme(theme, false);
