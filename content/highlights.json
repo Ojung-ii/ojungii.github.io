@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "title": "MoT · 2026",
+      "subtitle_ko": "LLM Systems · KV Cache Translation",
+      "subtitle_en": "LLM Systems · KV Cache Translation",
+      "order": 1
+    },
+    {
+      "title": "SIGIR ’26",
+      "subtitle_ko": "StAR · Short Paper",
+      "subtitle_en": "StAR · Short Paper",
+      "order": 2
+    },
+    {
+      "title": "2nd Place",
+      "subtitle_ko": "ScienceON AI Challenge",
+      "subtitle_en": "ScienceON AI Challenge",
+      "order": 3
+    },
+    {
+      "title": "Special Award",
+      "subtitle_ko": "Alibaba Product Search",
+      "subtitle_en": "Alibaba Product Search",
+      "order": 4
+    },
+    {
+      "title": "NRF Fellowship",
+      "subtitle_ko": "석사과정생 연구장려금",
+      "subtitle_en": "Master’s Research Fellowship",
+      "order": 5
+    },
+    {
+      "title": "SeAH Award",
+      "subtitle_ko": "Industrial RAG Project",
+      "subtitle_en": "Industrial RAG Project",
+      "order": 6
+    }
+  ]
+}

@@ -27,7 +27,7 @@
 <script>
 (()=>{document.documentElement.classList.add('js');let t=null;try{t=localStorage.getItem('ojungii-theme')}catch{};if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;document.querySelector('meta[name="theme-color"]').content=t==='dark'?'#07111f':'#ffffff'})();
 </script>
-<script defer="" src="/assets/script.js"></script>
+<script defer="" src="/assets/script.js"></script><script defer="True" src="/assets/content.js"></script>
 </head>
 <body data-description-en="Applied AI projects by Junghyun Oh across scientific search, multilingual IR, industrial AI, Geo AI, and Bio AI." data-description-ko="Scientific Search, Multilingual IR, Industrial AI, Geo AI, Bio AI 프로젝트를 정리한 오정현의 포트폴리오." data-title-en="Projects | Junghyun Oh · Applied AI" data-title-ko="Projects | 오정현 · Applied AI">
 <a class="skip-link" data-en="Skip to main content" data-ko="본문으로 바로가기" href="#main-content">본문으로 바로가기</a>
@@ -56,7 +56,7 @@
 </header>
 <main id="main-content">
 <section class="page-hero">
-<div class="page-hero-grid shell"><div class="reveal"><div class="breadcrumbs"><a data-en="Home" data-ko="홈" href="/">홈</a><span aria-hidden="true">/</span><span>Projects</span></div><p class="eyebrow">APPLIED AI PROJECTS</p><h1>Applied AI · Search · LLM Systems · Scientific Data</h1><p class="lede" data-en="Competition and applied projects organized by problem, role, method, and outcome, spanning scientific search, multilingual retrieval, industrial RAG, Geo AI, and Bio AI." data-ko="경진대회와 실무 프로젝트를 문제, 역할, 방법, 결과 기준으로 정리했습니다. 분야는 scientific search, multilingual retrieval, industrial RAG, Geo AI, Bio AI를 포함합니다.">경진대회와 실무 프로젝트를 문제, 역할, 방법, 결과 기준으로 정리했습니다. 분야는 scientific search, multilingual retrieval, industrial RAG, Geo AI, Bio AI를 포함합니다.</p></div><aside class="page-hero-aside reveal"><p class="kicker">DOMAINS</p><div class="tag-row"><span class="tag">Scientific Search</span><span class="tag">Multilingual IR</span><span class="tag">Industrial AI</span><span class="tag">Geo AI</span><span class="tag">Bio AI</span></div></aside></div>
+<div class="page-hero-grid shell"><div class="reveal"><div class="breadcrumbs"><a data-en="Home" data-ko="홈" href="/">홈</a><span aria-hidden="true">/</span><span>Projects</span></div><p class="eyebrow">APPLIED AI PROJECTS</p><h1>Applied AI · LLM Systems · Search · Scientific Data</h1><p class="lede" data-en="Competition and applied projects organized by problem, role, method, and outcome, spanning scientific search, multilingual retrieval, applied LLMs, industrial RAG, Geo AI, and Bio AI." data-ko="경진대회와 실무 프로젝트를 문제, 역할, 방법, 결과 기준으로 정리했습니다. scientific search, multilingual retrieval, applied LLM, industrial RAG, Geo AI, Bio AI를 포함합니다.">경진대회와 실무 프로젝트를 문제, 역할, 방법, 결과 기준으로 정리했습니다. scientific search, multilingual retrieval, applied LLM, industrial RAG, Geo AI, Bio AI를 포함합니다.</p></div><aside class="page-hero-aside reveal"><p class="kicker">DOMAINS</p><div class="tag-row"><span class="tag">Scientific Search</span><span class="tag">Applied LLM</span><span class="tag">Multilingual IR</span><span class="tag">Industrial AI</span><span class="tag">Geo AI</span><span class="tag">Bio AI</span></div></aside></div>
 </section>
 <section class="section-compact">
 <div class="shell">
@@ -65,20 +65,20 @@
 <button class="filter-button" data-en="Competitions" data-filter="competition" data-ko="경진대회" type="button">경진대회</button>
 <button class="filter-button" data-en="Applied systems" data-filter="applied" data-ko="산업·공공 프로젝트" type="button">산업·공공 프로젝트</button>
 </div>
-<div class="project-grid">
+<div class="project-grid" data-cms-projects="all">
 <a class="work-card project-card featured reveal" data-filter-item="competition" href="/projects/scienceon-mpr-citeg/">
-<div class="project-meta"><span class="project-type">COMPETITION · RAG</span><span>2025</span></div>
+<div class="project-meta"><span class="project-type">COMPETITION · RAG · LLM</span><span>2025</span></div>
 <h3>ScienceON AI Challenge — MPR-CiteG</h3>
-<p data-en="Addressing vocabulary mismatch and source verification in scientific search through multi-portfolio retrieval and sentence-level citation grounding." data-ko="과학정보 검색의 어휘 불일치와 출처 검증 문제를, 다중 검색 포트폴리오와 문장 단위 citation grounding으로 해결했습니다.">과학정보 검색의 어휘 불일치와 출처 검증 문제를, 다중 검색 포트폴리오와 문장 단위 citation grounding으로 해결했습니다.</p>
+<p data-en="A scientific-search project combining LLM query expansion, retrieval portfolios, and citation-grounded generation." data-ko="과학정보 검색에서 LLM query expansion, retrieval portfolio, citation-grounded generation을 결합했습니다.">과학정보 검색에서 LLM query expansion, retrieval portfolio, citation-grounded generation을 결합했습니다.</p>
 <div class="metric-row"><span class="metric-chip">2nd Place</span><span class="metric-chip">KISTI President Award</span><span class="metric-chip">CIKM RDGENAI</span></div>
-<div class="work-card-footer"><div class="tag-row"><span class="tag">Qwen2.5</span><span class="tag">Query Expansion</span><span class="tag">Citation</span></div><span class="work-card-arrow">↗</span></div>
+<div class="work-card-footer"><div class="tag-row"><span class="tag">Qwen2.5</span><span class="tag">LLM Query Expansion</span><span class="tag">Reranking</span><span class="tag">Citation</span></div><span class="work-card-arrow">↗</span></div>
 </a>
 <a class="work-card project-card compact reveal" data-filter-item="competition" href="/projects/alibaba-search/">
-<div class="project-meta"><span class="project-type">COMPETITION · MULTILINGUAL IR</span><span>2025</span></div>
+<div class="project-meta"><span class="project-type">COMPETITION · MULTILINGUAL IR · LLM</span><span>2025</span></div>
 <h3>Alibaba International Product Search</h3>
-<p data-en="Improving multilingual QC/QI relevance prediction—including unseen languages—through data quality and task-specific tagging." data-ko="학습에 없는 언어까지 포함된 다국어 QC/QI 관련도 예측에서 데이터 품질과 task-specific tagging을 강화했습니다.">학습에 없는 언어까지 포함된 다국어 QC/QI 관련도 예측에서 데이터 품질과 task-specific tagging을 강화했습니다.</p>
+<p data-en="A multilingual QC/QI relevance-prediction project using data refinement, language tagging, and LLM fine-tuning." data-ko="다국어 QC/QI relevance prediction을 위해 data refinement, language tagging, LLM fine-tuning을 적용했습니다.">다국어 QC/QI relevance prediction을 위해 data refinement, language tagging, LLM fine-tuning을 적용했습니다.</p>
 <div class="metric-row"><span class="metric-chip">0.8819</span><span class="metric-chip">Special Award</span><span class="metric-chip">Technical Report</span></div>
-<div class="work-card-footer"><div class="tag-row"><span class="tag">LoRA</span><span class="tag">Data Refinement</span></div><span class="work-card-arrow">↗</span></div>
+<div class="work-card-footer"><div class="tag-row"><span class="tag">LLM Fine-tuning</span><span class="tag">LoRA</span><span class="tag">Data Refinement</span></div><span class="work-card-arrow">↗</span></div>
 </a>
 <a class="work-card project-card reveal" data-filter-item="applied" href="/projects/steel-rag/">
 <div class="project-meta"><span class="project-type">APPLIED · INDUSTRIAL RAG</span><span>2023–24</span></div>

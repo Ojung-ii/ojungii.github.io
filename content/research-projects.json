@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "slug": "ram-gnn",
+      "title": "RAM-GNN: Relation-Aware Multilayer Graph Neural Network",
+      "area": "Graph Learning",
+      "status": "Research Project",
+      "year": 2026,
+      "summary_ko": "여러 relation layer를 분리해 message passing하고 node-specific relation importance를 학습하는 GNN 연구입니다.",
+      "summary_en": "A GNN study with relation-specific message passing over multilayer graphs and node-specific relation importance.",
+      "tags": [
+        "Graph Neural Networks",
+        "Multilayer Graph",
+        "Relation-aware Models"
+      ],
+      "url": "/research/#ram-gnn",
+      "featured_home": true,
+      "featured_research": true,
+      "network": true,
+      "order": 1
+    }
+  ]
+}

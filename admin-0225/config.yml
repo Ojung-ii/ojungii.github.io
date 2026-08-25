@@ -1,0 +1,212 @@
+backend:
+  name: github
+  repo: Ojung-ii/ojungii.github.io
+  branch: main
+  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+  auth_endpoint: /auth
+  site_domain: ojungii.com
+
+site_url: https://ojungii.com
+display_url: https://ojungii.com
+logo_url: https://ojungii.com/assets/favicon.svg
+publish_mode: simple
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - label: "Research"
+    name: "research_data"
+    files:
+      - label: "Publications"
+        name: "publications"
+        file: "content/publications.json"
+        format: "json"
+        fields:
+          - label: "Publications"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.year}} · {{fields.title}}"
+            fields:
+              - { label: "Slug", name: "slug", widget: "string", hint: "영문/숫자/하이픈. 예: mot-2026" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Year", name: "year", widget: "number", value_type: "int" }
+              - { label: "Venue", name: "venue", widget: "string" }
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options: ["conference", "journal", "preprint", "workshop", "report", "manuscript"]
+              - label: "Region"
+                name: "region"
+                widget: "select"
+                options: ["international", "domestic"]
+              - { label: "Status", name: "status", widget: "string" }
+              - label: "Research Area"
+                name: "area"
+                widget: "select"
+                options: ["Graph Learning", "LLM Systems & Reasoning", "Retrieval & RAG", "AI/ML"]
+              - { label: "Summary (KO)", name: "summary_ko", widget: "text" }
+              - { label: "Summary (EN)", name: "summary_en", widget: "text" }
+              - { label: "Tags", name: "tags", widget: "list", field: { label: "Tag", name: "tag", widget: "string" } }
+              - { label: "Paper URL", name: "url", widget: "string", required: false }
+              - { label: "Link Label", name: "link_label", widget: "string", required: false, default: "Paper ↗" }
+              - { label: "First Author", name: "first_author", widget: "boolean", default: false }
+              - { label: "Featured on Home", name: "featured_home", widget: "boolean", default: false }
+              - { label: "Featured in Research", name: "featured_research", widget: "boolean", default: false }
+              - { label: "Show in Dynamic Graph", name: "network", widget: "boolean", default: false }
+              - { label: "Order", name: "order", widget: "number", value_type: "int", default: 99 }
+
+      - label: "Research Projects"
+        name: "research_projects"
+        file: "content/research-projects.json"
+        format: "json"
+        fields:
+          - label: "Research Projects"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} · {{fields.area}}"
+            fields:
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Area", name: "area", widget: "string" }
+              - { label: "Status", name: "status", widget: "string" }
+              - { label: "Year", name: "year", widget: "number", value_type: "int" }
+              - { label: "Summary (KO)", name: "summary_ko", widget: "text" }
+              - { label: "Summary (EN)", name: "summary_en", widget: "text" }
+              - { label: "Tags", name: "tags", widget: "list", field: { label: "Tag", name: "tag", widget: "string" } }
+              - { label: "URL", name: "url", widget: "string", required: false }
+              - { label: "Featured on Home", name: "featured_home", widget: "boolean", default: false }
+              - { label: "Featured in Research", name: "featured_research", widget: "boolean", default: false }
+              - { label: "Show in Dynamic Graph", name: "network", widget: "boolean", default: false }
+              - { label: "Order", name: "order", widget: "number", value_type: "int", default: 99 }
+
+      - label: "Research Areas"
+        name: "research_areas"
+        file: "content/research-areas.json"
+        format: "json"
+        fields:
+          - label: "Research Areas"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.index}} · {{fields.title}}"
+            fields:
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Index", name: "index", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Summary (KO)", name: "summary_ko", widget: "text" }
+              - { label: "Summary (EN)", name: "summary_en", widget: "text" }
+              - { label: "Tags", name: "tags", widget: "list", field: { label: "Tag", name: "tag", widget: "string" } }
+              - { label: "Order", name: "order", widget: "number", value_type: "int", default: 99 }
+
+  - label: "Projects"
+    name: "projects_data"
+    files:
+      - label: "Projects"
+        name: "projects"
+        file: "content/projects.json"
+        format: "json"
+        fields:
+          - label: "Projects"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.year}} · {{fields.title}}"
+            fields:
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Title (KO/Main)", name: "title", widget: "string" }
+              - { label: "Title (EN)", name: "title_en", widget: "string", required: false }
+              - { label: "Year / Period", name: "year", widget: "string" }
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options: ["competition", "applied"]
+              - { label: "Domain", name: "domain", widget: "string" }
+              - { label: "Role", name: "role", widget: "string", required: false }
+              - { label: "Summary (KO)", name: "summary_ko", widget: "text" }
+              - { label: "Summary (EN)", name: "summary_en", widget: "text" }
+              - { label: "Problem (KO)", name: "problem_ko", widget: "text", required: false }
+              - { label: "Problem (EN)", name: "problem_en", widget: "text", required: false }
+              - { label: "Approach (KO)", name: "approach_ko", widget: "text", required: false }
+              - { label: "Approach (EN)", name: "approach_en", widget: "text", required: false }
+              - { label: "Result (KO)", name: "result_ko", widget: "text", required: false }
+              - { label: "Result (EN)", name: "result_en", widget: "text", required: false }
+              - { label: "Tags", name: "tags", widget: "list", field: { label: "Tag", name: "tag", widget: "string" } }
+              - { label: "Metrics / Awards", name: "metrics", widget: "list", field: { label: "Metric", name: "metric", widget: "string" } }
+              - { label: "Existing Detail URL", name: "detail_url", widget: "string", required: false, hint: "비우면 /projects/view/?id=slug 형태의 자동 상세페이지를 사용합니다." }
+              - { label: "Featured on Home", name: "featured_home", widget: "boolean", default: false }
+              - { label: "Show in Dynamic Graph", name: "network", widget: "boolean", default: false }
+              - { label: "Order", name: "order", widget: "number", value_type: "int", default: 99 }
+
+  - label: "Awards & Highlights"
+    name: "recognition_data"
+    files:
+      - label: "Awards & Honors"
+        name: "awards"
+        file: "content/awards.json"
+        format: "json"
+        fields:
+          - label: "Awards"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.year}} · {{fields.title}}"
+            fields:
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Year", name: "year", widget: "number", value_type: "int" }
+              - { label: "Title (KO/Main)", name: "title", widget: "string" }
+              - { label: "Title (EN)", name: "title_en", widget: "string", required: false }
+              - { label: "Organization", name: "organization", widget: "string" }
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options: ["publication", "competition", "grant", "project"]
+              - label: "Region"
+                name: "region"
+                widget: "select"
+                options: ["international", "domestic"]
+              - { label: "Description (KO)", name: "description_ko", widget: "text" }
+              - { label: "Description (EN)", name: "description_en", widget: "text" }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false }
+              - { label: "Order", name: "order", widget: "number", value_type: "int", default: 99 }
+
+      - label: "Home Highlights"
+        name: "highlights"
+        file: "content/highlights.json"
+        format: "json"
+        fields:
+          - label: "Highlights"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle (KO)", name: "subtitle_ko", widget: "string" }
+              - { label: "Subtitle (EN)", name: "subtitle_en", widget: "string" }
+              - { label: "Order", name: "order", widget: "number", value_type: "int", default: 99 }
+
+  - label: "Profile"
+    name: "profile_data"
+    files:
+      - label: "Profile & Social Links"
+        name: "profile"
+        file: "content/profile.json"
+        format: "json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Name (KO)", name: "name_ko", widget: "string" }
+          - { label: "Role", name: "role", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Affiliation", name: "affiliation", widget: "string" }
+          - { label: "Lab", name: "lab", widget: "string" }
+          - { label: "Expected Graduation", name: "expected_graduation", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "GitHub", name: "github", widget: "string" }
+          - { label: "LinkedIn", name: "linkedin", widget: "string" }
+          - { label: "Google Scholar", name: "scholar", widget: "string" }
+          - { label: "Profile Image", name: "profile_image", widget: "image", required: false }
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Focus", name: "hero_focus", widget: "string" }
+          - { label: "Hero Description (KO)", name: "hero_ko", widget: "text" }
+          - { label: "Hero Description (EN)", name: "hero_en", widget: "text" }
+          - { label: "About (KO)", name: "about_ko", widget: "text" }
+          - { label: "About (EN)", name: "about_en", widget: "text" }
+          - { label: "Short Bio (KO)", name: "short_bio_ko", widget: "text" }
+          - { label: "Short Bio (EN)", name: "short_bio_en", widget: "text" }
+          - { label: "Keywords", name: "keywords", widget: "list", field: { label: "Keyword", name: "keyword", widget: "string" } }

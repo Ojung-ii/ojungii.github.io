@@ -1,0 +1,157 @@
+{
+  "items": [
+    {
+      "slug": "scienceon-mpr-citeg",
+      "title": "ScienceON AI Challenge — MPR-CiteG",
+      "year": "2025",
+      "type": "competition",
+      "domain": "RAG · SCIENTIFIC SEARCH · LLM",
+      "role": "Team Member / Co-author",
+      "summary_ko": "LLM query expansion, retrieval portfolio, citation-grounded generation을 결합한 scientific RAG system입니다.",
+      "summary_en": "A scientific RAG system combining LLM query expansion, retrieval portfolios, and citation-grounded generation.",
+      "tags": [
+        "Qwen2.5",
+        "LLM",
+        "Citation"
+      ],
+      "metrics": [
+        "2nd Place",
+        "KISTI President Award",
+        "CIKM Workshop"
+      ],
+      "detail_url": "",
+      "featured_home": true,
+      "network": true,
+      "order": 1,
+      "problem_ko": "ScienceON 과학정보 검색에서 제한된 GPU 예산 안에 검색 다양성과 citation grounding을 함께 확보하는 문제를 다뤘습니다.",
+      "problem_en": "The project addressed scientific retrieval under a fixed GPU budget while preserving retrieval diversity and citation grounding.",
+      "approach_ko": "다중 retrieval portfolio, LLM query expansion, reranking, sentence-level citation grounding을 결합했습니다.",
+      "approach_en": "We combined multiple retrieval portfolios, LLM query expansion, reranking, and sentence-level citation grounding.",
+      "result_ko": "ScienceON AI Challenge 2위와 KISTI 원장상을 수상했고 CIKM RDGENAI Workshop 논문으로 이어졌습니다.",
+      "result_en": "The system placed second in the ScienceON AI Challenge, received the KISTI President Award, and led to a CIKM RDGENAI Workshop paper."
+    },
+    {
+      "slug": "alibaba-search",
+      "title": "Alibaba International Product Search",
+      "year": "2025",
+      "type": "competition",
+      "domain": "MULTILINGUAL IR · LLM",
+      "role": "Team Member / Co-author",
+      "summary_ko": "data refinement, language tagging, LLM fine-tuning을 적용한 multilingual relevance-prediction project입니다.",
+      "summary_en": "A multilingual relevance-prediction project using data refinement, language tagging, and LLM fine-tuning.",
+      "tags": [
+        "LLM Fine-tuning",
+        "LoRA",
+        "Multilingual IR"
+      ],
+      "metrics": [
+        "0.8819",
+        "Special Award",
+        "Technical Report"
+      ],
+      "detail_url": "",
+      "featured_home": true,
+      "network": true,
+      "order": 2,
+      "problem_ko": "다국어 QC/QI relevance prediction과 unseen-language generalization을 다뤘습니다.",
+      "problem_en": "The project focused on multilingual QC/QI relevance prediction and unseen-language generalization.",
+      "approach_ko": "데이터 정제, 언어·과업 태깅, LLM fine-tuning과 LoRA를 적용했습니다.",
+      "approach_en": "We used data refinement, language/task tagging, LLM fine-tuning, and LoRA.",
+      "result_ko": "최종 점수 0.8819와 Special Award를 기록했습니다.",
+      "result_en": "The team achieved a final score of 0.8819 and received a Special Award."
+    },
+    {
+      "slug": "steel-rag",
+      "title": "철강 수주규격 검토 자동화",
+      "title_en": "Steel Specification Review Automation",
+      "year": "2023–24",
+      "type": "applied",
+      "domain": "INDUSTRIAL RAG",
+      "role": "Team Lead",
+      "summary_ko": "document retrieval, comparison, Excel output을 연결한 industrial RAG prototype입니다.",
+      "summary_en": "An industrial RAG prototype connecting document retrieval, comparison, and Excel output.",
+      "tags": [
+        "LangChain",
+        "Document AI",
+        "XlsxWriter"
+      ],
+      "metrics": [
+        "Team Lead",
+        "10K+ Cases",
+        "80% Internal Eval"
+      ],
+      "detail_url": "",
+      "featured_home": true,
+      "network": true,
+      "order": 3,
+      "problem_ko": "반복적인 고객 규격 탐색과 비교, Excel 산출 업무를 자동화하는 문제였습니다.",
+      "problem_en": "The project automated repetitive customer-specification retrieval, comparison, and spreadsheet preparation.",
+      "approach_ko": "문서 파싱, embedding retrieval, 규격 비교, Excel output pipeline을 구성했습니다.",
+      "approach_en": "I built a pipeline for document parsing, embedding retrieval, specification comparison, and Excel output.",
+      "result_ko": "1만 건 이상의 검토 사례를 대상으로 내부 평가를 수행했고 공로상을 받았습니다.",
+      "result_en": "The prototype was evaluated on more than 10,000 review cases and received a contribution award."
+    },
+    {
+      "slug": "blue-carbon",
+      "title": "Sentinel 위성영상 기반 블루카본 변화탐지",
+      "title_en": "Sentinel-based Blue Carbon Change Detection",
+      "year": "2023",
+      "type": "applied",
+      "domain": "GEO AI",
+      "role": "PM / GEE Development / Analysis",
+      "summary_ko": "SAR와 광학영상을 결합한 해안 생태계 변화 모니터링 프로젝트입니다.",
+      "summary_en": "A coastal-ecosystem change-monitoring project combining SAR and optical imagery.",
+      "tags": [
+        "Google Earth Engine",
+        "Sentinel-1/2",
+        "Streamlit"
+      ],
+      "metrics": [
+        "PM",
+        "Sentinel-1/2",
+        "National Park Award"
+      ],
+      "detail_url": "",
+      "featured_home": false,
+      "network": true,
+      "order": 4,
+      "problem_ko": "구름과 기상 제약이 있는 해안 지역의 변화를 지속적으로 모니터링하는 문제를 다뤘습니다.",
+      "problem_en": "The project addressed continuous coastal monitoring under cloud and weather constraints.",
+      "approach_ko": "Sentinel-1 SAR, Sentinel-2 optical imagery, Google Earth Engine을 이용했습니다.",
+      "approach_en": "We used Sentinel-1 SAR, Sentinel-2 optical imagery, and Google Earth Engine.",
+      "result_ko": "국립공원공단 프로젝트에서 이사장상을 수상했습니다.",
+      "result_en": "The project received a Korea National Park Service chairman award."
+    },
+    {
+      "slug": "bioai",
+      "title": "바이오AI융합경진대회",
+      "title_en": "Bio-AI Convergence Competition",
+      "year": "2025",
+      "type": "competition",
+      "domain": "BIO AI",
+      "role": "Participant",
+      "summary_ko": "생물환경화학 배경과 AI 문제 해결 경험이 만나는 competition project입니다.",
+      "summary_en": "A competition project connecting bio-environmental science experience with AI problem solving.",
+      "tags": [
+        "Bioinformatics",
+        "AI",
+        "Competition"
+      ],
+      "metrics": [
+        "3rd Place",
+        "Bio-AI",
+        "2025"
+      ],
+      "detail_url": "",
+      "featured_home": false,
+      "network": true,
+      "order": 5,
+      "problem_ko": "바이오 도메인의 문제를 AI 기반 분석으로 해결하는 경진대회 프로젝트였습니다.",
+      "problem_en": "A competition project applying AI methods to a bio-domain problem.",
+      "approach_ko": "공개 가능한 범위에서는 전공 도메인 지식과 AI 분석 경험을 중심으로 정리합니다.",
+      "approach_en": "The public portfolio focuses on the connection between domain knowledge and AI analysis experience.",
+      "result_ko": "2025 바이오AI융합경진대회 3위를 기록했습니다.",
+      "result_en": "The project placed third in the 2025 Bio-AI convergence competition."
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "items": [
+    {
+      "slug": "star",
+      "title": "StAR: Adaptive Structure-Aware Reranking for Semantic–Structural Alignment in GraphRAG",
+      "year": 2026,
+      "venue": "SIGIR 2026",
+      "type": "conference",
+      "region": "international",
+      "status": "Published",
+      "area": "Retrieval & RAG",
+      "summary_ko": "SIGIR 2026 Short Paper · semantic relevance와 graph structure를 결합한 adaptive reranking.",
+      "summary_en": "SIGIR 2026 Short Paper on adaptive reranking that combines semantic relevance with graph structure.",
+      "tags": [
+        "GraphRAG",
+        "Reranking",
+        "Structure-aware Retrieval"
+      ],
+      "url": "https://dblp.org/rec/conf/sigir/OhL26",
+      "link_label": "DBLP ↗",
+      "first_author": true,
+      "featured_home": true,
+      "featured_research": true,
+      "network": true,
+      "order": 3
+    },
+    {
+      "slug": "mot",
+      "title": "Mixture-of-Translators: Translating KV Caches Across Heterogeneous Large Language Models",
+      "year": 2026,
+      "venue": "CoRR / arXiv",
+      "type": "preprint",
+      "region": "international",
+      "status": "Preprint",
+      "area": "LLM Systems & Reasoning",
+      "summary_ko": "heterogeneous LLM 사이의 KV cache translation을 통해 context memory reuse를 다루는 LLM systems 연구입니다.",
+      "summary_en": "An LLM-systems study on KV-cache translation across heterogeneous models for context-memory reuse.",
+      "tags": [
+        "LLM Systems",
+        "KV Cache",
+        "Heterogeneous LLMs",
+        "Multi-agent Reasoning"
+      ],
+      "url": "https://arxiv.org/abs/2607.28979",
+      "link_label": "arXiv ↗",
+      "first_author": false,
+      "featured_home": true,
+      "featured_research": true,
+      "network": true,
+      "order": 2
+    },
+    {
+      "slug": "gref-rag",
+      "title": "GRef-RAG: Is Broader Retrieval Always Better for GraphRAG?",
+      "year": 2026,
+      "venue": "Under Review",
+      "type": "manuscript",
+      "region": "international",
+      "status": "Under Review",
+      "area": "Retrieval & RAG",
+      "summary_ko": "broad graph retrieval을 compact evidence bundles로 정리하는 seed-then-refine framework.",
+      "summary_en": "A seed-then-refine framework for turning broad graph retrieval into compact evidence bundles.",
+      "tags": [
+        "GraphRAG",
+        "Evidence Chains",
+        "Multi-hop QA",
+        "Token Efficiency"
+      ],
+      "url": "",
+      "link_label": "In review",
+      "first_author": true,
+      "featured_home": true,
+      "featured_research": true,
+      "network": true,
+      "order": 4
+    },
+    {
+      "slug": "mpr-citeg",
+      "title": "MPR-CiteG: Enhancing RAG with Multi-Portfolio Retrieval and Citation-Grounded Generation",
+      "year": 2025,
+      "venue": "CIKM RDGENAI Workshop",
+      "type": "workshop",
+      "region": "international",
+      "status": "Published",
+      "area": "Retrieval & RAG",
+      "summary_ko": "multi-portfolio retrieval과 sentence-level citation grounding을 결합한 scientific RAG framework.",
+      "summary_en": "Scientific RAG combining multi-portfolio retrieval with sentence-level citation grounding.",
+      "tags": [
+        "RAG",
+        "Information Retrieval",
+        "Citation Grounding"
+      ],
+      "url": "https://arxiv.org/abs/2607.22706",
+      "link_label": "arXiv ↗",
+      "first_author": false,
+      "featured_home": false,
+      "featured_research": false,
+      "network": true,
+      "order": 5
+    },
+    {
+      "slug": "alibaba-report",
+      "title": "Alibaba International E-commerce Product Search Competition — DILAB Team Technical Report",
+      "year": 2025,
+      "venue": "Technical Report",
+      "type": "report",
+      "region": "international",
+      "status": "Published",
+      "area": "LLM Systems & Reasoning",
+      "summary_ko": "multilingual product-search relevance prediction을 위한 data refinement, tagging, LLM fine-tuning pipeline.",
+      "summary_en": "Data refinement, tagging, and LLM fine-tuning for multilingual product-search relevance prediction.",
+      "tags": [
+        "Multilingual IR",
+        "LLM Fine-tuning",
+        "LoRA"
+      ],
+      "url": "https://arxiv.org/abs/2510.18499",
+      "link_label": "arXiv ↗",
+      "first_author": false,
+      "featured_home": false,
+      "featured_research": false,
+      "network": false,
+      "order": 6
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "items": [
+    {
+      "slug": "graph-learning",
+      "index": "01 · GRAPH LEARNING",
+      "title": "Graph Learning",
+      "summary_ko": "Graph Neural Networks와 multilayer graph를 이용해 relation-specific representation을 학습합니다.",
+      "summary_en": "I use graph neural networks and multilayer graphs to learn relation-specific representations.",
+      "tags": [
+        "Graph Neural Networks",
+        "Multilayer Graphs",
+        "Relation-aware Models",
+        "RAM-GNN"
+      ],
+      "order": 1
+    },
+    {
+      "slug": "llm-systems",
+      "index": "02 · LLM SYSTEMS",
+      "title": "LLM Systems & Reasoning",
+      "summary_ko": "KV cache translation, context-memory reuse, multi-agent reasoning을 다룹니다.",
+      "summary_en": "I study KV-cache translation, context-memory reuse, and multi-agent reasoning.",
+      "tags": [
+        "KV Cache",
+        "Heterogeneous LLMs",
+        "Multi-agent",
+        "Long-context",
+        "MoT"
+      ],
+      "order": 2
+    },
+    {
+      "slug": "retrieval-rag",
+      "index": "03 · RETRIEVAL",
+      "title": "Retrieval & RAG",
+      "summary_ko": "semantic relevance와 graph structure를 함께 사용해 retrieval, reranking, evidence organization을 연구합니다.",
+      "summary_en": "I combine semantic relevance with graph structure for retrieval, reranking, and evidence organization.",
+      "tags": [
+        "Information Retrieval",
+        "GraphRAG",
+        "Reranking",
+        "Evidence Chains"
+      ],
+      "order": 3
+    },
+    {
+      "slug": "engineering-eval",
+      "index": "04 · ENGINEERING",
+      "title": "Research Engineering & Evaluation",
+      "summary_ko": "모델 구현, local LLM serving, experiment sweep, ablation, efficiency evaluation을 구성합니다.",
+      "summary_en": "I build model implementations, local LLM serving, experiment sweeps, ablations, and efficiency evaluations.",
+      "tags": [
+        "PyTorch",
+        "vLLM",
+        "LLM Inference",
+        "Reproducibility"
+      ],
+      "order": 4
+    }
+  ]
+}

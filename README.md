@@ -46,3 +46,13 @@ Folder: / (root)
 Custom domain: ojungii.com
 Enforce HTTPS: enabled
 ```
+
+## v8 positioning update
+
+The portfolio positions Junghyun Oh primarily as an **AI Researcher** with three research areas:
+
+- **Graph Learning** — Graph Neural Networks, multilayer graphs, relation-aware modeling
+- **LLM Systems & Reasoning** — heterogeneous LLMs, KV-cache translation, context-memory reuse, multi-agent reasoning
+- **Retrieval & RAG** — information retrieval, GraphRAG, reranking, evidence chains
+
+`Research Engineering & Evaluation` is shown separately as implementation/evaluation capability. The dynamic portfolio network remains the same force-directed navigator; only research content was expanded to include MoT and LLM-related project labels.

@@ -1,0 +1,116 @@
+{
+  "items": [
+    {
+      "slug": "sigir-2026",
+      "year": 2026,
+      "title": "SIGIR 2026 Short Paper",
+      "organization": "ACM SIGIR",
+      "type": "publication",
+      "region": "international",
+      "description_ko": "StAR · 제1저자",
+      "description_en": "StAR · First author",
+      "featured": true,
+      "order": 1
+    },
+    {
+      "slug": "nrf-2025",
+      "year": 2025,
+      "title": "한국연구재단 석사과정생 연구장려금",
+      "title_en": "NRF Master’s Research Fellowship",
+      "organization": "NRF",
+      "type": "grant",
+      "region": "domestic",
+      "description_ko": "GraphRAG 구조 반영 검색 연구",
+      "description_en": "Structure-aware GraphRAG research",
+      "featured": true,
+      "order": 2
+    },
+    {
+      "slug": "scienceon-2025",
+      "year": 2025,
+      "title": "ScienceON AI Challenge · 2nd Place",
+      "organization": "KISTI",
+      "type": "competition",
+      "region": "domestic",
+      "description_ko": "MPR-CiteG · KISTI 원장상",
+      "description_en": "MPR-CiteG · KISTI President Award",
+      "featured": true,
+      "order": 3
+    },
+    {
+      "slug": "alibaba-2025",
+      "year": 2025,
+      "title": "Alibaba Product Search · Special Award",
+      "organization": "Alibaba",
+      "type": "competition",
+      "region": "international",
+      "description_ko": "International E-commerce Product Search Competition · 0.8819",
+      "description_en": "International E-commerce Product Search Competition · 0.8819",
+      "featured": true,
+      "order": 4
+    },
+    {
+      "slug": "cnu-star-2025",
+      "year": 2025,
+      "title": "CNU-Star Fellowship",
+      "organization": "Chungnam National University",
+      "type": "grant",
+      "region": "domestic",
+      "description_ko": "대학원 혁신 인재 지원 프로그램",
+      "description_en": "Graduate fellowship program",
+      "featured": false,
+      "order": 5
+    },
+    {
+      "slug": "bioai-2025",
+      "year": 2025,
+      "title": "BioAI Competition · 3rd Place",
+      "organization": "BioAI",
+      "type": "competition",
+      "region": "domestic",
+      "description_ko": "바이오 도메인 AI 융합 경진대회",
+      "description_en": "Bio-domain AI competition",
+      "featured": false,
+      "order": 6
+    },
+    {
+      "slug": "knps-2024",
+      "year": 2024,
+      "title": "국립공원공단 이사장상",
+      "title_en": "Korea National Park Service Chairman Award",
+      "organization": "Korea National Park Service",
+      "type": "project",
+      "region": "domestic",
+      "description_ko": "Sentinel 위성 기반 blue carbon surveillance service",
+      "description_en": "Sentinel-based blue-carbon surveillance service",
+      "featured": false,
+      "order": 7
+    },
+    {
+      "slug": "moel-2024",
+      "year": 2024,
+      "title": "고용노동부 장관상",
+      "title_en": "Minister of Employment and Labor Award",
+      "organization": "Ministry of Employment and Labor",
+      "type": "project",
+      "region": "domestic",
+      "description_ko": "AI training and applied project excellence",
+      "description_en": "AI training and applied project excellence",
+      "featured": false,
+      "order": 8
+    },
+    {
+      "slug": "seah-2023",
+      "year": 2023,
+      "title": "세아베스틸 공로상",
+      "title_en": "SeAH Besteel Contribution Award",
+      "organization": "SeAH Besteel",
+      "type": "project",
+      "region": "domestic",
+      "description_ko": "철강 수주규격 검토 자동화 프로젝트",
+      "description_en": "Steel specification review automation project",
+      "featured": false,
+      "order": 9
+    }
+  ]
+}

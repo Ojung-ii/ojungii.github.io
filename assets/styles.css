@@ -797,3 +797,13 @@ html[data-theme="dark"] .network-node.is-detail .node-core{fill:var(--surface-2)
   .research-focus-grid .work-card{min-height:290px}
   .research-area-grid .thesis-card{min-height:unset}
 }
+
+/* v8: four representative research cards */
+.research-focus-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:980px){
+  .research-focus-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .research-focus-grid .work-card:first-child{grid-column:auto}
+}
+@media(max-width:720px){
+  .research-focus-grid{grid-template-columns:1fr}
+}

@@ -37,12 +37,12 @@
       id: 'research',
       ko: '연구',
       en: 'Research',
-      captionKo: 'Publications',
-      captionEn: 'Publications',
+      captionKo: 'Graph · LLM · Retrieval',
+      captionEn: 'Graph · LLM · Retrieval',
       color: '#2764a5',
       angle: -2.5,
-      descriptionKo: '논문, 원고, 연구 주제',
-      descriptionEn: 'Papers, manuscripts, and research topics',
+      descriptionKo: 'Graph Learning, LLM Systems, Retrieval 연구',
+      descriptionEn: 'Graph learning, LLM systems, and retrieval research',
       overviewUrl: '/research/'
     },
     {
@@ -123,13 +123,14 @@
 
   const detailDefinitions = {
     research: [
+      { id: 'mot', ko: 'MoT', en: 'MoT', captionKo: 'LLM Systems · 2026', captionEn: 'LLM Systems · 2026', url: 'https://arxiv.org/abs/2607.28979', external: true, related: ['scholar'] },
       { id: 'star', ko: 'StAR', en: 'StAR', captionKo: 'SIGIR 2026', captionEn: 'SIGIR 2026', url: '/research/#star', related: ['awards'] },
       { id: 'gref', ko: 'GRef-RAG', en: 'GRef-RAG', captionKo: 'Manuscript', captionEn: 'Manuscript', url: '/research/#gref', related: ['projects'] },
       { id: 'mpr', ko: 'MPR-CiteG', en: 'MPR-CiteG', captionKo: 'CIKM Workshop', captionEn: 'CIKM Workshop', url: '/projects/scienceon-mpr-citeg/', related: ['projects', 'awards'] }
     ],
     projects: [
-      { id: 'scienceon', ko: 'ScienceON', en: 'ScienceON', captionKo: 'Scientific RAG', captionEn: 'Scientific RAG', url: '/projects/scienceon-mpr-citeg/', related: ['research', 'awards'] },
-      { id: 'alibaba', ko: 'Alibaba', en: 'Alibaba', captionKo: 'Multilingual IR', captionEn: 'Multilingual IR', url: '/projects/alibaba-search/', related: ['research', 'awards'] },
+      { id: 'scienceon', ko: 'ScienceON', en: 'ScienceON', captionKo: 'RAG · LLM', captionEn: 'RAG · LLM', url: '/projects/scienceon-mpr-citeg/', related: ['research', 'awards'] },
+      { id: 'alibaba', ko: 'Alibaba', en: 'Alibaba', captionKo: 'Multilingual IR · LLM', captionEn: 'Multilingual IR · LLM', url: '/projects/alibaba-search/', related: ['research', 'awards'] },
       { id: 'steel', ko: 'Steel RAG', en: 'Steel RAG', captionKo: 'Industrial RAG', captionEn: 'Industrial RAG', url: '/projects/steel-rag/', related: ['awards'] },
       { id: 'bluecarbon', ko: 'Blue Carbon', en: 'Blue Carbon', captionKo: 'Geo AI', captionEn: 'Geo AI', url: '/projects/blue-carbon/', related: ['awards', 'education'] },
       { id: 'bioai', ko: 'BioAI', en: 'BioAI', captionKo: 'Competition', captionEn: 'Competition', url: '/projects/bioai/', related: ['awards', 'education'] }
@@ -153,6 +154,7 @@
     ],
     scholar: [
       { id: 'scholar-profile', ko: 'Google Scholar', en: 'Google Scholar', captionKo: 'Profile', captionEn: 'Profile', url: 'https://scholar.google.com/citations?user=sHkiTMQAAAAJ&hl=ko', external: true, related: ['research'] },
+      { id: 'scholar-mot', ko: 'MoT', en: 'MoT', captionKo: 'LLM Systems', captionEn: 'LLM Systems', url: 'https://arxiv.org/abs/2607.28979', external: true, related: ['research'] },
       { id: 'scholar-research', ko: 'Publications', en: 'Publications', captionKo: 'Research', captionEn: 'Research', url: '/research/', related: ['research'] }
     ],
     linkedin: [
@@ -622,6 +624,83 @@
       buildGraph();
     }
   });
+
+
+  function applyManagedContent(content) {
+    if (!content) return;
+    const managedResearch = [
+      ...(content['research-projects']?.items || []).filter(item => item.network).map(item => ({
+        id: item.slug,
+        ko: item.title.replace(/:.*$/, ''),
+        en: item.title.replace(/:.*$/, ''),
+        captionKo: `${item.area || 'Research'} · ${item.year || ''}`.trim(),
+        captionEn: `${item.area || 'Research'} · ${item.year || ''}`.trim(),
+        url: item.url || '/research/',
+        external: /^https?:\/\//i.test(item.url || ''),
+        related: ['scholar']
+      })),
+      ...(content.publications?.items || []).filter(item => item.network).map(item => ({
+        id: item.slug,
+        ko: item.slug === 'mot' ? 'MoT' : item.slug === 'gref-rag' ? 'GRef-RAG' : item.slug === 'mpr-citeg' ? 'MPR-CiteG' : item.slug === 'star' ? 'StAR' : item.title.split(':')[0],
+        en: item.slug === 'mot' ? 'MoT' : item.slug === 'gref-rag' ? 'GRef-RAG' : item.slug === 'mpr-citeg' ? 'MPR-CiteG' : item.slug === 'star' ? 'StAR' : item.title.split(':')[0],
+        captionKo: `${item.area || item.type} · ${item.year}`,
+        captionEn: `${item.area || item.type} · ${item.year}`,
+        url: item.url || `/research/#${item.slug}`,
+        external: /^https?:\/\//i.test(item.url || ''),
+        related: item.slug === 'mpr-citeg' ? ['projects', 'awards'] : item.slug === 'star' ? ['awards'] : ['scholar']
+      }))
+    ].sort((a, b) => {
+      const order = id => {
+        const p = (content['research-projects']?.items || []).find(x => x.slug === id);
+        const q = (content.publications?.items || []).find(x => x.slug === id);
+        return (p || q)?.order ?? 999;
+      };
+      return order(a.id) - order(b.id);
+    }).slice(0, 8);
+    if (managedResearch.length) detailDefinitions.research.splice(0, detailDefinitions.research.length, ...managedResearch);
+
+    const managedProjects = (content.projects?.items || []).filter(item => item.network).sort((a,b) => (a.order ?? 999) - (b.order ?? 999)).slice(0, 8).map(item => ({
+      id: item.slug,
+      ko: item.title.length > 18 ? item.title.split('—')[0].trim() : item.title,
+      en: item.title_en || (item.title.length > 18 ? item.title.split('—')[0].trim() : item.title),
+      captionKo: item.domain || item.type,
+      captionEn: item.domain || item.type,
+      url: item.detail_url || `/projects/view/?id=${encodeURIComponent(item.slug)}`,
+      related: ['research', 'awards']
+    }));
+    if (managedProjects.length) detailDefinitions.projects.splice(0, detailDefinitions.projects.length, ...managedProjects);
+
+    const managedAwards = (content.awards?.items || []).sort((a,b) => (a.order ?? 999) - (b.order ?? 999)).slice(0, 6).map(item => ({
+      id: `award-${item.slug}`,
+      ko: item.title_en && language === 'en' ? item.title_en : item.title,
+      en: item.title_en || item.title,
+      captionKo: `${item.year} · ${item.organization}`,
+      captionEn: `${item.year} · ${item.organization}`,
+      url: '/about/#all-awards',
+      related: item.type === 'competition' ? ['projects'] : ['research']
+    }));
+    if (managedAwards.length) detailDefinitions.awards.splice(0, detailDefinitions.awards.length, ...managedAwards);
+
+    const profile = content.profile || {};
+    const contact = detailDefinitions.contact.find(item => item.id === 'email');
+    if (contact && profile.email) contact.url = `mailto:${profile.email}`;
+    const github = detailDefinitions.contact.find(item => item.id === 'github');
+    if (github && profile.github) github.url = profile.github;
+    const linked = detailDefinitions.contact.find(item => item.id === 'contact-linkedin');
+    if (linked && profile.linkedin) linked.url = profile.linkedin;
+    const scholarCategory = categoryById.get('scholar');
+    if (scholarCategory && profile.scholar) scholarCategory.overviewUrl = profile.scholar;
+    const linkedinCategory = categoryById.get('linkedin');
+    if (linkedinCategory && profile.linkedin) linkedinCategory.overviewUrl = profile.linkedin;
+
+    if (expandedGroup && !detailDefinitions[expandedGroup]) expandedGroup = null;
+    buildGraph();
+    updateDetailPanel(expandedGroup);
+    alpha = Math.max(alpha, 0.85);
+  }
+
+  document.addEventListener('portfolio-content-ready', event => applyManagedContent(event.detail));
+  if (window.ojungiiContent) applyManagedContent(window.ojungiiContent);
 
   document.addEventListener('portfolio-language-change', event => updateLanguage(event.detail?.language));
   window.addEventListener('pagehide', () => {
