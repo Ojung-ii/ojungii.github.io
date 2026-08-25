@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Ojung-ii/ojungii.github.io
   branch: main
-  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+  base_url: https://ojungii-cms-auth.ojungii.workers.dev
   auth_endpoint: /auth
   site_domain: ojungii.com
 
