@@ -19,7 +19,7 @@
         "KISTI President Award",
         "CIKM Workshop"
       ],
-      "detail_url": "",
+      "detail_url": "/projects/scienceon-mpr-citeg/",
       "featured_home": true,
       "network": true,
       "order": 1,
@@ -49,7 +49,7 @@
         "Special Award",
         "Technical Report"
       ],
-      "detail_url": "",
+      "detail_url": "/projects/alibaba-search/",
       "featured_home": true,
       "network": true,
       "order": 2,
@@ -80,7 +80,7 @@
         "10K+ Cases",
         "80% Internal Eval"
       ],
-      "detail_url": "",
+      "detail_url": "/projects/steel-rag/",
       "featured_home": true,
       "network": true,
       "order": 3,
@@ -111,7 +111,7 @@
         "Sentinel-1/2",
         "National Park Award"
       ],
-      "detail_url": "",
+      "detail_url": "/projects/blue-carbon/",
       "featured_home": false,
       "network": true,
       "order": 4,
@@ -142,7 +142,7 @@
         "Bio-AI",
         "2025"
       ],
-      "detail_url": "",
+      "detail_url": "/projects/bioai/",
       "featured_home": false,
       "network": true,
       "order": 5,

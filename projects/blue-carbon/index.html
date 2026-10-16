@@ -28,6 +28,8 @@
 (()=>{document.documentElement.classList.add('js');let t=null;try{t=localStorage.getItem('ojungii-theme')}catch{};if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;document.querySelector('meta[name="theme-color"]').content=t==='dark'?'#07111f':'#ffffff'})();
 </script>
 <script defer="" src="/assets/script.js"></script><script defer="True" src="/assets/content.js"></script>
+<link rel="stylesheet" href="/assets/experience-lab.css"/>
+<script defer src="/assets/experience-lab.js"></script>
 </head>
 <body data-description-en="A GeoAI service combining SAR and optical satellite imagery to monitor coastal-ecosystem change and risk areas in a national park." data-description-ko="SAR와 광학 위성영상을 결합해 국립공원 해안 생태계의 변화와 위험 구간을 모니터링한 GeoAI 서비스입니다." data-title-en="Sentinel-based Blue Carbon Change Detection | Project" data-title-ko="Sentinel 위성영상 기반 블루카본 변화탐지 | 프로젝트">
 <a class="skip-link" data-en="Skip to main content" data-ko="본문으로 바로가기" href="#main-content">본문으로 바로가기</a>
@@ -71,7 +73,7 @@
 <div class="case-fact"><span data-en="Key outcome" data-ko="대표 결과">대표 결과</span><strong data-en="Chairman’s Award" data-ko="공단 이사장상">공단 이사장상</strong></div>
 </div>
 </div>
-</section>
+</section><section class="experience-section" id="interactive-lab" aria-label="Interactive research and project explorer"><div class="shell"><div class="experience-lab" data-experience="blue-carbon"><div class="lab-head"><h2>Interactive explorer</h2></div><p style="padding:24px">JavaScript 없이도 아래의 본문에서 프로젝트 내용을 확인할 수 있습니다.</p></div></div></section>
 <div class="case-cover shell reveal">
 <svg aria-label="Satellite monitoring workflow over a coastal blue carbon ecosystem" role="img" viewbox="0 0 1200 420">
 <defs>

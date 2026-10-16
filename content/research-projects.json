@@ -17,7 +17,8 @@
       "featured_home": true,
       "featured_research": true,
       "network": true,
-      "order": 1
+      "order": 1,
+      "detail_url": "/research/ram-gnn/"
     }
   ]
 }

@@ -9,4 +9,9 @@
   <url><loc>https://ojungii.com/projects/alibaba-search/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ojungii.com/projects/scienceon-mpr-citeg/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ojungii.com/projects/bioai/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://ojungii.com/research/star/</loc></url>
+<url><loc>https://ojungii.com/research/gref-rag/</loc></url>
+<url><loc>https://ojungii.com/research/mot/</loc></url>
+<url><loc>https://ojungii.com/research/ram-gnn/</loc></url>
+<url><loc>https://ojungii.com/research/mpr-citeg/</loc></url>
 </urlset>

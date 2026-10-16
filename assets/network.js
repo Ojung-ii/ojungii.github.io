@@ -635,8 +635,8 @@
         en: item.title.replace(/:.*$/, ''),
         captionKo: `${item.area || 'Research'} · ${item.year || ''}`.trim(),
         captionEn: `${item.area || 'Research'} · ${item.year || ''}`.trim(),
-        url: item.url || '/research/',
-        external: /^https?:\/\//i.test(item.url || ''),
+        url: item.detail_url || item.url || '/research/',
+        external: /^https?:\/\//i.test(item.detail_url || item.url || ''),
         related: ['scholar']
       })),
       ...(content.publications?.items || []).filter(item => item.network).map(item => ({
@@ -645,8 +645,8 @@
         en: item.slug === 'mot' ? 'MoT' : item.slug === 'gref-rag' ? 'GRef-RAG' : item.slug === 'mpr-citeg' ? 'MPR-CiteG' : item.slug === 'star' ? 'StAR' : item.title.split(':')[0],
         captionKo: `${item.area || item.type} · ${item.year}`,
         captionEn: `${item.area || item.type} · ${item.year}`,
-        url: item.url || `/research/#${item.slug}`,
-        external: /^https?:\/\//i.test(item.url || ''),
+        url: item.detail_url || item.url || `/research/#${item.slug}`,
+        external: /^https?:\/\//i.test(item.detail_url || item.url || ''),
         related: item.slug === 'mpr-citeg' ? ['projects', 'awards'] : item.slug === 'star' ? ['awards'] : ['scholar']
       }))
     ].sort((a, b) => {

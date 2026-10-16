@@ -103,7 +103,7 @@
     const isProject = item.kind === 'project';
     const number = String(index + 1).padStart(2, '0');
     const status = isProject ? item.status : item.venue || item.status;
-    const url = item.url || (isProject ? `/research/#${item.slug}` : `/research/#${item.slug}`);
+    const url = item.detail_url || item.url || (isProject ? `/research/#${item.slug}` : `/research/#${item.slug}`);
     const classes = `status ${String(item.status || '').toLowerCase().includes('under') ? 'review' : String(item.status || '').toLowerCase().includes('published') ? 'published' : ''}`;
     return `<a class="work-card reveal is-visible" id="${esc(item.slug)}" href="${esc(url)}"${internalOrExternalAttrs(url)}>
       <div class="work-card-top"><span class="work-card-number">${number} / ${esc(item.area || 'AI RESEARCH')}</span><span class="${classes}">${esc(status)}</span></div>
@@ -124,7 +124,7 @@
   }
 
   function publicationMarkup(item) {
-    const url = item.url || '';
+    const url = item.detail_url || item.url || '';
     const tag = url ? 'a' : 'article';
     const attrs = url ? ` href="${esc(url)}"${internalOrExternalAttrs(url)}` : '';
     const statusClass = String(item.status || '').toLowerCase().includes('under') ? 'review' : 'published';
