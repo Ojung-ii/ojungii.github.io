@@ -22,7 +22,8 @@
       "featured_home": true,
       "featured_research": true,
       "network": true,
-      "order": 3
+      "order": 3,
+      "detail_url": "/research/star/"
     },
     {
       "slug": "mot",
@@ -47,7 +48,8 @@
       "featured_home": true,
       "featured_research": true,
       "network": true,
-      "order": 2
+      "order": 2,
+      "detail_url": "/research/mot/"
     },
     {
       "slug": "gref-rag",
@@ -72,7 +74,8 @@
       "featured_home": true,
       "featured_research": true,
       "network": true,
-      "order": 4
+      "order": 4,
+      "detail_url": "/research/gref-rag/"
     },
     {
       "slug": "mpr-citeg",
@@ -96,7 +99,8 @@
       "featured_home": false,
       "featured_research": false,
       "network": true,
-      "order": 5
+      "order": 5,
+      "detail_url": "/research/mpr-citeg/"
     },
     {
       "slug": "alibaba-report",
@@ -120,7 +124,8 @@
       "featured_home": false,
       "featured_research": false,
       "network": false,
-      "order": 6
+      "order": 6,
+      "detail_url": "/projects/alibaba-search/"
     }
   ]
 }
