@@ -32,7 +32,12 @@
     '<div class="dossier-content">'+d.sections.map(chapter).join("")+
      '<section class="dossier-role"><span>'+esc(pick(trans.contribution))+'</span><p>'+esc(pick(d.role))+'</p></section>'+
      '<section class="dossier-sources" id="dossier-source-notes"><h3>'+esc(pick(trans.sources))+'</h3><p>'+esc(pick(trans.note))+'</p>'+
-      '<div class="dossier-refs">'+d.refs.map(([fig,detail])=>'<div><strong>'+esc(fig)+'</strong><span>'+esc(detail)+'</span></div>').join("")+'</div>'+
+      '<div class="dossier-refs">'+d.refs.map(([fig,detail])=>{
+        const pub=String(d.source||"");const publicPdf=pub.includes("arxiv.org")?pub.replace("/abs/","/pdf/"):null;
+        const pageMatch=fig.match(/(?:pp?\.\s*)(\d+)/i),page=pageMatch?Number(pageMatch[1]):null;
+        const refLabel=publicPdf&&page?'<a href="'+esc(publicPdf.split("#")[0]+"#page="+page)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(fig+" · open original paper page")+'">'+esc(fig)+' ↗</a>':esc(fig);
+        return '<div><strong>'+refLabel+'</strong><span>'+esc(detail)+'</span></div>';
+      }).join("")+'</div>'+
       (d.source?'<a href="'+esc(d.source)+'" target="_blank" rel="noopener noreferrer" class="dossier-source-link">'+esc(pick(trans.paper))+' ↗</a>':'<p class="dossier-source-private">'+esc(pick(trans.private))+'</p>')+
      '</section></div></div></div>';
  }
