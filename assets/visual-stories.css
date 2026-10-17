@@ -265,3 +265,16 @@ html[data-theme="dark"] .story-atlas .story-tab-title{color:var(--text)}
  }
  .story-atlas .story-svg-frame{scroll-padding-left:8px}
 }
+
+/* v11: reading-scale correction within legacy figure explorer (overrides earlier miniature labels). */
+.story-atlas .story-text p:not(.story-footnote),.story-atlas .story-point{
+ font-size:clamp(16px,1.22vw,18px);line-height:1.83;word-break:keep-all;
+}
+.story-atlas .story-atlas-intro>p:not(.eyebrow){font-size:clamp(17px,1.33vw,20px);line-height:1.82}
+.story-atlas .story-text h3{font-size:clamp(27px,2.5vw,37px);line-height:1.3}
+.story-atlas .story-tab-title{font-size:clamp(16px,1.14vw,18px);line-height:1.5}
+.story-atlas .story-tab-meta{font-size:11.5px;line-height:1.55}
+.story-atlas .story-figure-label,.story-atlas .story-source,.story-atlas .story-footnote{font-size:12.5px!important;line-height:1.7!important}
+.story-atlas .story-secondary button,.story-atlas .story-player button,.story-atlas .story-demo button{font-size:13.5px;line-height:1.55}
+.story-atlas .story-metric span{font-size:13.5px;line-height:1.65}
+@media(max-width:760px){.story-atlas .story-storyboard button{min-height:123px}.story-atlas .story-text p:not(.story-footnote),.story-atlas .story-point{font-size:16px}.story-atlas .story-tab-title{font-size:16px}}
