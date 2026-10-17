@@ -70,3 +70,9 @@ html[data-theme="dark"] .story-atlas svg .svnoise{fill:#4a3620;stroke:#8a6238}
 @media(max-width:900px){.story-shell--split .story-content,.story-shell--cinema .story-content,.story-shell--columns .story-content{grid-template-columns:1fr}.story-content{gap:18px}.story-storyboard{overflow-x:auto;flex-wrap:nowrap;padding-bottom:14px}.story-storyboard button{flex:0 0 auto}.story-svg-frame svg{max-height:none}}
 @media(max-width:600px){.story-shell{padding:17px;border-radius:20px}.story-atlas{padding:52px 0}.story-metric{min-width:calc(50% - 10px)}.story-svg-frame{padding:4px;border-radius:15px}.story-svg-frame svg{min-width:0}}
 @media(prefers-reduced-motion:reduce){.story-progress span{transition:none}}
+
+/* Distinct visual hierarchy by case-study genre */
+.story-shell--columns .story-art{order:2}.story-shell--columns .story-text{order:1}
+.story-shell--stack .story-content{display:flex;flex-direction:column}.story-shell--stack .story-art{width:100%}.story-shell--stack .story-text{width:100%}
+.story-shell--cinema .story-svg-frame{border-radius:12px;border-width:2px}.story-shell--cinema .story-svg-frame::before{content:"CASE STUDY";position:absolute;right:16px;top:10px;color:var(--atlas);font-weight:850;font-size:10px;letter-spacing:.14em}
+@media(max-width:900px){.story-shell--columns .story-art,.story-shell--columns .story-text{order:initial}}
