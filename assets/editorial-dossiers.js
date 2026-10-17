@@ -6,7 +6,7 @@
  const pick=item=>Array.isArray(item)?(item[language()]??item[0]):item;
  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
  const rich=s=>esc(s).replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
- const trans={reading:["읽기 순서","Reading order"],contribution:["나의 참여와 성과의 범위","My contributions and attribution"],sources:["원문 Figure·슬라이드 확인","Original figures and slides"],note:["실측·보고 수치와 설명용 개념도를 구분했습니다.","Reported/observed values are kept separate from illustrative figures."],paper:["논문 원문 보기","Open public paper"],private:["심사 중 원고 또는 내부 발표자료입니다. 비공개 문서·고객 규격서 원본은 게시하지 않았습니다.","Manuscript or internal presentation only. No unpublished private slides or customer records are reproduced."],kind:{case:["실제 사례","REAL CASE"],method:["방법과 선택","DESIGN CHOICES"],comparison:["관점 비교","TRADE-OFFS"],results:["실험 근거","OBSERVED RESULTS"]}};
+ const trans={reading:["읽기 순서","Reading order"],contribution:["나의 참여와 성과의 범위","My contributions and attribution"],sources:["원문 Figure·슬라이드 확인","Original figures and slides"],jump:["인터랙티브 Figure 탐색하기","Explore interactive figures"],note:["실측·보고 수치와 설명용 개념도를 구분했습니다.","Reported/observed values are kept separate from illustrative figures."],paper:["논문 원문 보기","Open public paper"],private:["심사 중 원고 또는 내부 발표자료입니다. 비공개 문서·고객 규격서 원본은 게시하지 않았습니다.","Manuscript or internal presentation only. No unpublished private slides or customer records are reproduced."],kind:{case:["실제 사례","REAL CASE"],method:["방법과 선택","DESIGN CHOICES"],comparison:["관점 비교","TRADE-OFFS"],results:["실험 근거","OBSERVED RESULTS"]}};
  const facts=items=>'<div class="dossier-facts">'+(items||[]).map(([k,v,e,w])=>'<div class="dossier-fact"><span>'+esc(language()?e:k)+'</span><strong>'+esc(language()?w:v)+'</strong></div>').join("")+'</div>';
  const chart=(data,note)=>{
   const max=Math.max(...data.bars.map(v=>Number(v[1])))||1;
@@ -27,7 +27,7 @@
     '<header class="dossier-cover"><p class="dossier-eyebrow">'+esc(pick(d.tag))+' <span>· SOURCE-BASED DEEP DIVE</span></p>'+
     '<h2>'+esc(pick(d.title))+'</h2><p class="dossier-lede">'+rich(pick(d.lead))+'</p>'+
     '<blockquote>'+rich(pick(d.insight))+'</blockquote>'+
-    '<div class="dossier-kpis">'+d.kpis.map(([num,label])=>'<div><strong>'+esc(num)+'</strong><span>'+esc(label)+'</span></div>').join("")+'</div></header>'+
+    '<div class="dossier-kpis">'+d.kpis.map(([num,label])=>'<div><strong>'+esc(num)+'</strong><span>'+esc(label)+'</span></div>').join("")+'</div><a class="dossier-figure-jump" href="#interactive-lab">'+esc(pick(trans.jump))+' ↗</a></header>'+
     '<div class="dossier-body"><aside class="dossier-sidebar"><div class="dossier-sticky"><b>'+esc(pick(trans.reading))+'</b><nav aria-label="Evidence chapters">'+d.sections.map((s,i)=>'<a href="#dossier-chapter-'+(i+1)+'"><span>'+String(i+1).padStart(2,"0")+'</span>'+esc(pick(s.title))+'</a>').join("")+'<a href="#dossier-source-notes">'+esc(pick(trans.sources))+'</a></nav></div></aside>'+
     '<div class="dossier-content">'+d.sections.map(chapter).join("")+
      '<section class="dossier-role"><span>'+esc(pick(trans.contribution))+'</span><p>'+esc(pick(d.role))+'</p></section>'+
