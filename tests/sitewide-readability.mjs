@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
 
-const routes = ["/","/research/","/projects/","/about/",
+const routes = ["/","/research/","/projects/","/about/","/projects/view/?id=steel-rag","/projects/view/",
   "/research/star/","/research/gref-rag/","/research/mot/","/research/ram-gnn/","/research/mpr-citeg/",
   "/projects/steel-rag/","/projects/blue-carbon/","/projects/scienceon-mpr-citeg/",
   "/projects/alibaba-search/","/projects/bioai/","/404.html"];
@@ -20,7 +20,9 @@ for(const route of routes){
   },{lang,theme});
   const response=await page.goto("http://127.0.0.1:8123"+route,{waitUntil:"domcontentloaded",timeout:20000});
   if(response?.status()!==200){errors.push(route+" "+width+": HTTP "+response?.status());await page.close();continue;}
-  const detail=route.includes("/research/")&&route!=="/research/"||route.includes("/projects/")&&route!=="/projects/";
+  const detail=(route.startsWith("/research/")&&route!=="/research/")||(route.startsWith("/projects/")&&route!=="/projects/"&&!route.startsWith("/projects/view/"));
+  if(route==="/projects/view/?id=steel-rag")await page.locator("main .case-hero").first().waitFor({state:"visible",timeout:12000});
+  if(route==="/projects/view/")await page.locator("main .notice").first().waitFor({state:"visible",timeout:12000});
   if(detail){
     try{await page.locator(".story-tab-title").first().waitFor({state:"visible",timeout:10000})}
     catch(e){errors.push(route+" "+width+": figure tabs missing: "+String(e));await page.close();continue;}
@@ -66,7 +68,7 @@ for(const route of routes){
   if(audit.soft.length)warnings.push(...audit.soft.map(x=>route+" "+width+": "+x));
   if([1440,390].includes(width)){
     if(detail){await page.locator("[data-story-atlas]").scrollIntoViewIfNeeded();}
-    const dest=path.join("sitewide-previews",(route==="/"?"home":route.replace(/^\/|\/$/g,"").replaceAll("/","-"))+"-"+width+".png");
+    const dest=path.join("sitewide-previews",(route==="/"?"home":route.replace(/^\/|\/$/g,"").replaceAll("/","-").replace(/[?=]/g,"-"))+"-"+width+".png");
     await page.screenshot({path:dest,animations:"disabled",timeout:15000});
   }
   console.log("QA",route,width,lang,theme,"tabs="+audit.tabs,"hard="+audit.hard.length,"warnings="+audit.soft.length,"horizontal="+audit.scroll+"/"+audit.vw);
@@ -77,4 +79,4 @@ await browser.close();
 console.log("READABILITY_WARNINGS",JSON.stringify(warnings.slice(0,45)));
 console.log("READABILITY_ERRORS",JSON.stringify(errors.slice(0,45)));
 assert.deepEqual(errors,[],"Site-wide UI failures, including overflowing or overlapping figure labels");
-console.log("PASS: 15 public routes × 3 widths, 2 languages, 2 themes; 30 screenshot proofs.");
+console.log("PASS: 17 public route variants × 3 widths, 2 languages, 2 themes; 34 screenshot proofs.");
