@@ -388,15 +388,23 @@ EN_SCENES["mpr-citeg"]=[
  ...EN_SCENES["scienceon-mpr-citeg"]
 ];
 
+const TAB_HEADLINES = {"star":{"ko":["하이퍼볼릭 직관","구조 인식 재랭킹","핵심 소거 실험"],"en":["Hyperbolic geometry","Structure-aware ranking","Ablation results"]},"gref-rag":{"ko":["실제 질의 사례","검색·정제 파이프라인","정확도·효율 결과","동일 예산 비교"],"en":["Question example","Retrieve and refine","Quality vs efficiency","Matched token budget"]},"mot":{"ko":["에이전트 간 공유","번역 위치별 오류","KV 번역 구조","이종 모델 성능","시스템 확장성","층 매핑·교정","채널·모델 비교","캐시 재사용 전략"],"en":["Multi-agent memory","Translation placement","KV transfer pipeline","Cross-model results","System scalability","Layer mapping","Channel and models","Cache strategies"]},"ram-gnn":{"ko":["관계 기반 위험","5개 관계 레이어","GNN과 어텐션","결과·해석"],"en":["Network-mediated risk","Five relation layers","GNN and attention","Results and meaning"]},"mpr-citeg":{"ko":["핵심 연구 문제","Q·S·F·G 검색","문장별 인용"],"en":["Research problem","Q·S·F·G retrieval","Sentence citations"]},"scienceon-mpr-citeg":{"ko":["Q·S·F·G 검색","문장별 근거 연결"],"en":["Q·S·F·G retrieval","Citation grounding"]},"steel-rag":{"ko":["초기 문제 정의","2023년 PoC","2024년 검색 개선","업무 기능 고도화","한계·검증"],"en":["The original problem","2023 proof of concept","2024 retrieval upgrade","Business workflow","Limits and validation"]},"blue-carbon":{"ko":["현장 관리 문제","위성 시계열","식생·해조류 지표","변화 전후 비교"],"en":["Field monitoring","Satellite time series","Vegetation indices","Before and after"]},"alibaba-search":{"ko":["데이터 정제","다국어 모델 학습"],"en":["Data refinement","Multilingual training"]},"bioai":{"ko":["혼합 향기 문제","GAT·화학 피처","향기 모델 성능","청소율 예측","회귀 모델 비교","해석 가능성"],"en":["Odor prediction","GAT + chemistry","Odor model results","Clearance prediction","Regression models","Interpretability"]}};
+const shortTabLabel=(id,i,fallback,english)=>{
+ const set=TAB_HEADLINES[id]; return set?.[english?"en":"ko"]?.[i]||fallback;
+};
+const figLabel=(fig)=>String(fig).replace(/^PAPER\s+/i,"").replace(/^FIGURE\s+/i,"FIG. ").replace(/^FIGURES\s+/i,"FIGS. ");
 function makePage(id,c){
  const english=document.documentElement.dataset.language==="en";
  const loc=(i,k,fallback)=>english?(EN_SCENES[id]?.[i]?.[k]??fallback):fallback;
  let selected=0,variant=c.scenes[0].variants?.[0]?.[0]||"";
  const root=document.querySelector('[data-story-atlas="'+id+'"]');
  if(!root)return;
- const tabs=c.scenes.map((s,i)=>'<button type="button" role="tab" id="story-tab-'+id+'-'+i+'" aria-controls="story-panel-'+id+'" aria-selected="'+(i===0)+'" data-scene="'+i+'" tabindex="'+(i===0?0:-1)+'"><span class="story-num">'+s.fig+'</span>'+esc(loc(i,'title',s.title))+'</button>').join("");
+ const tabs=c.scenes.map((scene,i)=>{
+  const fullTitle=loc(i,"title",scene.title),shortTitle=shortTabLabel(id,i,fullTitle,english);
+  return '<button type="button" role="tab" id="story-tab-'+id+'-'+i+'" aria-controls="story-panel-'+id+'" aria-selected="'+(i===0)+'" data-scene="'+i+'" tabindex="'+(i===0?0:-1)+'" aria-label="'+esc(scene.fig+' — '+fullTitle)+'" title="'+esc(fullTitle)+'"><span class="story-tab-meta">'+esc(figLabel(scene.fig))+'</span><span class="story-tab-title">'+esc(shortTitle)+'</span><span class="story-tab-index">'+String(i+1).padStart(2,"0")+' / '+String(c.scenes.length).padStart(2,"0")+'</span></button>';
+ }).join("");
  const metrics=c.metrics.map(m=>'<div class="story-metric"><strong>'+esc(m[0])+'</strong><span>'+esc(m[1])+'</span></div>').join("");
- root.innerHTML='<div class="story-shell story-shell--'+c.layout+'"><div class="story-storyboard" role="tablist" aria-label="Figure navigation">'+tabs+'</div><div class="story-progress"><span></span></div><div class="story-content" role="tabpanel" id="story-panel-'+id+'" aria-labelledby="story-tab-'+id+'-0"><div class="story-art"><div class="story-secondary"></div><div class="story-svg-frame"><div class="story-drawing"></div><span class="story-watermark">REDRAWN · NOT TO SCALE</span></div></div><div class="story-text" aria-live="polite"></div></div><div class="story-metrics">'+metrics+'</div><div class="story-source">'+esc(c.source)+(c.url?' · <a target="_blank" rel="noopener noreferrer" href="'+esc(c.url)+'">Original publication ↗</a>':"")+'</div></div>';
+ root.innerHTML='<div class="story-shell story-shell--'+c.layout+'">'<div class="story-storyboard'+(c.scenes.length>4?" is-many":"")+'" data-count="'+c.scenes.length+'" role="tablist" aria-label="Figure navigation">''+tabs+'</div><div class="story-progress"><span></span></div><div class="story-content" role="tabpanel" id="story-panel-'+id+'" aria-labelledby="story-tab-'+id+'-0"><div class="story-art"><div class="story-secondary"></div><div class="story-svg-frame"><div class="story-drawing"></div><span class="story-watermark">REDRAWN · NOT TO SCALE</span></div></div><div class="story-text" aria-live="polite"></div></div><div class="story-metrics">'+metrics+'</div><div class="story-source">'+esc(c.source)+(c.url?' · <a target="_blank" rel="noopener noreferrer" href="'+esc(c.url)+'">Original publication ↗</a>':"")+'</div></div>';
  const show=(i,v)=>{
  selected=i;
  const scene=c.scenes[i];variant=v??scene.variants?.[0]?.[0]??"";
