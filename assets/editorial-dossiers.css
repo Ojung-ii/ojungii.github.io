@@ -93,3 +93,8 @@ html[data-theme="dark"] .editorial-dossier--alibaba-search{--ed-accent:#efb879;-
 html[data-theme="dark"] .editorial-dossier--blue-carbon{--ed-accent:#79d0da;--ed-faint:rgba(121,208,218,.11)}
 html[data-theme="dark"] .dossier-source-link{color:#071624}
 html[data-theme="dark"] .dossier-chart-track{background:rgba(255,255,255,.12)}
+
+.dossier-figure-jump{display:inline-flex;align-items:center;gap:9px;margin-top:25px;padding:12px 17px;border:1px solid var(--ed-accent);border-radius:12px;color:var(--ed-accent);font-size:14px;font-weight:850;line-height:1.55;text-decoration:none;transition:transform .18s ease,background-color .18s ease}
+.dossier-figure-jump:hover{background:var(--ed-faint);transform:translateY(-2px);color:var(--ed-accent)}
+.dossier-figure-jump:focus-visible{outline:3px solid var(--ed-accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.dossier-figure-jump{transition:none}}
