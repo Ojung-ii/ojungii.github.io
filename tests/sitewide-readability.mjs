@@ -68,7 +68,7 @@ for(const route of routes){
   if(audit.soft.length)warnings.push(...audit.soft.map(x=>route+" "+width+": "+x));
   if([1440,390].includes(width)){
     if(detail&&width===390){
-      await page.evaluate(()=>{const el=document.querySelector(".story-storyboard");if(el){window.scrollTo(0,window.scrollY+el.getBoundingClientRect().top-110)}});
+      await page.evaluate(()=>{const el=document.querySelector(".story-storyboard");if(el){document.documentElement.style.scrollBehavior="auto";window.scrollTo(0,window.scrollY+el.getBoundingClientRect().top-110)}});await page.waitForTimeout(140);
       await page.screenshot({path:path.join("sitewide-previews",route.split("/").filter(Boolean).join("-")+"-tabs-390.png"),animations:"disabled",timeout:15000});
     }
     if(detail){await page.locator("[data-story-atlas]").scrollIntoViewIfNeeded();}
