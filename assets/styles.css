@@ -898,3 +898,19 @@ button{font-family:var(--font-sans)}
  .hero-actions,.contact-actions{flex-wrap:wrap}
  .hero-actions .button,.contact-actions .button{max-width:100%;white-space:normal;overflow-wrap:anywhere}
 }
+
+/* v11 — minimum reading sizes, consistent Korean / Latin type across the public portfolio */
+:root { --portfolio-reading-size:17px; --portfolio-caption-size:13px; }
+body{font-size:16px;line-height:1.8}
+:is(.hero-description,.lede,.page-hero p,.case-summary,.paper-hero p){font-size:clamp(17px,1.33vw,20px);line-height:1.83}
+:is(.case-body p,.case-body li,.paper-prose-card p,.work-card p,.bento-card p,.thesis-card p,.publication p,.project-card p,.about-copy p,.timeline-item p){font-size:clamp(16px,1.15vw,17px);line-height:1.84}
+:is(.case-body h3,.work-card h3,.publication h3,.project-card h3){line-height:1.31}
+:is(.card-meta,.project-meta,.pub-year,.pub-action,.case-fact span,.case-fact p,.tag,.metric-chip){font-size:clamp(12.5px,.9vw,14px);line-height:1.55}
+:is(.case-nav a,.breadcrumbs,.footer-shell,.nav-links a){font-size:clamp(13px,.96vw,15px);line-height:1.55}
+:is(.story-atlas-intro p,.story-text p,.story-point){font-size:clamp(16px,1.13vw,18px);line-height:1.8}
+:is(.story-tab-title){font-size:clamp(16px,1.18vw,18px)}
+@media(max-width:720px){
+ :is(.case-body p,.case-body li,.publication p,.project-card p,.about-copy p,.timeline-item p,.work-card p,.bento-card p){font-size:16px;line-height:1.79}
+ :is(.story-atlas-intro p,.story-text p,.story-point){font-size:16px}
+ .story-tab-title{font-size:16px}
+}
