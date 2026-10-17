@@ -19,6 +19,8 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check assets/visual-stories.js
+          node --check assets/editorial-dossiers-data.js
+          node --check assets/editorial-dossiers.js
           node --check assets/story-interactions.js
           node --check assets/experience-lab.js
           node --check assets/script.js
@@ -37,9 +39,12 @@ jobs:
               assert '/assets/visual-stories.js' in text, path
               assert '/assets/visual-stories.css' in text, path
               assert '/assets/story-interactions.js' in text, path
+              assert 'data-editorial-dossier=' in text, path
+              assert '/assets/editorial-dossiers-data.js' in text, path
+              assert '/assets/editorial-dossiers.js' in text, path
               seen.add(path.parent.name)
           assert seen == cases, (seen,cases-seen)
-          for item in ('assets/visual-stories.js','assets/visual-stories.css','docs/visual-figure-source-audit.md'):
+          for item in ('assets/visual-stories.js','assets/visual-stories.css','docs/visual-figure-source-audit.md','assets/editorial-dossiers-data.js','assets/editorial-dossiers.css','assets/editorial-dossiers.js'):
               assert Path(item).is_file(), item
           print('10 story pages and supporting assets: OK')
           PY
