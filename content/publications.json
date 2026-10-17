@@ -27,7 +27,7 @@
     },
     {
       "slug": "mot",
-      "title": "Mixture-of-Translators: Translating KV Caches Across Heterogeneous Large Language Models",
+      "title": "KV Cache Translation Across Heterogeneous Large Language Models",
       "year": 2026,
       "venue": "CoRR / arXiv",
       "type": "preprint",
