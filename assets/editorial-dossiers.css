@@ -80,3 +80,16 @@
 /* Figure provenance links lead to the original publication page, without shrinking its diagram into a thumbnail. */
 .dossier-refs a{color:var(--ed-accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:break-word;line-height:1.65}
 .dossier-refs a:hover{text-decoration-thickness:2px}
+
+/* Dark mode uses brighter editorial accent variants for WCAG-friendly reading, not muted chart ink. */
+html[data-theme="dark"] .editorial-dossier{--ed-accent:#8fbcf1;--ed-faint:rgba(143,188,241,.105)}
+html[data-theme="dark"] .editorial-dossier--gref-rag,
+html[data-theme="dark"] .editorial-dossier--mpr-citeg,
+html[data-theme="dark"] .editorial-dossier--scienceon-mpr-citeg{--ed-accent:#76d6c2;--ed-faint:rgba(118,214,194,.105)}
+html[data-theme="dark"] .editorial-dossier--mot,
+html[data-theme="dark"] .editorial-dossier--bioai{--ed-accent:#c6a5f4;--ed-faint:rgba(198,165,244,.11)}
+html[data-theme="dark"] .editorial-dossier--ram-gnn,
+html[data-theme="dark"] .editorial-dossier--alibaba-search{--ed-accent:#efb879;--ed-faint:rgba(239,184,121,.10)}
+html[data-theme="dark"] .editorial-dossier--blue-carbon{--ed-accent:#79d0da;--ed-faint:rgba(121,208,218,.11)}
+html[data-theme="dark"] .dossier-source-link{color:#071624}
+html[data-theme="dark"] .dossier-chart-track{background:rgba(255,255,255,.12)}
