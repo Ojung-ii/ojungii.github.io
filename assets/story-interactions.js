@@ -34,7 +34,7 @@ const render=(id,index,value)=>{
    return panel(say("하이퍼볼릭 직관 실험","Explore hierarchy depth"),say("분기 깊이에 따른 노드 증가","Nodes expand with depth"),
    '<div>'+range(1,4,n,1,say("트리 깊이","Tree depth"))+'<div class="story-demo-line"><output data-value>'+n+'</output><span>'+say("말단 노드","Leaf nodes")+': <strong data-count>'+Math.pow(2,n)+'</strong></span></div>'+tree(n)+'</div>'+p(say("왜 하이퍼볼릭인가?","Why hyperbolic?"),say("분기가 깊어질수록 유클리드 평면에 노드를 압축하기 어렵습니다. 음의 곡률 공간은 깊이와 분기 관계를 나타내기에 유리합니다. StAR의 실제 수학은 Lorentz 모델입니다.","As depth grows, embedding branching structure compactly in Euclidean space becomes difficult. Negative curvature better accommodates hierarchy. StAR computes with a Lorentz model.")),neutral);
  }
- if(id==="gref-rag"&&sceneIndex===2){
+ if(id==="gref-rag"&&sceneIndex===3){
    const budget=String(value??"1024"),values={"512":["+0.05025","0.05025"],"1024":["+0.03909","0.03909"],"2048":["+0.02847","0.02847"]},f=values[budget]??values["1024"];
    return panel(say("동일 컨텍스트 예산 비교","Same-budget comparison"),say("리뷰 이후 추가 실험 · 4개 QA 데이터셋","Post-review, four QA datasets"),
     '<div class="story-demo-grid">'+["512","1024","2048"].map(x=>b(x,x+" tokens",budget)).join("")+'</div>'+p("Macro ΔF1 vs KG2RAG",f[0]+" "+say("(절대 F1 차이, 실측)","(absolute F1 difference, measured)")),
@@ -52,7 +52,7 @@ const render=(id,index,value)=>{
  if(id==="ram-gnn"&&sceneIndex===2){let v=String(value??"A"),cases={A:["Abilities","Knowledge"],B:["Activities","Context"],C:["Knowledge","Skills"]};return panel(say("직업 노드별 관계 주목도","Occupation-specific relation focus"),say("정량적 attention 실측 아님","Illustrative; not measured attention"),
    '<div class="story-demo-grid">'+["A","B","C"].map(z=>b(z,say("가상 노드 ","Toy occupation ")+z,v)).join("")+'</div>'+p(say("선택 노드의 주요 채널","Illustrative salient relations"),(cases[v]??cases.A).join(" + ")),
    say("실제 직업별 수치나 인과관계를 추정하지 않습니다. 노드별로 다르게 가중치를 둔다는 원리만 표현합니다.","No individual occupation scores or causal claims are inferred; only the node-specific weighting principle is depicted."));}
- if((id==="mpr-citeg"||id==="scienceon-mpr-citeg")&&sceneIndex===1){
+ if(((id==="mpr-citeg"&&sceneIndex===2)||(id==="scienceon-mpr-citeg"&&sceneIndex===1))){
    const v=String(value??"A");return panel(say("문장별 인용 근거 탐색","Inspect sentence-level citations"),"CiteG · source attribution demo",
    '<div class="story-demo-grid">'+b("A",say("답변 문장 A [1]","Answer sentence A [1]"),v)+b("B",say("답변 문장 B [2]","Answer sentence B [2]"),v)+'</div>'+
    p(say("선택된 원문 근거","Selected supporting source"),v==="A"?say("문서 1의 해당 문장과 연결됩니다. 예시이며 실제 문헌 인용이 아닙니다.","Linked to matching evidence in Source [1]. Demonstration, not an actual paper citation."):say("문서 2의 해당 문장과 연결됩니다. 예시이며 실제 문헌 인용이 아닙니다.","Linked to matching evidence in Source [2]. Demonstration, not an actual paper citation.")),neutral);
