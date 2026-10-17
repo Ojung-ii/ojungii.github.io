@@ -819,3 +819,7 @@ button,input,textarea,select{font:inherit}
 button, a{-webkit-tap-highlight-color:transparent}
 a:focus-visible,button:focus-visible,input:focus-visible,[role="tab"]:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
 @media(max-width:650px){:root{--shell:min(1180px,calc(100% - 28px))}.paper-hero h1,.case-hero h1{font-size:clamp(30px,8vw,43px)!important;line-height:1.19;letter-spacing:-.04em}.paper-hero,.case-hero{padding-top:clamp(42px,7vw,67px)}.paper-hero-layout,.case-hero-grid{min-width:0}}
+
+/* Design QA: keep sticky header height constant to prevent scroll-threshold jitter */
+.site-header,.site-header.is-scrolled{padding:12px 0}
+.site-header{transition:background-color .22s ease,box-shadow .22s ease}
