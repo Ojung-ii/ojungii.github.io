@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap");
 
 :root{
   color-scheme:light;
@@ -24,7 +25,7 @@
   --radius-lg:24px;
   --radius-md:17px;
   --shell:min(1180px,calc(100% - 44px));
-  --font-sans:Inter,Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;
+  --font-sans:"Noto Sans KR",Inter,"Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
   --font-serif:"Iowan Old Style","Noto Serif KR",Georgia,serif;
 }
 html[data-theme="dark"]{
@@ -807,3 +808,18 @@ html[data-theme="dark"] .network-node.is-detail .node-core{fill:var(--surface-2)
 @media(max-width:720px){
   .research-focus-grid{grid-template-columns:1fr}
 }
+
+/* Design QA v9: dependable bilingual type & wrap safeguards */
+:root{font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+html{overflow-x:clip;scroll-padding-top:94px}
+body{overflow-wrap:break-word;word-break:keep-all}
+h1,h2,h3,h4{font-family:var(--font-sans);font-feature-settings:"kern" 1;overflow-wrap:anywhere;text-wrap:balance;line-height:1.2}
+p,li{line-height:1.82;overflow-wrap:anywhere}
+button,input,textarea,select{font:inherit}
+button, a{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,input:focus-visible,[role="tab"]:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+@media(max-width:650px){:root{--shell:min(1180px,calc(100% - 28px))}.paper-hero h1,.case-hero h1{font-size:clamp(30px,8vw,43px)!important;line-height:1.19;letter-spacing:-.04em}.paper-hero,.case-hero{padding-top:clamp(42px,7vw,67px)}.paper-hero-layout,.case-hero-grid{min-width:0}}
+
+/* Design QA: keep sticky header height constant to prevent scroll-threshold jitter */
+.site-header,.site-header.is-scrolled{padding:12px 0}
+.site-header{transition:background-color .22s ease,box-shadow .22s ease}
