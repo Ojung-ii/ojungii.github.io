@@ -5,7 +5,14 @@ const $=(s,c=document)=>c.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const palettes={ink:"#193351",blue:"#3f7dba",mint:"#48a893",orange:"#d19a4b",purple:"#9875d3",pale:"#edf2f8"};
 const S=(x,y,value,klass="svtext",anchor="start")=>'<text x="'+x+'" y="'+y+'" text-anchor="'+anchor+'" class="'+klass+'">'+esc(value)+'</text>';
-const R=(x,y,w,h,label,kind="svcard",sub="")=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="17" class="'+kind+'"/>'+S(x+14,y+29,label,"svtext")+(sub?S(x+14,y+48,sub,"svsmall"):"");
+const splitSVGText=(value,capacity)=>{const words=String(value).split(/\s+/);let line="",rows=[];for(const word of words){if(line&&line.length+word.length+1>capacity){rows.push(line);line=word}else line+=(line?" ":"")+word}if(line)rows.push(line);return rows;};
+const R=(x,y,w,h,label,kind="svcard",sub="")=>{
+ const titleLines=splitSVGText(label,Math.max(10,Math.floor((w-26)/7.5))).slice(0,2);
+ const subLines=sub?splitSVGText(sub,Math.max(10,Math.floor((w-26)/6))).slice(0,1):[];
+ const title=titleLines.map((part,i)=>S(x+13,y+23+i*17,part,"svtext")).join("");
+ const detail=subLines.map(part=>S(x+13,y+h-15,part,"svsmall")).join("");
+ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="17" class="'+kind+'"/>'+title+detail;
+};
 const C=(x,y,r,label,fill=palettes.blue)=>'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+fill+'" stroke="#fff" stroke-width="3"/>'+S(x,y+4,label,"svlight","middle");
 const L=(x,y,x2,y2,dash=false)=>'<path d="M'+x+' '+y+' L'+x2+' '+y2+'" class="'+(dash?"svdash":"svline")+'"/>';
 const P=(d,col=palettes.blue,w=3)=>'<path d="'+d+'" fill="none" stroke="'+col+'" stroke-width="'+w+'" stroke-linecap="round" stroke-linejoin="round"/>';
