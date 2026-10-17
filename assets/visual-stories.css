@@ -252,3 +252,16 @@ html[data-theme="dark"] .story-atlas--blue-carbon .story-svg-frame,html[data-the
  .story-atlas .story-demo-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
 }
 html[data-theme="dark"] .story-atlas .story-tab-title{color:var(--text)}
+
+/* Make intentional mobile diagram panning explicit, above—not below—the clipped canvas. */
+.story-pan-hint{display:none!important}
+@media(max-width:760px){
+ .story-atlas .story-pan-hint{
+   display:flex!important;align-items:center;gap:7px;margin:4px 0 10px!important;
+   font-size:12px!important;font-weight:750;color:var(--atlas)!important;line-height:1.5!important;
+   padding:8px 12px;width:max-content;max-width:100%;
+   border:1px solid var(--line);border-radius:999px;background:var(--surface);
+   word-break:keep-all;white-space:normal;
+ }
+ .story-atlas .story-svg-frame{scroll-padding-left:8px}
+}
