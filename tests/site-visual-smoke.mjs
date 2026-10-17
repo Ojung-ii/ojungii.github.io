@@ -37,12 +37,14 @@ for(const route of routes){
     assert.equal(await interactive.getAttribute("aria-pressed"),"true",route+" choice");
   }
   // KO / EN and light / dark are existing portfolio controls and must survive initialization.
+  const langBefore=await page.locator("html").getAttribute("data-language");
   await page.locator("#language-toggle").click();
-  assert.equal(await page.locator("html").getAttribute("data-language"),"en",route+" language switch");
+  assert.equal(await page.locator("html").getAttribute("data-language"),langBefore==="ko"?"en":"ko",route+" language switch");
   await page.locator("[data-story-atlas] .story-shell").waitFor();
   assert.ok((await page.locator("[data-story-atlas] .story-text h3").innerText()).length>5);
+  const themeBefore=await page.locator("html").getAttribute("data-theme");
   await page.locator("#theme-toggle").click();
-  assert.equal(await page.locator("html").getAttribute("data-theme"),"dark",route+" theme switch");
+  assert.equal(await page.locator("html").getAttribute("data-theme"),themeBefore==="dark"?"light":"dark",route+" theme switch");
   await page.locator("[data-story-atlas]").scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join("design-previews",route.replaceAll("/","-")+"-"+width+".png"),animations:"disabled"});
   const dimensions=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth}));
