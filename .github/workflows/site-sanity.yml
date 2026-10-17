@@ -1,0 +1,41 @@
+name: Site sanity
+on:
+  pull_request:
+    paths:
+      - 'assets/visual-stories.*'
+      - 'research/**'
+      - 'projects/**'
+      - '.github/workflows/site-sanity.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/visual-stories.js
+          node --check assets/experience-lab.js
+          node --check assets/script.js
+      - name: Verify visual story integrations
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          files = sorted(Path("research").glob("*/index.html")) + sorted(Path("projects").glob("*/index.html"))
+          cases = {"star","gref-rag","mot","ram-gnn","steel-rag","blue-carbon","scienceon-mpr-citeg","alibaba-search","bioai"}
+          seen=set()
+          for path in files:
+              if path.parent.name not in cases: continue
+              text=path.read_text(encoding="utf-8")
+              assert text.count('data-story-atlas=') == 1, path
+              assert text.count('id="interactive-lab"') == 1, path
+              assert '/assets/visual-stories.js' in text, path
+              assert '/assets/visual-stories.css' in text, path
+              seen.add(path.parent.name)
+          assert seen == cases, (seen,cases-seen)
+          for item in ('assets/visual-stories.js','assets/visual-stories.css','docs/visual-figure-source-audit.md'):
+              assert Path(item).is_file(), item
+          print('9 story pages and 3 supporting assets: OK')
+          PY
