@@ -3,9 +3,13 @@ on:
   pull_request:
     paths:
       - 'assets/**'
+      - 'index.html'
+      - 'about/**'
+      - '404.html'
       - 'research/**'
       - 'projects/**'
       - 'tests/site-visual-smoke.mjs'
+      - 'tests/sitewide-readability.mjs'
       - '.github/workflows/visual-design.yml'
   workflow_dispatch:
 permissions:
@@ -30,10 +34,14 @@ jobs:
           curl --fail http://127.0.0.1:8123/research/star/ > /dev/null
       - name: Verify desktop and mobile layout / themes / interactions
         run: node tests/site-visual-smoke.mjs
+      - name: Audit typography, text clipping and card collisions across public routes
+        run: node tests/sitewide-readability.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: detail-page-design-previews
-          path: design-previews/
+          path: |
+            design-previews/
+            sitewide-previews/
           if-no-files-found: ignore
           retention-days: 14
