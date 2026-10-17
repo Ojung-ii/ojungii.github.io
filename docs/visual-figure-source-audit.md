@@ -16,6 +16,6 @@ These are site-native explanatory SVG reconstructions, not extracted or redistri
 
 ## Before merging
 - Check all research labels against most recent manuscripts.
-- Original site has global KO/EN switching; new figure explorer narrative is mostly Korean with English technical diagram labels. Full English translation remains a known follow-up.
+- Global KO/EN switching is supported for the story descriptions and figure explanations. Fixed technical labels in the SVGs remain in English.
 - Test keyboard (ArrowLeft/ArrowRight/Home/End) and mobile widths.
 - Preserve provenance labels distinguishing measured figures from explanatory schematics.
