@@ -69,7 +69,7 @@ for(const route of routes){
   if([1440,390].includes(width)){
     if(detail&&width===390){
       await page.evaluate(()=>{const el=document.querySelector(".story-storyboard");if(el){window.scrollTo(0,window.scrollY+el.getBoundingClientRect().top-110)}});
-      await page.screenshot({path:path.join("sitewide-previews",route.replace(/^\\/|\\/$/g,"").replaceAll("/","-")+"-tabs-390.png"),animations:"disabled",timeout:15000});
+      await page.screenshot({path:path.join("sitewide-previews",route.split("/").filter(Boolean).join("-")+"-tabs-390.png"),animations:"disabled",timeout:15000});
     }
     if(detail){await page.locator("[data-story-atlas]").scrollIntoViewIfNeeded();}
     const dest=path.join("sitewide-previews",(route==="/"?"home":route.replace(/^\/|\/$/g,"").replaceAll("/","-").replace(/[?=]/g,"-"))+"-"+width+".png");
