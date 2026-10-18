@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
+import fs from "node:fs/promises";
 import { chromium } from "playwright";
 const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
 const errors=[];
+await fs.mkdir("source-figure-previews",{recursive:true});
 for(const width of [1440,768,390]){
  for(const theme of ["light","dark"]){
   const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1});
@@ -17,6 +19,9 @@ for(const width of [1440,768,390]){
    await page.locator("[data-steel-step='5']").click();
    assert.ok((await page.locator("[data-steel-detail]").innerText()).includes("Priority"));
    assert.equal(await page.locator("[data-steel-phase='after']").getAttribute("aria-selected"),"true");
+   if(width!==768)await page.locator(".steel-source-story").screenshot({path:"source-figure-previews/steel-2024-"+width+"-"+theme+".png",animations:"disabled"});
+   await page.locator("[data-steel-phase='before']").click();
+   if(width!==768)await page.locator(".steel-source-story").screenshot({path:"source-figure-previews/steel-2023-"+width+"-"+theme+".png",animations:"disabled"});
    let o=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,inner:document.documentElement.clientWidth}));
    assert.ok(o.scroll<=o.inner+4,"Steel page horizontal overflow "+o.scroll+"/"+o.inner);
    console.log("PASS STEEL",width,theme);
@@ -32,6 +37,7 @@ for(const width of [1440,768,390]){
    assert.equal(await page.locator("[data-lorentz-curvature-label]").textContent(),"K = −1.0 ("+"모든 깊이에서 일정"+")");
    await page.locator("[data-curvature]").evaluate(el=>{el.value="1.6";el.dispatchEvent(new Event("input",{bubbles:true}))});
    assert.ok((await page.locator("[data-lorentz-curvature-label]").textContent()).includes("−1.6"));
+   if(width!==768)await page.locator(".lorentz-explorer").screenshot({path:"source-figure-previews/star-lorentz-"+width+"-"+theme+".png",animations:"disabled"});
    await page.locator("[data-lorentz-reset]").click();
    assert.equal(await page.locator("[data-depth]").inputValue(),"4");
    assert.equal(await page.locator("[data-curvature]").inputValue(),"1.0");
