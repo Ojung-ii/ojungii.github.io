@@ -84,3 +84,17 @@
 .steel-workflow-flow:has(li:nth-child(7)) li:nth-child(6) .steel-workflow-step,
 .steel-workflow-flow:has(li:nth-child(7)) li:nth-child(7) .steel-workflow-step{border-top-color:#16876a}
 @media(max-width:750px){.steel-workflow-flow li:nth-child(2n)::after{content:none}}
+
+/* Final human review: no 7-column microtype, and fixed navbar never hides the Lorentz heading. */
+.steel-workflow-flow:has(li:nth-child(7)){grid-template-columns:repeat(4,minmax(0,1fr))}
+.steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step{min-height:115px;padding:13px 13px 15px}
+.steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step strong{font-size:16px}
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(4)::after{content:none}
+.lorentz-explorer{padding-top:clamp(110px,9vw,142px);scroll-margin-top:112px}
+.steel-source-story{scroll-margin-top:112px}
+@media(max-width:750px){
+ .steel-workflow-flow:has(li:nth-child(7)){grid-template-columns:repeat(2,minmax(0,1fr))}
+ .steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step{min-height:115px}
+ .steel-workflow-flow:has(li:nth-child(7)) li:nth-child(4)::after{content:none}
+ .lorentz-explorer{padding-top:clamp(56px,8vw,80px)}
+}
