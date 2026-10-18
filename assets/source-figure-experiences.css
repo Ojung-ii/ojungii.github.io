@@ -75,3 +75,12 @@
  .lorentz-controls button{grid-column:1}
 }
 @media(prefers-reduced-motion:reduce){.steel-workflow-step,.lorentz-canvas svg{transition:none}}
+
+/* Respect the source slides' directional process ribbon and 2024 blue/cyan/green functional zones. */
+.steel-workflow-flow li::after{content:"›";position:absolute;right:-13px;top:31px;z-index:2;color:var(--blue);font-size:28px;font-weight:850;line-height:1}
+.steel-workflow-flow li:last-child::after{content:none}
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(4) .steel-workflow-step,
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(5) .steel-workflow-step{border-top-color:#18a3b0}
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(6) .steel-workflow-step,
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(7) .steel-workflow-step{border-top-color:#16876a}
+@media(max-width:750px){.steel-workflow-flow li:nth-child(2n)::after{content:none}}
