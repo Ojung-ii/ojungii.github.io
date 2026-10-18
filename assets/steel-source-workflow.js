@@ -25,6 +25,8 @@
  const display=field=>field[lang()];
  function render(){
   const entries=phases[phase],chosen=entries[selected],l=lang();
+  const sectionTitle=root.closest(".steel-source-story")?.querySelector("[data-steel-main-title]");
+  if(sectionTitle)sectionTitle.textContent=l==="ko"?(phase==="before"?"2023 · 수주검토의 기존 업무 과정":"2024 · 사용자 중심의 검토 자동화"):(phase==="before"?"2023 · Original manual review workflow":"2024 · Operator-assisted review workflow");
   root.querySelectorAll("[data-steel-phase]").forEach(el=>{const selectedTab=el.dataset.steelPhase===phase;el.setAttribute("aria-selected",String(selectedTab));el.tabIndex=selectedTab?0:-1;el.classList.toggle("is-active",selectedTab)});
   root.querySelector("[data-steel-flow]").innerHTML=entries.map((entry,i)=>'<li><button type="button" class="steel-workflow-step'+(i===selected?" is-active":"")+'" data-steel-step="'+i+'" aria-pressed="'+(i===selected)+'"><span class="steel-workflow-index">'+String(i+1).padStart(2,"0")+'</span><strong>'+escape(display(entry.title))+'</strong><span>'+escape(display(entry.sub))+'</span></button></li>').join("");
   root.querySelector("[data-steel-detail]").innerHTML='<div class="steel-detail-meta">'+(l==="ko"?(phase==="before"?"2023 · 기존 업무":"2024 · 개선된 사용자 흐름"):(phase==="before"?"2023 · Original process":"2024 · Operator workflow"))+' · '+(selected+1)+'/'+entries.length+'</div><h3>'+escape(display(chosen.title))+'</h3><p>'+escape(display(chosen.body))+'</p>';
