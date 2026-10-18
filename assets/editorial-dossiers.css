@@ -98,3 +98,27 @@ html[data-theme="dark"] .dossier-chart-track{background:rgba(255,255,255,.12)}
 .dossier-figure-jump:hover{background:var(--ed-faint);transform:translateY(-2px);color:var(--ed-accent)}
 .dossier-figure-jump:focus-visible{outline:3px solid var(--ed-accent);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.dossier-figure-jump{transition:none}}
+
+
+/* v12 evidence-first skim layer: contribution / verified evidence / engineering judgement. */
+.dossier-decision-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:30px 0 55px}
+.dossier-decision-item{min-width:0;border-top:3px solid var(--ed-accent);border-radius:0 0 14px 14px;background:var(--ed-faint);padding:19px 18px 21px}
+.dossier-decision-number{font-size:11px;font-weight:900;color:var(--ed-accent);letter-spacing:.08em}
+.dossier-decision-label{display:block;font-size:12px;font-weight:850;line-height:1.55;color:var(--ed-accent);margin:8px 0}
+.dossier-decision-item p{font-size:clamp(15px,1.14vw,17px);line-height:1.78;color:var(--text);font-weight:560;margin:0;word-break:keep-all;overflow-wrap:break-word}
+.dossier-related-link{display:inline-flex;max-width:100%;align-items:center;gap:8px;margin:0 0 26px;padding:11px 15px;border:1px solid var(--line);border-radius:12px;color:var(--ed-accent);text-decoration:none;font-size:13.5px;font-weight:800;line-height:1.6;word-break:keep-all}
+.dossier-related-link:hover{background:var(--ed-faint);border-color:var(--ed-accent)}
+.dossier-mobile-toc{display:none}
+.editorial-dossier .dossier-fallback{font-size:17px;line-height:1.8}
+@media(max-width:950px){
+ .dossier-decision-summary{grid-template-columns:1fr;gap:9px;margin-bottom:34px}
+ .dossier-decision-item{padding:15px 17px}
+ .dossier-decision-item p{font-size:16px}
+}
+@media(max-width:750px){
+ .dossier-mobile-toc{display:flex;align-items:center;gap:9px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scroll-snap-type:x proximity;padding:0 0 13px;margin:0 0 30px;white-space:nowrap}
+ .dossier-mobile-toc>span{font-size:12px;color:var(--muted);font-weight:850;flex:0 0 auto;margin-right:3px}
+ .dossier-mobile-toc a{flex:0 0 auto;max-width:260px;min-height:42px;border:1px solid var(--line);border-radius:11px;padding:10px 13px;text-decoration:none;color:var(--text);background:var(--bg-soft);font-size:13px;font-weight:700;line-height:1.6;overflow:hidden;text-overflow:ellipsis;scroll-snap-align:start}
+ .dossier-mobile-toc a:focus-visible{outline:3px solid var(--ed-accent)}
+ .dossier-decision-summary{gap:10px}
+}
