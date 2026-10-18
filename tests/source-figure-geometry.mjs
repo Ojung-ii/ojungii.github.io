@@ -40,7 +40,7 @@ for(const width of [1440,768,390]){
    if(width!==768)await page.locator(".lorentz-explorer").screenshot({path:"source-figure-previews/star-lorentz-"+width+"-"+theme+".png",animations:"disabled"});
    await page.locator("[data-lorentz-reset]").click();
    assert.equal(await page.locator("[data-depth]").inputValue(),"4");
-   assert.equal(await page.locator("[data-curvature]").inputValue(),"1.0");
+   assert.equal(Number(await page.locator("[data-curvature]").inputValue()),1.0);
    o=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,inner:document.documentElement.clientWidth}));
    assert.ok(o.scroll<=o.inner+4,"StAR horizontal overflow "+o.scroll+"/"+o.inner);
    console.log("PASS LORENTZ",width,theme);
