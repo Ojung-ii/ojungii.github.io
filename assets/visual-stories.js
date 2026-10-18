@@ -409,6 +409,7 @@ function makePage(id,c){
  selected=i;
  const scene=c.scenes[i];variant=v??scene.variants?.[0]?.[0]??"";
  [...root.querySelectorAll('[data-scene]')].forEach((b,j)=>{b.setAttribute("aria-selected",j===i?"true":"false");b.tabIndex=j===i?0:-1;});
+ const panel=root.querySelector('[role="tabpanel"]');if(panel)panel.setAttribute("aria-labelledby","story-tab-"+id+"-"+i);
  root.querySelector(".story-progress span").style.width=((i+1)/c.scenes.length*100)+"%";
  root.querySelector(".story-secondary").innerHTML=scene.variants?scene.variants.map(([key,label])=>'<button type="button" data-variant="'+esc(key)+'" aria-pressed="'+(variant===key)+'">'+esc(label)+'</button>').join(""):"";
  root.querySelector(".story-drawing").innerHTML=diagram(scene.diagram,variant);

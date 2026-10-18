@@ -99,6 +99,20 @@
     });
   }
 
+  // Editorial labels communicate published status and role without attributing team outcomes to one person.
+  const contributionLabels={
+    star:{ko:"SIGIR 2026 · 제1저자 · 발표",en:"SIGIR 2026 · First author · Presenter"},
+    "gref-rag":{ko:"학위논문 중심 연구 · 심사 중",en:"Core thesis research · Under review"},
+    mot:{ko:"공동 제1저자 · arXiv v2",en:"Co-first author · arXiv v2"},
+    "ram-gnn":{ko:"다층 GNN 연구 · 투고 원고",en:"Multilayer GNN · Submitted manuscript"},
+    "scienceon-mpr-citeg":{ko:"팀원 · 공동저자 · 대회 2위",en:"Team member · Coauthor · 2nd place"},
+    "steel-rag":{ko:"프로젝트 팀장 · 산업문서 RAG",en:"Project lead · Industrial-document RAG"},
+    "alibaba-search":{ko:"팀원 · 4위 및 특별상",en:"Team member · 4th place / Special award"},
+    "blue-carbon":{ko:"PM · GEE 분석·현장 서비스",en:"PM · GEE analysis / field service"},
+    bioai:{ko:"팀 참여 · 3위 · 분자 예측 2개 과제",en:"Team project · 3rd place · Two molecular tasks"}
+  };
+  const contributionLabel=(item)=>contributionLabels[item.slug]?.[state.language]||item.role||"";
+
   function researchCard(item, index) {
     const isProject = item.kind === 'project';
     const number = String(index + 1).padStart(2, '0');
@@ -108,6 +122,7 @@
     return `<a class="work-card reveal is-visible" id="${esc(item.slug)}" href="${esc(url)}"${internalOrExternalAttrs(url)}>
       <div class="work-card-top"><span class="work-card-number">${number} / ${esc(item.area || 'AI RESEARCH')}</span><span class="${classes}">${esc(status)}</span></div>
       <h3>${esc(item.title)}</h3>
+      <p class="card-proof">${esc(contributionLabel(item))}</p>
       <p>${esc(lang(item, 'summary'))}</p>
       <div class="work-card-footer"><div class="tag-row">${(item.tags || []).slice(0,4).map(tag => `<span class="tag">${esc(tag)}</span>`).join('')}</div><span class="work-card-arrow">↗</span></div>
     </a>`;
@@ -149,7 +164,7 @@
     const title = state.language === 'en' && item.title_en ? item.title_en : item.title;
     return `<a class="work-card project-card reveal is-visible" data-filter-item="${esc(item.type)}" href="${esc(url)}">
       <div class="project-meta"><span class="project-type">${esc(item.domain)}</span><span>${esc(item.year)}</span></div>
-      <h3>${esc(title)}</h3><p>${esc(lang(item, 'summary'))}</p>
+      <h3>${esc(title)}</h3><p class="card-proof">${esc(contributionLabel(item))}</p><p>${esc(lang(item, 'summary'))}</p>
       <div class="metric-row">${(item.metrics || []).map(metric => `<span class="metric-chip">${esc(metric)}</span>`).join('')}</div>
       <div class="work-card-footer"><div class="tag-row">${(item.tags || []).slice(0,4).map(tag => `<span class="tag">${esc(tag)}</span>`).join('')}</div><span class="work-card-arrow">↗</span></div>
     </a>`;

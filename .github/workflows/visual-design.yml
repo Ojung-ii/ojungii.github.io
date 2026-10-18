@@ -11,6 +11,7 @@ on:
       - 'tests/site-visual-smoke.mjs'
       - 'tests/sitewide-readability.mjs'
       - 'tests/source-editorial-qa.mjs'
+      - 'tests/portfolio-expert-qa.mjs'
       - '.github/workflows/visual-design.yml'
   workflow_dispatch:
 permissions:
@@ -39,6 +40,8 @@ jobs:
         run: node tests/sitewide-readability.mjs
       - name: Verify source-grounded editorial design
         run: node tests/source-editorial-qa.mjs
+      - name: Validate expert-led portfolio UX, roles and static fallback
+        run: node tests/portfolio-expert-qa.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
