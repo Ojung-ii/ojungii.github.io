@@ -11,6 +11,7 @@ on:
       - 'tests/site-visual-smoke.mjs'
       - 'tests/sitewide-readability.mjs'
       - 'tests/source-editorial-qa.mjs'
+      - 'tests/source-figure-geometry.mjs'
       - 'tests/portfolio-expert-qa.mjs'
       - '.github/workflows/visual-design.yml'
   workflow_dispatch:
@@ -42,6 +43,8 @@ jobs:
         run: node tests/source-editorial-qa.mjs
       - name: Validate expert-led portfolio UX, roles and static fallback
         run: node tests/portfolio-expert-qa.mjs
+      - name: Verify Steel original workflow and StAR Lorentz 3D geometry
+        run: node tests/source-figure-geometry.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
