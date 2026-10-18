@@ -53,5 +53,6 @@ jobs:
             design-previews/
             sitewide-previews/
             editorial-previews/
+            source-figure-previews/
           if-no-files-found: ignore
           retention-days: 14
