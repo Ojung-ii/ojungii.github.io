@@ -1,0 +1,100 @@
+
+/* Source-first editorial format: readable science case studies, not another pipeline grid. */
+.editorial-dossier{
+ --ed-accent:#2368a3;--ed-faint:rgba(35,104,163,.08);
+ position:relative;padding:clamp(54px,7vw,104px) 0;background:var(--surface);
+ border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.editorial-dossier--gref-rag{--ed-accent:#16846b;--ed-faint:rgba(22,132,107,.08)}
+.editorial-dossier--mot{--ed-accent:#7858b7;--ed-faint:rgba(120,88,183,.08)}
+.editorial-dossier--ram-gnn{--ed-accent:#a96220;--ed-faint:rgba(169,98,32,.07)}
+.editorial-dossier--mpr-citeg,.editorial-dossier--scienceon-mpr-citeg{--ed-accent:#187e75;--ed-faint:rgba(24,126,117,.08)}
+.editorial-dossier--blue-carbon{--ed-accent:#137d8b;--ed-faint:rgba(19,125,139,.08)}
+.editorial-dossier--alibaba-search{--ed-accent:#b96d25;--ed-faint:rgba(185,109,37,.07)}
+.editorial-dossier--bioai{--ed-accent:#8660ac;--ed-faint:rgba(134,96,172,.08)}
+.editorial-dossier :is(h2,h3,p,blockquote){max-width:none}
+.dossier-shell{max-width:1160px}
+.dossier-cover{max-width:960px;margin-bottom:clamp(40px,6vw,70px)}
+.dossier-eyebrow{font-size:12px;font-weight:850;letter-spacing:.12em;color:var(--ed-accent);line-height:1.6;text-transform:uppercase;margin:0 0 20px}
+.dossier-eyebrow span{color:var(--subtle)}
+.dossier-cover h2{font-family:var(--font-sans);font-size:clamp(34px,4.1vw,56px);font-weight:850;line-height:1.24;letter-spacing:-.052em;max-width:20ch;margin:0 0 22px;word-break:keep-all;overflow-wrap:break-word}
+.dossier-lede{font-size:clamp(18px,1.5vw,21px);line-height:1.93;font-weight:460;color:var(--text);max-width:74ch;word-break:keep-all}
+.dossier-lede strong,.dossier-chapter-copy strong{color:var(--text);font-weight:800}
+.dossier-cover blockquote{font-size:clamp(17px,1.4vw,20px);line-height:1.74;font-weight:650;color:var(--ed-accent);border-left:3px solid var(--ed-accent);padding:7px 0 7px 19px;margin:28px 0 36px;max-width:72ch;background:none;word-break:keep-all}
+.dossier-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.dossier-kpis>div{padding:19px 20px;border:1px solid var(--line);background:var(--ed-faint);border-radius:17px;min-width:0}
+.dossier-kpis strong{font-size:clamp(22px,2.6vw,33px);letter-spacing:-.06em;line-height:1.2;color:var(--ed-accent);display:block;overflow-wrap:anywhere}
+.dossier-kpis span{display:block;font-size:13px;font-weight:600;line-height:1.65;color:var(--muted);margin-top:9px;overflow-wrap:break-word}
+.dossier-body{display:grid;grid-template-columns:215px minmax(0,1fr);gap:clamp(24px,3.5vw,58px)}
+.dossier-sidebar{min-width:0}
+.dossier-sticky{position:sticky;top:102px;max-height:calc(100vh - 130px);overflow:auto;padding-right:8px}
+.dossier-sticky>b{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--subtle)}
+.dossier-sidebar nav{display:grid;gap:4px;border-left:1px solid var(--line);margin-top:15px}
+.dossier-sidebar a{font-size:13px;text-decoration:none;line-height:1.64;padding:9px 8px 9px 12px;color:var(--muted);display:flex;gap:8px;border-left:2px solid transparent;margin-left:-2px;word-break:keep-all}
+.dossier-sidebar a:hover,.dossier-sidebar a:focus-visible{color:var(--ed-accent);border-left-color:var(--ed-accent);background:var(--ed-faint)}
+.dossier-sidebar a span{font-size:11px;color:var(--ed-accent);font-weight:800;flex:0 0 auto;margin-top:2px}
+.dossier-content{min-width:0}
+.dossier-chapter{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;align-items:start;padding:0 0 clamp(46px,5vw,72px);margin-bottom:clamp(44px,5vw,68px);border-bottom:1px solid var(--line)}
+.dossier-chapter--method{grid-template-columns:minmax(0,1.12fr) minmax(280px,.88fr)}
+.dossier-chapter--method .dossier-facts{grid-template-columns:minmax(0,1fr)}
+.dossier-chapter--comparison .dossier-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.dossier-chapter--results .dossier-chapter-media{background:var(--bg-soft);padding:22px;border-radius:20px}
+.dossier-chapter--case .dossier-chapter-media{border-top:2px solid var(--ed-accent);padding-top:17px}
+.dossier-index{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.dossier-index span{font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;color:var(--ed-accent)}
+.dossier-index small{font-size:11px;color:var(--subtle);letter-spacing:.11em;text-transform:uppercase;font-weight:850}
+.dossier-chapter h3{font-size:clamp(27px,2.5vw,38px);font-weight:830;line-height:1.3;letter-spacing:-.04em;margin:0 0 20px;word-break:keep-all;overflow-wrap:break-word;max-width:24ch}
+.dossier-chapter-copy>p{font-size:clamp(16px,1.19vw,18px);color:var(--text);line-height:1.94;margin:0 0 19px;word-break:keep-all}
+.dossier-cite{font-size:12px;font-weight:820;letter-spacing:.055em;line-height:1.7;color:var(--ed-accent);display:inline-block}
+.dossier-chapter-media{min-width:0}
+.dossier-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,215px),1fr));gap:11px}
+.dossier-fact{min-width:0;padding:20px 20px 22px;border-radius:15px;border:1px solid var(--line);background:var(--bg-soft)}
+.dossier-fact>span{display:block;color:var(--ed-accent);font-size:13px;font-weight:850;line-height:1.55;margin-bottom:7px;word-break:keep-all}
+.dossier-fact strong{display:block;font-weight:720;font-size:clamp(15px,1.2vw,18px);line-height:1.57;color:var(--text);letter-spacing:-.015em;word-break:keep-all;overflow-wrap:break-word}
+.dossier-chart{padding:2px}
+.dossier-chart-unit{font-size:12px;font-weight:850;color:var(--ed-accent);margin-bottom:24px}
+.dossier-chart-row{display:grid;grid-template-columns:minmax(108px,.65fr) minmax(140px,1.5fr) minmax(55px,.45fr);align-items:center;gap:13px;margin:0 0 23px}
+.dossier-chart-row span{color:var(--text);font-weight:780;line-height:1.5;font-size:15px;word-break:keep-all}
+.dossier-chart-row strong{color:var(--ed-accent);font-size:17px;font-variant-numeric:tabular-nums;text-align:right}
+.dossier-chart-track{height:18px;border-radius:9px;background:var(--line);overflow:hidden}
+.dossier-chart-fill{height:100%;border-radius:9px;background:var(--ed-accent)}
+.dossier-chart-foot{font-size:13px;color:var(--muted);line-height:1.74;margin:20px 0 0}
+.dossier-role{padding:27px 29px;background:var(--ed-faint);border-radius:18px;margin:0 0 55px;border-left:3px solid var(--ed-accent)}
+.dossier-role span{font-size:13px;color:var(--ed-accent);font-weight:900;letter-spacing:.045em}
+.dossier-role p{font-size:clamp(16px,1.2vw,18px);line-height:1.85;margin:12px 0 0;color:var(--text);word-break:keep-all}
+.dossier-sources{padding:26px 29px;border:1px solid var(--line);border-radius:18px}
+.dossier-sources h3{font-size:clamp(23px,2.2vw,30px);line-height:1.35;margin:0 0 10px}
+.dossier-sources>p{font-size:14px;color:var(--muted);line-height:1.72}
+.dossier-refs{display:grid;gap:0;margin:22px 0}
+.dossier-refs>div{display:grid;grid-template-columns:minmax(135px,.55fr) minmax(0,1fr);gap:16px;align-items:start;padding:12px 0;border-top:1px solid var(--line)}
+.dossier-refs strong{font-size:14px;line-height:1.58;color:var(--text)}
+.dossier-refs span{color:var(--muted);font-size:14px;line-height:1.62}
+.dossier-source-link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:14px;font-weight:850;background:var(--ed-accent);color:#fff;padding:12px 17px;border-radius:10px}
+.dossier-source-link:hover{opacity:.9;color:#fff}
+.dossier-source-private{font-size:13px;font-style:italic}
+@media(max-width:1000px){.dossier-body{grid-template-columns:170px minmax(0,1fr);gap:23px}.dossier-chapter--method{grid-template-columns:1fr}.dossier-kpis>div{padding:16px}}
+@media(max-width:750px){.editorial-dossier{padding:58px 0}.dossier-cover{margin-bottom:45px}.dossier-body{display:block}.dossier-sidebar{display:none}.dossier-kpis{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.dossier-kpis>div{padding:13px 11px}.dossier-kpis strong{font-size:clamp(19px,4.5vw,27px)}.dossier-kpis span{font-size:11px;line-height:1.55}.dossier-chapter--comparison .dossier-facts{grid-template-columns:1fr 1fr}.dossier-chapter h3{font-size:clamp(26px,5.8vw,35px)}.dossier-fact{padding:16px}.dossier-chapter{gap:19px}.dossier-role,.dossier-sources{padding:20px}}
+@media(max-width:470px){.dossier-cover h2{font-size:clamp(29px,7.5vw,38px)}.dossier-lede{font-size:17px;line-height:1.85}.dossier-kpis{grid-template-columns:1fr 1fr}.dossier-kpis>div:last-child{grid-column:1/-1}.dossier-kpis strong{font-size:25px}.dossier-chapter--comparison .dossier-facts{grid-template-columns:1fr}.dossier-chart-row{grid-template-columns:minmax(90px,.7fr) minmax(90px,1fr) 46px;gap:7px}.dossier-chart-row span{font-size:12px}.dossier-chart-row strong{font-size:13px}.dossier-chart-track{height:15px}.dossier-refs>div{grid-template-columns:1fr;gap:2px}.dossier-source-link{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.dossier-shell *{scroll-behavior:auto}}
+
+/* Figure provenance links lead to the original publication page, without shrinking its diagram into a thumbnail. */
+.dossier-refs a{color:var(--ed-accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:break-word;line-height:1.65}
+.dossier-refs a:hover{text-decoration-thickness:2px}
+
+/* Dark mode uses brighter editorial accent variants for WCAG-friendly reading, not muted chart ink. */
+html[data-theme="dark"] .editorial-dossier{--ed-accent:#8fbcf1;--ed-faint:rgba(143,188,241,.105)}
+html[data-theme="dark"] .editorial-dossier--gref-rag,
+html[data-theme="dark"] .editorial-dossier--mpr-citeg,
+html[data-theme="dark"] .editorial-dossier--scienceon-mpr-citeg{--ed-accent:#76d6c2;--ed-faint:rgba(118,214,194,.105)}
+html[data-theme="dark"] .editorial-dossier--mot,
+html[data-theme="dark"] .editorial-dossier--bioai{--ed-accent:#c6a5f4;--ed-faint:rgba(198,165,244,.11)}
+html[data-theme="dark"] .editorial-dossier--ram-gnn,
+html[data-theme="dark"] .editorial-dossier--alibaba-search{--ed-accent:#efb879;--ed-faint:rgba(239,184,121,.10)}
+html[data-theme="dark"] .editorial-dossier--blue-carbon{--ed-accent:#79d0da;--ed-faint:rgba(121,208,218,.11)}
+html[data-theme="dark"] .dossier-source-link{color:#071624}
+html[data-theme="dark"] .dossier-chart-track{background:rgba(255,255,255,.12)}
+
+.dossier-figure-jump{display:inline-flex;align-items:center;gap:9px;margin-top:25px;padding:12px 17px;border:1px solid var(--ed-accent);border-radius:12px;color:var(--ed-accent);font-size:14px;font-weight:850;line-height:1.55;text-decoration:none;transition:transform .18s ease,background-color .18s ease}
+.dossier-figure-jump:hover{background:var(--ed-faint);transform:translateY(-2px);color:var(--ed-accent)}
+.dossier-figure-jump:focus-visible{outline:3px solid var(--ed-accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.dossier-figure-jump{transition:none}}
