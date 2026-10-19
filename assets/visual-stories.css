@@ -335,3 +335,12 @@ html[data-theme="dark"] .story-star-space--hyper{border-top-color:#79dcc9}
  .story-star-spacing{font-size:14px!important}
 }
 @media(prefers-reduced-motion:reduce){.story-star-meter-track>div{transition:none}}
+
+/* Answer the user's question at first glance, before requiring any scrolling. */
+.story-star-headline{display:flex;align-items:center;flex-wrap:wrap;gap:4px 16px;border-radius:16px;border:1px solid rgba(32,145,122,.3);background:rgba(32,145,122,.07);padding:15px 20px;margin:0 0 15px}
+.story-star-headline>span{font-size:clamp(15px,1.2vw,17px);font-weight:800;color:var(--text);line-height:1.55}
+.story-star-headline>strong{margin-inline-start:auto;font-size:clamp(23px,2.5vw,31px);font-weight:900;color:#168774;line-height:1.2;white-space:nowrap;font-variant-numeric:tabular-nums}
+.story-star-headline>small{width:100%;font-size:13px;line-height:1.62;color:var(--muted)}
+html[data-theme="dark"] .story-star-headline{background:rgba(103,212,190,.11)}
+html[data-theme="dark"] .story-star-headline>strong{color:#79dcc9}
+@media(max-width:600px){.story-star-headline{padding:14px 16px;gap:8px}.story-star-headline>strong{margin-inline-start:0}.story-star-headline>span{width:100%}}
