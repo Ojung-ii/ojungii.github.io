@@ -27,12 +27,61 @@ const tree=(depth)=>{
  for(const node of nodes)elements.push('<circle cx="'+node.x+'" cy="'+node.y+'" r="5" fill="#3d9a86"/>');
  elements.push('</svg>');return elements.join("");
 };
+
+/* Original Figure 1's question, now demonstrated: what changes in an
+   intrinsically negatively curved metric, not merely when drawing a tree?
+   Left = Euclidean geodesic-radius rings, right = conceptual Poincare-style
+   projection of H2(-1). Both show the SAME binary tree, with identical r
+   at each level. The screen projection is not a measurement of geodesic
+   node distances. The numeric circumference comparison is exact for K=-1. */
+const starComparison=(depth)=>{
+ const n=Math.max(1,Math.min(6,Number(depth)||4));
+ const radius=n*.56,flat=2*Math.PI*radius,hyper=2*Math.PI*Math.sinh(radius),ratio=hyper/flat,leaves=2**n;
+ const euSpace=flat/leaves,hypSpace=hyper/leaves;
+ const f2=x=>Number(x).toFixed(2);
+ const geom=(hyperbolic)=>{
+  const Cx=155,Cy=153,outer=113;
+  const lines=[],nodes=[],ring=[];
+  let before=[{x:Cx,y:Cy}];
+  for(let d=1;d<=n;d++){
+   const count=2**d,atRadius=hyperbolic?outer*Math.tanh((d*.56)/2):outer*d/n;
+   const next=[];
+   ring.push('<circle cx="'+Cx+'" cy="'+Cy+'" r="'+atRadius.toFixed(2)+'" fill="none" stroke="'+(hyperbolic?"#47a391":"#8ea5ba")+'" stroke-width="1.1" stroke-dasharray="3 6" opacity="'+(d===n?".80":".42")+'"/>');
+   for(let i=0;i<count;i++){
+    const theta=2*Math.PI*(i+.5)/count-Math.PI/2;
+    const q={x:Cx+atRadius*Math.cos(theta),y:Cy+atRadius*Math.sin(theta)};
+    const parent=before[Math.floor(i/2)];
+    lines.push('<path d="M'+parent.x.toFixed(2)+' '+parent.y.toFixed(2)+' L'+q.x.toFixed(2)+' '+q.y.toFixed(2)+'" fill="none" stroke="'+(hyperbolic?"#239583":"#7d91ad")+'" stroke-width="'+(d===n?"1.05":"1.65")+'" opacity="'+(d===n?".62":".78")+'"/>');
+    nodes.push('<circle cx="'+q.x.toFixed(2)+'" cy="'+q.y.toFixed(2)+'" r="'+(d===n?(n===6?2.6:3.4):4.0)+'" fill="'+(d===n?(hyperbolic?"#1a9e88":"#d48b41"):(hyperbolic?"#297d8c":"#4b80b3"))+'" stroke="var(--surface)" stroke-width=".85"/>');
+    next.push(q);
+   }
+   before=next;
+  }
+  const title=say(hyperbolic?"음의 곡률 공간의 2D 투영":"유클리드 평면의 배치",hyperbolic?"Projected negative-curvature disk":"Euclidean plane placement");
+  return '<svg class="story-star-geometry-svg" viewBox="0 0 310 310" role="img" aria-label="'+escapeHTML(title+" — "+leaves+" leaves, "+n+" levels")+'">'+
+    '<circle cx="'+Cx+'" cy="'+Cy+'" r="'+outer+'" fill="'+(hyperbolic?"rgba(29,144,117,.055)":"rgba(69,110,163,.055)")+'" stroke="'+(hyperbolic?"#239583":"#7697b3")+'" stroke-width="1.5"/>'+
+    ring.join("")+lines.join("")+
+    '<circle cx="'+Cx+'" cy="'+Cy+'" r="6" fill="#1b3657" stroke="var(--surface)" stroke-width="1.4"/>'+nodes.join("")+
+    '<text x="155" y="294" text-anchor="middle" font-size="10" fill="currentColor" opacity=".75">'+escapeHTML(say("동일한 트리 · 최종 "+leaves+"개 말단","Same tree · "+leaves+" terminal nodes"))+'</text></svg>';
+ };
+ const col=(h,key,num,width)=>'<div class="story-star-meter"><div class="story-star-meter-top"><span>'+escapeHTML(h)+'</span><strong>'+f2(num)+'</strong></div><div class="story-star-meter-track"><div class="'+key+'" style="width:'+width.toFixed(2)+'%"></div></div></div>';
+ return '<div class="story-star-comparison" data-star-comparison="'+n+'">'+
+  '<div class="story-star-views"><div class="story-star-space story-star-space--euclid"><div class="story-star-space-head"><span class="story-star-model">EUCLIDEAN · K = 0</span><strong>'+say("유클리드 평면","Euclidean plane")+'</strong><small>'+say("원주 길이가 반지름에 비례","Circumference grows linearly")+'</small></div>'+geom(false)+'</div>'+
+  '<div class="story-star-space story-star-space--hyper"><div class="story-star-space-head"><span class="story-star-model">HYPERBOLIC · K = −1</span><strong>'+say("하이퍼볼릭 공간 · 2D 투영","Hyperbolic space · 2D projection")+'</strong><small>'+say("원주 길이가 sinh(r)로 증가","Circumference grows as sinh(r)")+'</small></div>'+geom(true)+'</div></div>'+
+  '<div class="story-star-evidence"><div class="story-star-evidence-heading"><span>'+say("같은 거리에서 실제로 확보되는 원주 길이","Intrinsic circumference at the same distance")+'</span><strong>'+f2(ratio)+'× '+say("더 큼","larger")+'</strong></div>'+
+  '<div class="story-star-evidence-formula">r = '+f2(radius)+' · '+leaves+' '+say("말단 노드","leaves")+' · K = −1</div>'+
+  col(say("Euclidean  2πr","Euclidean  2πr"),"is-euclid",flat,100/ratio)+
+  col(say("Hyperbolic  2πsinh(r)","Hyperbolic  2πsinh(r)"),"is-hyper",hyper,100)+
+  '<p class="story-star-spacing">'+say("말단 하나당 원주 공간 (이론적 균등 배치)", "Circumference available per leaf (ideal even spacing)")+'<strong>'+f2(euSpace)+' → '+f2(hypSpace)+' <span>('+f2(ratio)+'×)</span></strong></p>'+
+  '</div><p class="story-star-caveat">'+say("2D 원판은 Poincaré식 설명용 투영입니다. 화면상의 점 간 픽셀 거리가 하이퍼볼릭 거리는 아닙니다. 실제 StAR는 Lorentz 모델에서 계산하며, 아래 3D 체험에서 직접 비교할 수 있습니다.","The disk is a Poincare-style teaching projection: pixel spacing is not hyperbolic distance. StAR computes in the Lorentz model; inspect the separate 3D explainer below.")+'</p></div>';
+};
 const render=(id,index,value)=>{
  const sceneIndex=Number(index), ko=language()==="ko", neutral=say("설명용 대화형 개념도 · 실제 추론 또는 새 측정이 아닙니다.","Explanatory interactive sketch, not live inference or a new measurement");
  if(id==="star"&&sceneIndex===0){
-   const n=Number(value??2);
-   return panel(say("하이퍼볼릭 직관 실험","Explore hierarchy depth"),say("분기 깊이에 따른 노드 증가","Nodes expand with depth"),
-   '<div>'+range(1,4,n,1,say("트리 깊이","Tree depth"))+'<div class="story-demo-line"><output data-value>'+n+'</output><span>'+say("말단 노드","Leaf nodes")+': <strong data-count>'+Math.pow(2,n)+'</strong></span></div>'+tree(n)+'</div>'+p(say("왜 하이퍼볼릭인가?","Why hyperbolic?"),say("분기가 깊어질수록 유클리드 평면에 노드를 압축하기 어렵습니다. 음의 곡률 공간은 깊이와 분기 관계를 나타내기에 유리합니다. StAR의 실제 수학은 Lorentz 모델입니다.","As depth grows, embedding branching structure compactly in Euclidean space becomes difficult. Negative curvature better accommodates hierarchy. StAR computes with a Lorentz model.")),neutral);
+   const n=Math.max(1,Math.min(6,Number(value??4)));
+   return panel(say("왜 하이퍼볼릭인가? · 두 공간 직접 비교","Why hyperbolic? Compare two geometries"),say("동일 계층 · 동일 반지름 · 서로 다른 원주 성장","Same tree · same radial distance · different circumference growth"),
+    '<div class="story-star-control">'+range(1,6,n,1,say("트리 깊이","Tree depth"))+'<div class="story-demo-line"><output data-value>'+n+'</output><span>'+say("말단 노드","Leaf nodes")+': <strong data-count>'+2**n+'</strong></span></div></div>'+starComparison(n),
+    say("원주 길이는 수학적으로 계산한 값입니다. 배치된 점들은 설명용이며 학습된 StAR 임베딩 또는 새로운 실험 결과가 아닙니다.","Circumference values are calculated from geometry; node positions are illustrative, not learned StAR embeddings or new experimental results."));
  }
  if(id==="gref-rag"&&sceneIndex===3){
    const budget=String(value??"1024"),values={"512":["+0.05025","0.05025"],"1024":["+0.03909","0.03909"],"2048":["+0.02847","0.02847"]},f=values[budget]??values["1024"];
@@ -123,7 +172,7 @@ function player(root){
  const id=root.dataset.storyAtlas,i=Number(root.querySelector('[data-scene][aria-selected="true"]')?.dataset.scene||0),v=Number(slider.value);
  root._demoValues??={};root._demoValues[id+":"+i]=v;
  const out=root.querySelector(".story-demo [data-value]");if(out)out.textContent=String(v);
- if(id==="star"){const visual=root.querySelector(".story-demo svg");if(visual)visual.outerHTML=tree(v);const count=root.querySelector("[data-count]");if(count)count.textContent=String(Math.pow(2,v))}
+ if(id==="star"){const visual=root.querySelector(".story-demo [data-star-comparison]");if(visual)visual.outerHTML=starComparison(v);const count=root.querySelector("[data-count]");if(count)count.textContent=String(Math.pow(2,v))}
  if(id==="mot"){root.querySelectorAll(".story-demo .story-demo-panel").forEach((el,j)=>{el.querySelector("p").textContent=j<v?say("라우팅에 참여","Selected"):say("비활성","Not selected")})}
  });
  refresh();
