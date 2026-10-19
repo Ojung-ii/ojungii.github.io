@@ -46,6 +46,8 @@ for(const width of [1440,768,390]){
    state=await snapshot();
    assert.equal(state.active,6);
    assert.equal(state.count,64);
+   assert.equal(await root.locator(".story-storyboard [data-scene]").count(),3,"depth slider must not destroy research figure tabs");
+   assert.equal(await root.locator(".story-demo [data-count]").textContent(),"64","only the leaf counter updates");
    const correct=Math.sinh(.56*6)/(.56*6);
    assert.ok(Math.abs(state.ratio-correct)<.015,"analytic sinh(r)/r circumference must match");
    assert.ok(state.ratio>4,"must visibly explain space growth, not merely grow a tree");
