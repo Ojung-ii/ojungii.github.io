@@ -173,7 +173,7 @@ function player(root){
  const id=root.dataset.storyAtlas,i=Number(root.querySelector('[data-scene][aria-selected="true"]')?.dataset.scene||0),v=Number(slider.value);
  root._demoValues??={};root._demoValues[id+":"+i]=v;
  const out=root.querySelector(".story-demo [data-value]");if(out)out.textContent=String(v);
- if(id==="star"){const visual=root.querySelector(".story-demo [data-star-comparison]");if(visual)visual.outerHTML=starComparison(v);const count=root.querySelector("[data-count]");if(count)count.textContent=String(Math.pow(2,v))}
+ if(id==="star"){const visual=root.querySelector(".story-demo [data-star-comparison]");if(visual)visual.outerHTML=starComparison(v);const count=root.querySelector(".story-demo [data-count]");if(count)count.textContent=String(Math.pow(2,v))}
  if(id==="mot"){root.querySelectorAll(".story-demo .story-demo-panel").forEach((el,j)=>{el.querySelector("p").textContent=j<v?say("라우팅에 참여","Selected"):say("비활성","Not selected")})}
  });
  refresh();
