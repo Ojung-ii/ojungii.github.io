@@ -1,0 +1,100 @@
+/* Source-grounded public figure recreations.
+   Steel: 2023 review process slides 9/10/20; 2024 workflow slides 5–17.
+   StAR: paper Figure 1 & Lorentz model equations, not a literal plot of empirical results. */
+.steel-source-story,.lorentz-explorer{--fig-navy:#123965;--fig-blue:#3f80ba;--fig-green:#16876a;--fig-soft:var(--bg-soft);margin-block:0;padding:clamp(52px,6vw,85px) 0;border-block:1px solid var(--line)}
+.source-story-header{max-width:890px;margin-bottom:28px}
+.source-story-header .eyebrow{font-size:12px;letter-spacing:.1em;color:var(--blue);font-weight:850}
+.source-story-header h2{font-size:clamp(29px,3.6vw,48px);letter-spacing:-.044em;line-height:1.25;max-width:25ch;margin:11px 0 15px;word-break:keep-all}
+.source-story-header p{font-size:clamp(17px,1.35vw,19px);line-height:1.9;color:var(--muted);max-width:74ch;word-break:keep-all}
+.steel-story-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:19px}
+.steel-story-tabs button{appearance:none;border:1px solid var(--line-strong);background:var(--surface);border-radius:11px;padding:12px 19px;min-height:48px;color:var(--text);font-size:15px;font-weight:800;cursor:pointer;line-height:1.5}
+.steel-story-tabs button.is-active{border-color:var(--fig-blue);box-shadow:inset 0 -3px var(--fig-blue);background:var(--surface-2);color:var(--blue)}
+.steel-workflow-shell{border:1px solid var(--line);border-radius:22px;background:var(--surface);padding:clamp(16px,2.4vw,28px);box-shadow:var(--shadow-soft)}
+.steel-workflow-flow{list-style:none;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;padding:0}
+.steel-workflow-flow:has(li:nth-child(7)){grid-template-columns:repeat(7,minmax(0,1fr))}
+.steel-workflow-flow li{min-width:0;position:relative}
+.steel-workflow-step{height:100%;width:100%;border:1px solid var(--line);border-top:4px solid var(--fig-blue);border-radius:14px;background:var(--fig-soft);padding:13px 11px 15px;min-height:130px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:7px;color:var(--text);cursor:pointer;word-break:keep-all}
+.steel-workflow-step:hover{border-color:var(--fig-blue)}
+.steel-workflow-step.is-active{background:var(--surface-2);border-color:var(--fig-blue);box-shadow:0 5px 17px rgba(40,100,160,.12)}
+.steel-workflow-step strong{font-size:clamp(14px,1.14vw,17px);line-height:1.5;letter-spacing:-.025em}
+.steel-workflow-step>span:last-child{font-size:12px;line-height:1.6;color:var(--muted)}
+.steel-workflow-index{font-size:11px;letter-spacing:.075em;color:var(--blue);font-weight:900}
+.steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step{padding:11px 8px 12px;min-height:151px}
+.steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step strong{font-size:13.5px}
+.steel-workflow-detail{margin-top:21px;padding:24px clamp(17px,3vw,30px);border:1px solid var(--line);border-left:4px solid var(--fig-blue);border-radius:15px;min-height:150px;background:var(--bg-soft)}
+.steel-detail-meta{font-size:12px;color:var(--blue);font-weight:850;letter-spacing:.07em;margin-bottom:9px}
+.steel-workflow-detail h3{font-size:clamp(22px,2vw,30px);line-height:1.4;margin:0 0 10px;letter-spacing:-.035em}
+.steel-workflow-detail p{font-size:clamp(16px,1.25vw,18px);line-height:1.87;color:var(--text);margin:0;max-width:81ch;word-break:keep-all}
+.steel-story-source{font-size:12.5px;line-height:1.8;color:var(--muted);margin-top:14px}
+.steel-story-source strong{color:var(--text)}
+.steel-workflow-hint{font-size:13px;line-height:1.6;color:var(--muted);margin:8px 0 14px}
+.steel-human-compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.steel-human-compare article{border:1px solid var(--line);border-radius:14px;background:var(--bg-soft);padding:17px}
+.steel-human-compare strong{font-size:13px;color:var(--blue);letter-spacing:.045em;display:block;margin-bottom:8px}
+.steel-human-compare p{margin:0;font-size:14px;line-height:1.75;color:var(--text);word-break:keep-all}
+.steel-source-story [data-steel-phase]:focus-visible,.steel-workflow-step:focus-visible,.lorentz-explorer button:focus-visible,.lorentz-explorer input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+/* Lorentz explorer: screen projection of a constant-negative-curvature hyperboloid. */
+.lorentz-explorer{--fig-blue:#5469b9}
+.lorentz-controls{display:grid;grid-template-columns:1fr 1fr auto;gap:14px;align-items:end;margin:18px 0 22px}
+.lorentz-controls label{display:flex;flex-direction:column;gap:8px;padding:13px 15px;border:1px solid var(--line);border-radius:13px;background:var(--surface);font-size:14px;font-weight:750;color:var(--text)}
+.lorentz-controls label>span{display:flex;justify-content:space-between;align-items:center;gap:11px}
+.lorentz-controls output{color:var(--blue);font-size:15px;font-variant-numeric:tabular-nums}
+.lorentz-controls input{width:100%;accent-color:var(--blue);cursor:pointer;min-height:23px}
+.lorentz-controls button{border:1px solid var(--line);border-radius:12px;background:var(--surface-2);color:var(--text);padding:12px 18px;font-size:14px;font-weight:780;min-height:55px;cursor:pointer}
+.lorentz-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.8fr);gap:19px}
+.lorentz-canvas{min-width:0;border:1px solid var(--line);border-radius:20px;background:linear-gradient(140deg,var(--bg-soft),var(--surface));overflow:hidden;position:relative}
+.lorentz-canvas svg{display:block;width:100%;height:auto;aspect-ratio:4/3;touch-action:pan-y;cursor:grab}
+.lorentz-canvas svg:active{cursor:grabbing}
+.lorentz-canvas-label{position:absolute;top:13px;left:14px;font-size:11px;color:var(--muted);font-weight:850;letter-spacing:.055em;pointer-events:none}
+.lorentz-readout{border:1px solid var(--line);border-radius:20px;padding:21px;background:var(--surface)}
+.lorentz-readout h3{font-size:22px;line-height:1.4;letter-spacing:-.03em;margin:0 0 15px}
+.lorentz-metric{border-top:1px solid var(--line);padding:15px 0;display:flex;flex-direction:column;gap:6px}
+.lorentz-metric span{font-size:12px;color:var(--muted);font-weight:750}
+.lorentz-metric strong{font-size:clamp(21px,2.5vw,30px);font-weight:850;line-height:1.3;color:var(--blue);font-variant-numeric:tabular-nums}
+.lorentz-readout p,.lorentz-footnote{font-size:14px;line-height:1.84;color:var(--muted);word-break:keep-all}
+.lorentz-callout{padding:13px 16px;border:1px solid var(--line);border-radius:13px;background:var(--bg-soft);font-size:14px;line-height:1.78;color:var(--text)}
+.lorentz-footnote{margin-top:14px;max-width:95ch}
+@media(max-width:1100px){
+ .steel-workflow-flow:has(li:nth-child(7)){grid-template-columns:repeat(4,minmax(0,1fr))}
+ .steel-workflow-flow:has(li:nth-child(7)) li:nth-child(n+5){grid-column:span 1}
+}
+@media(max-width:750px){
+ .steel-workflow-flow,.steel-workflow-flow:has(li:nth-child(7)){grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .steel-workflow-step,.steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step{min-height:112px;padding:11px 12px}
+ .steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step strong{font-size:15px}
+ .steel-human-compare{grid-template-columns:1fr}
+ .lorentz-grid{grid-template-columns:minmax(0,1fr)}
+ .lorentz-controls{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .lorentz-controls button{grid-column:span 2}
+ .lorentz-canvas svg{aspect-ratio:1/1}
+}
+@media(max-width:450px){
+ .steel-workflow-step strong{font-size:15px}
+ .steel-story-tabs button{padding:10px 12px;font-size:13px}
+ .lorentz-controls{grid-template-columns:1fr}
+ .lorentz-controls button{grid-column:1}
+}
+@media(prefers-reduced-motion:reduce){.steel-workflow-step,.lorentz-canvas svg{transition:none}}
+
+/* Respect the source slides' directional process ribbon and 2024 blue/cyan/green functional zones. */
+.steel-workflow-flow li::after{content:"›";position:absolute;right:-13px;top:31px;z-index:2;color:var(--blue);font-size:28px;font-weight:850;line-height:1}
+.steel-workflow-flow li:last-child::after{content:none}
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(4) .steel-workflow-step,
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(5) .steel-workflow-step{border-top-color:#18a3b0}
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(6) .steel-workflow-step,
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(7) .steel-workflow-step{border-top-color:#16876a}
+@media(max-width:750px){.steel-workflow-flow li:nth-child(2n)::after{content:none}}
+
+/* Final human review: no 7-column microtype, and fixed navbar never hides the Lorentz heading. */
+.steel-workflow-flow:has(li:nth-child(7)){grid-template-columns:repeat(4,minmax(0,1fr))}
+.steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step{min-height:115px;padding:13px 13px 15px}
+.steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step strong{font-size:16px}
+.steel-workflow-flow:has(li:nth-child(7)) li:nth-child(4)::after{content:none}
+.lorentz-explorer{padding-top:clamp(110px,9vw,142px);scroll-margin-top:112px}
+.steel-source-story{scroll-margin-top:112px}
+@media(max-width:750px){
+ .steel-workflow-flow:has(li:nth-child(7)){grid-template-columns:repeat(2,minmax(0,1fr))}
+ .steel-workflow-flow:has(li:nth-child(7)) .steel-workflow-step{min-height:115px}
+ .steel-workflow-flow:has(li:nth-child(7)) li:nth-child(4)::after{content:none}
+ .lorentz-explorer{padding-top:clamp(56px,8vw,80px)}
+}

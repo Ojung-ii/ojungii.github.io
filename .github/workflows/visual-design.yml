@@ -11,6 +11,8 @@ on:
       - 'tests/site-visual-smoke.mjs'
       - 'tests/sitewide-readability.mjs'
       - 'tests/source-editorial-qa.mjs'
+      - 'tests/source-figure-geometry.mjs'
+      - 'tests/star-hyperbolic-comparison.mjs'
       - 'tests/portfolio-expert-qa.mjs'
       - '.github/workflows/visual-design.yml'
   workflow_dispatch:
@@ -42,6 +44,10 @@ jobs:
         run: node tests/source-editorial-qa.mjs
       - name: Validate expert-led portfolio UX, roles and static fallback
         run: node tests/portfolio-expert-qa.mjs
+      - name: Verify Steel original workflow and StAR Lorentz 3D geometry
+        run: node tests/source-figure-geometry.mjs
+      - name: Prove StAR Euclidean versus hyperbolic comparison explains geometry
+        run: node tests/star-hyperbolic-comparison.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -50,5 +56,6 @@ jobs:
             design-previews/
             sitewide-previews/
             editorial-previews/
+            source-figure-previews/
           if-no-files-found: ignore
           retention-days: 14

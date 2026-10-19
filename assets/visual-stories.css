@@ -278,3 +278,69 @@ html[data-theme="dark"] .story-atlas .story-tab-title{color:var(--text)}
 .story-atlas .story-secondary button,.story-atlas .story-player button,.story-atlas .story-demo button{font-size:13.5px;line-height:1.55}
 .story-atlas .story-metric span{font-size:13.5px;line-height:1.65}
 @media(max-width:760px){.story-atlas .story-storyboard button{min-height:123px}.story-atlas .story-text p:not(.story-footnote),.story-atlas .story-point{font-size:16px}.story-atlas .story-tab-title{font-size:16px}}
+
+
+/* StAR's "why hyperbolic?" is a comparative geometry lesson, not a bare tree generator.
+   Diagram coordinates are illustrative; bars compare exact intrinsic circumferences. */
+.story-atlas--star .story-demo-body:has(.story-star-control){display:block;min-width:0}
+.story-atlas--star .story-demo:has(.story-star-control){padding:clamp(16px,2.6vw,28px);border-top-width:4px}
+.story-atlas--star .story-demo:has(.story-star-control)>.story-demo-header{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;margin-bottom:22px}
+.story-atlas--star .story-demo:has(.story-star-control)>.story-demo-header strong{font-size:clamp(18px,2vw,24px);line-height:1.4;letter-spacing:-.03em;word-break:keep-all}
+.story-atlas--star .story-demo:has(.story-star-control)>.story-demo-header span{font-size:13.5px;line-height:1.65}
+.story-star-control{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px;padding:14px 17px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.story-star-control label{flex:1;min-width:210px;font-size:15px!important}
+.story-star-control input{display:block;margin-top:10px}
+.story-star-control .story-demo-line{min-width:125px;font-size:14px}
+.story-star-control .story-demo-line output{font-size:22px!important;line-height:1;font-variant-numeric:tabular-nums}
+.story-star-comparison{min-width:0}
+.story-star-views{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.story-star-space{min-width:0;display:flex;flex-direction:column;align-items:center;border:1px solid var(--line);border-radius:18px;padding:15px;background:var(--surface)}
+.story-star-space--euclid{border-top:4px solid #cd883a}
+.story-star-space--hyper{border-top:4px solid #218e7b}
+.story-star-space-head{display:flex;flex-direction:column;align-self:stretch;gap:5px;min-width:0}
+.story-star-model{font-size:11px;font-weight:900;letter-spacing:.06em;color:var(--muted);line-height:1.5}
+.story-star-space-head strong{font-size:clamp(16px,1.7vw,20px);line-height:1.45;letter-spacing:-.027em;color:var(--text);font-weight:850;word-break:keep-all}
+.story-star-space-head small{font-size:13px;line-height:1.55;color:var(--muted);word-break:keep-all}
+.story-star-geometry-svg{display:block;width:min(100%,310px);height:auto;aspect-ratio:1/1;flex:0 0 auto;margin-top:7px;color:var(--muted)}
+.story-star-geometry-svg circle,.story-star-geometry-svg path{vector-effect:non-scaling-stroke}
+.story-star-evidence{border-radius:17px;margin-top:15px;padding:clamp(17px,2.4vw,24px);border:1px solid var(--line);background:var(--surface)}
+.story-star-evidence-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px 14px;margin-bottom:8px}
+.story-star-evidence-heading>span{font-size:clamp(15px,1.35vw,18px);font-weight:800;color:var(--text);line-height:1.55}
+.story-star-evidence-heading>strong{font-size:clamp(24px,2.6vw,33px);font-weight:900;color:#168774;line-height:1.2;font-variant-numeric:tabular-nums}
+.story-star-evidence-formula{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:19px;font-variant-numeric:tabular-nums}
+.story-star-meter{margin:0 0 16px}
+.story-star-meter-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 8px}
+.story-star-meter-top span{font-size:14px;color:var(--text);font-weight:750}
+.story-star-meter-top strong{font-size:17px;color:var(--text);font-variant-numeric:tabular-nums}
+.story-star-meter-track{height:17px;overflow:hidden;border-radius:9px;background:var(--line)}
+.story-star-meter-track>div{height:100%;border-radius:9px;transition:width .18s ease}
+.story-star-meter-track .is-euclid{background:#c98643}
+.story-star-meter-track .is-hyper{background:#218e7b}
+.story-star-spacing{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 14px;border-top:1px solid var(--line);padding-top:16px;margin-top:8px!important;font-size:14px!important;color:var(--text)!important;line-height:1.65!important}
+.story-star-spacing strong{font-size:clamp(17px,2vw,23px);font-variant-numeric:tabular-nums;color:var(--text)}
+.story-star-spacing span{color:#168774}
+.story-star-caveat{font-size:14px!important;line-height:1.8!important;margin:15px 0 0!important;color:var(--muted)!important;max-width:90ch;word-break:keep-all}
+.story-atlas--star .story-demo:has(.story-star-control)>.story-demo-micro{font-size:12.5px!important;line-height:1.8!important;margin-top:13px!important}
+html[data-theme="dark"] .story-star-evidence-heading>strong,
+html[data-theme="dark"] .story-star-spacing span{color:#79dcc9}
+html[data-theme="dark"] .story-star-space--hyper{border-top-color:#79dcc9}
+@media(max-width:760px){
+ .story-star-views{grid-template-columns:1fr;gap:11px}
+ .story-star-space{padding:16px}
+ .story-star-geometry-svg{width:min(100%,285px)}
+ .story-star-control{padding:13px;gap:9px}
+ .story-star-control label{min-width:160px}
+ .story-star-space-head strong{font-size:18px}
+ .story-star-evidence{padding:17px}
+ .story-star-spacing{font-size:14px!important}
+}
+@media(prefers-reduced-motion:reduce){.story-star-meter-track>div{transition:none}}
+
+/* Answer the user's question at first glance, before requiring any scrolling. */
+.story-star-headline{display:flex;align-items:center;flex-wrap:wrap;gap:4px 16px;border-radius:16px;border:1px solid rgba(32,145,122,.3);background:rgba(32,145,122,.07);padding:15px 20px;margin:0 0 15px}
+.story-star-headline>span{font-size:clamp(15px,1.2vw,17px);font-weight:800;color:var(--text);line-height:1.55}
+.story-star-headline>strong{margin-inline-start:auto;font-size:clamp(23px,2.5vw,31px);font-weight:900;color:#168774;line-height:1.2;white-space:nowrap;font-variant-numeric:tabular-nums}
+.story-star-headline>small{width:100%;font-size:13px;line-height:1.62;color:var(--muted)}
+html[data-theme="dark"] .story-star-headline{background:rgba(103,212,190,.11)}
+html[data-theme="dark"] .story-star-headline>strong{color:#79dcc9}
+@media(max-width:600px){.story-star-headline{padding:14px 16px;gap:8px}.story-star-headline>strong{margin-inline-start:0}.story-star-headline>span{width:100%}}

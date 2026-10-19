@@ -19,6 +19,8 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check assets/visual-stories.js
+          node --check assets/steel-source-workflow.js
+          node --check assets/star-lorentz-3d.js
           node --check assets/editorial-dossiers-data.js
           node --check assets/editorial-dossiers.js
           node --check assets/story-interactions.js
