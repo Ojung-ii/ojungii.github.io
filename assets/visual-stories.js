@@ -255,14 +255,14 @@ function diagram(name,variant){
   +S(40,349,"Schematic evaluation categories; no fabricated numeric coordinates","svsmall"));
 
  case "star-geometry": return wrap(
- S(34,30,"EUCLIDEAN · semantic nearest","svtitle")+S(396,30,"HYPERBOLIC · hierarchy intuition","svtitle")
+ S(34,30,"EUCLIDEAN · semantic nearest","svtitle")+S(396,30,"2D DISK · hierarchy intuition","svtitle")
  +'<rect x="20" y="52" width="330" height="300" rx="22" class="svcard"/><circle cx="546" cy="202" r="146" fill="none" stroke="#8eabc7" stroke-width="2"/><circle cx="546" cy="202" r="100" fill="none" stroke="#cedde9" stroke-dasharray="5 6"/>'
  +L(185,105,95,198)+L(185,105,257,190)+L(95,198,160,283)+L(257,190,277,275)
  +L(546,193,473,140)+L(546,193,622,140)+L(473,140,424,94)+L(473,140,460,91)+L(622,140,615,91)+L(622,140,670,95)
  +C(185,105,23,"Q")+C(95,198,22,"A")+C(257,190,22,"B")+C(160,283,20,"C",palettes.orange)+C(277,275,20,"D",palettes.mint)
  +C(546,193,19,"Q")+C(473,140,15,"A",palettes.mint)+C(622,140,15,"B",palettes.mint)+C(424,94,12,"C",palettes.orange)+C(460,91,12,"D",palettes.purple)+C(615,91,12,"E",palettes.blue)+C(670,95,12,"F",palettes.blue)
  +P(variant==="semantic"?"M140 280 Q194 247 248 205":"M546 193 Q492 113 424 94",palettes.orange,4)
- +S(45,338,variant==="semantic"?"blue = embedding proximity; orange = wrong hop":"same meaning ≠ same structural role","svsmall")
+ +S(45,338,variant==="semantic"?"blue = embedding proximity; orange = wrong hop":"same meaning ≠ same structural role","svsmall")+S(393,368,"Poincaré-style sketch · not Lorentz computation","svsmall")
  );
  case "star-method":return variant==="score"?boxes(["Semantic Ssem","Structure Sstruct","Spearman ρ","Gate g(ρ)","Final score"],["Retriever rank","Lorentz distance","Rank agreement","Query-level","α Ssem + (1−α)g Sstruct"]):boxes(["Filtered triples","Q-graph / C-subgraphs","Features + tangent","Lorentz HypMP","Fréchet mean"],["Question triples","Rooted graph sets","Semantics + depth/radial","Single layer","Hyperbolic centroid"]);
  case "star-ablation":return bar(["−StructFeats","−Gating","−HypMP"],[5.47,3.26,2.53],6);
